@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',          // required for Cloudflare Pages
+  distDir: '.output',        // Cloudflare expects this
   images: {
-    formats: ['image/avif', 'image/webp'],
+    unoptimized: true,       // required when exporting static
   },
 };
 

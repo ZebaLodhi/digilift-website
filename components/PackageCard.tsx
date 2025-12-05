@@ -103,12 +103,12 @@ function PayWithPayPal({
   return (
     <div className="mt-6">
       <PayPalScriptProvider
-        options={{
-          "client-id": PAYPAL_CLIENT_ID,
-          currency: "USD",
-          intent: "capture",
-        }}
-      >
+  options={{
+    clientId: PAYPAL_CLIENT_ID,
+    currency: "USD",
+    intent: "capture",
+  }}
+>
         <div className="max-w-sm mx-auto">
           <PayPalButtons
             style={{ layout: "vertical" }}
