@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "name": "Sarah Martinez",
+    "role": "Owner",
+    "business": "Little Sprouts Learning Center",
+    "location": "Austin, TX",
+    "image": "/testimonials/sarah.jpg",
+    "rating": 5,
+    "quote": "DigiLift transformed our entire online presence. Within 3 months of launching our new website and optimized Google profile, we went from a waitlist of 2 families to 15. The booking system makes scheduling tours so much easier, and parents constantly compliment our professional look.",
+    "results": "12x increase in tour bookings"
+  },
+  {
+    "id": 2,
+    "name": "Michael Chen",
+    "role": "Director",
+    "business": "Bright Beginnings Daycare",
+    "location": "Portland, OR",
+    "image": "/testimonials/michael.jpg",
+    "rating": 5,
+    "quote": "We were practically invisible online before DigiLift. Now we show up first in Google searches, our phone rings regularly, and parents tell us they chose us because our website made us look trustworthy and established. Best investment we've made in our business.",
+    "results": "3x increase in parent inquiries"
+  },
+  {
+    "id": 3,
+    "name": "Jennifer & David Thompson",
+    "role": "Co-Owners",
+    "business": "Sunshine Academy",
+    "location": "Denver, CO",
+    "image": "/testimonials/jennifer-david.jpg",
+    "rating": 5,
+    "quote": "The team at DigiLift made the whole process painless. They understood our vision, handled everything professionally, and delivered ahead of schedule. Our old website was embarrassing—now we're proud to show it off. The brand refresh gave us a modern identity that parents love.",
+    "results": "Filled 8 open spots in 6 weeks"
+  },
+  {
+    "id": 4,
+    "name": "Patricia Williams",
+    "role": "Owner & Lead Teacher",
+    "business": "Giggles & Grins Childcare",
+    "location": "Nashville, TN",
+    "image": "/testimonials/patricia.jpg",
+    "rating": 5,
+    "quote": "I'm not tech-savvy at all, but DigiLift made it so easy. They explained everything clearly, trained me on how to update my site, and were patient with all my questions. Now I can focus on the kids while my website works to bring in new families. Worth every penny!",
+    "results": "90% enrollment increase in 4 months"
+  },
+  {
+    "id": 5,
+    "name": "Robert Kim",
+    "role": "Operations Manager",
+    "business": "Happy Hearts Preschool",
+    "location": "Seattle, WA",
+    "image": "/testimonials/robert.jpg",
+    "rating": 5,
+    "quote": "The Premium package was absolutely worth it. The professional photography showcased our facility beautifully, the booking system streamlined our tour scheduling, and the ongoing support has been invaluable. We've seen a dramatic improvement in both the quantity and quality of inquiries.",
+    "results": "Premium enrollment up 40%"
+  }
+]

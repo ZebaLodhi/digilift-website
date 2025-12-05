@@ -1,0 +1,103 @@
+[
+  {
+    "id": "starter",
+    "name": "Starter",
+    "tagline": "Perfect for Getting Started",
+    "price": "$1,497",
+    "priceNote": "one-time",
+    "turnaround": "2-3 weeks",
+    "description": "Essential digital presence upgrade to help your daycare get discovered online.",
+    "features": [
+      "Google Business Profile optimization",
+      "NAP citation audit & cleanup (top 10 directories)",
+      "Basic brand refresh (color palette, font selection)",
+      "Simple logo update or enhancement",
+      "4-page website on Wix or WordPress (Home, About, Programs, Contact)",
+      "Mobile-responsive design",
+      "Contact form integration",
+      "Google Analytics setup",
+      "Basic SEO optimization",
+      "1 round of revisions"
+    ],
+    "ideal": [
+      "New daycares establishing online presence",
+      "Small centers with outdated or no website",
+      "Budget-conscious owners wanting essentials"
+    ],
+    "notIncluded": [
+      "Online booking system",
+      "Custom photography",
+      "Social media templates"
+    ]
+  },
+  {
+    "id": "growth",
+    "name": "Growth",
+    "tagline": "Most Popular for Growing Daycares",
+    "price": "$2,997",
+    "priceNote": "one-time",
+    "turnaround": "4-5 weeks",
+    "description": "Complete digital transformation to help fill seats and build trust with parents.",
+    "features": [
+      "Everything in Starter, plus:",
+      "Google Business Profile full optimization + strategic posting plan",
+      "NAP citation building (30+ directories)",
+      "Complete brand kit (logo, colors, fonts, usage guide)",
+      "Social media templates (10 customizable Canva templates)",
+      "6-page professional website with custom design",
+      "Online booking integration (Calendly or embedded form)",
+      "Automated review request system setup",
+      "Parent testimonial collection & display",
+      "Photo gallery setup (using your photos)",
+      "Enhanced SEO with keyword research",
+      "Google Search Console setup",
+      "2 rounds of revisions",
+      "30-day post-launch support"
+    ],
+    "ideal": [
+      "Established daycares ready to scale",
+      "Centers looking to increase enrollment",
+      "Businesses wanting a complete refresh"
+    ],
+    "addons": [
+      "Professional photography session (+$500)",
+      "Social media management (first month) (+$400)"
+    ]
+  },
+  {
+    "id": "premium",
+    "name": "Premium",
+    "tagline": "Complete Digital Excellence",
+    "price": "$4,997",
+    "priceNote": "one-time",
+    "turnaround": "6-8 weeks",
+    "description": "White-glove service with custom branding, professional content, and ongoing optimization.",
+    "features": [
+      "Everything in Growth, plus:",
+      "Custom brand strategy & identity design",
+      "Professional on-site photography (half-day session)",
+      "8-page custom website with premium features",
+      "Advanced booking system with waitlist management",
+      "CRM integration for lead nurturing",
+      "Parent portal setup (resources, calendars, updates)",
+      "Video integration (virtual tour, testimonials)",
+      "Advanced review generation & reputation management",
+      "Competitor analysis & market positioning",
+      "Local SEO domination (50+ citations, schema markup)",
+      "Monthly analytics reporting (first 3 months)",
+      "Social media content calendar (first month)",
+      "3 rounds of revisions",
+      "90-day priority support"
+    ],
+    "ideal": [
+      "Premium daycare centers",
+      "Multi-location operators",
+      "Businesses committed to market leadership"
+    ],
+    "addons": [
+      "Ongoing website maintenance ($150/month)",
+      "Continued social media management ($600/month)",
+      "Additional location setup ($1,500 each)"
+    ]
+  }
+]
