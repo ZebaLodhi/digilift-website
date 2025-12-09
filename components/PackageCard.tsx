@@ -1,12 +1,11 @@
 "use client";
 
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
 interface PackageCardProps {
   name: string;
   tagline: string;
-  price: string;              // e.g. "$1,497"
+  price: string; // "$1,497"
   priceNote: string;
   turnaround: string;
   description: string;
@@ -42,17 +41,17 @@ function PayWithStripe({
         }
       );
 
-      const data = await response.json();
+      const data: { url?: string } = await response.json();
 
       if (!data.url) {
-        alert("Stripe error. Try again.");
+        alert("Stripe error. Please try again.");
         return;
       }
 
-      window.location.href = data.url; // redirect to Stripe
+      window.location.href = data.url;
     } catch (error) {
       console.error("Stripe Checkout Error:", error);
-      alert("Stripe error. Try again.");
+      alert("Stripe error. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -63,62 +62,10 @@ function PayWithStripe({
       onClick={startStripeCheckout}
       disabled={loading}
       className="block w-full text-center font-semibold px-8 py-3 rounded-xl transition-all duration-200 
-      bg-indigo-600 hover:bg-indigo-700 text-white shadow-soft hover:shadow-soft-lg disabled:opacity-50 mt-4"
+      bg-indigo-600 hover:bg-indigo-700 text-white shadow-soft hover:shadow-soft-lg disabled:opacity-50 mt-6"
     >
       {loading ? "Redirecting..." : "Pay via Stripe"}
     </button>
-  );
-}
-
-/* --------------------------------------------------------
-   PAYPAL BUTTON
--------------------------------------------------------- */
-function PayWithPayPal({
-  payload,
-}: {
-  payload: { serviceId: string; date: string };
-}) {
-  const PAYPAL_CLIENT_ID = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || "";
-
-  const createOrder = useCallback(async () => {
-    const r = await fetch("http://localhost:3001/api/paypal/orders", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-    const { id } = await r.json();
-    return id;
-  }, [payload]);
-
-  const onApprove = useCallback(async (data: any) => {
-    const r = await fetch(
-      `http://localhost:3001/api/paypal/orders/${data.orderID}/capture`,
-      { method: "POST" }
-    );
-    const details = await r.json();
-    console.log("PayPal capture:", details);
-    alert("Payment complete. Thank you!");
-  }, []);
-
-  return (
-    <div className="mt-6">
-      <PayPalScriptProvider
-  options={{
-    clientId: PAYPAL_CLIENT_ID,
-    currency: "USD",
-    intent: "capture",
-  }}
->
-        <div className="max-w-sm mx-auto">
-          <PayPalButtons
-            style={{ layout: "vertical" }}
-            createOrder={createOrder}
-            onApprove={onApprove}
-            onError={() => alert("Payment failed. Please try again.")}
-          />
-        </div>
-      </PayPalScriptProvider>
-    </div>
   );
 }
 
@@ -199,21 +146,13 @@ export default function PackageCard({
         </ul>
       </div>
 
-      {/* ----------------- STRIPE BUTTON ----------------- */}
+      {/* ------------ STRIPE BUTTON ONLY (NO PAYPAL) ------------ */}
       <PayWithStripe
         payload={{
           serviceId: name.toLowerCase().replace(/\s+/g, "-"),
-          rawPrice: price, // ← SEND REAL PRICE TO BACKEND ($1,497)
+          rawPrice: price,
           customerName: "Website Visitor",
           customerEmail: "visitor@example.com",
-        }}
-      />
-
-      {/* ----------------- PAYPAL BUTTON ----------------- */}
-      <PayWithPayPal
-        payload={{
-          serviceId: name.toLowerCase().replace(/\s+/g, "-"),
-          date: new Date().toISOString().slice(0, 10),
         }}
       />
     </div>

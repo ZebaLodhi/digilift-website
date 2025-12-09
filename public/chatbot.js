@@ -13,94 +13,93 @@ if (!window.__chatbotLoaded) {
   // Basic bubble + box styles WITH PURE CSS (no Tailwind)
   root.innerHTML = `
     <style>
-  #chatbot-btn {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 65px;
-    height: 65px;
-    background: #F9B639;   /* Yellow */
-    color: #000;
-    font-size: 30px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    z-index: 999999;
-  }
+      #chatbot-btn {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        width: 65px;
+        height: 65px;
+        background: #F9B639; /* Yellow */
+        color: #000;
+        font-size: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        z-index: 999999;
+      }
 
-  #chatbox {
-    position: fixed;
-    bottom: 100px;
-    right: 25px;
-    width: 330px;
-    height: 450px;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    display: none;
-    flex-direction: column;
-    padding: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    z-index: 999999;
-  }
+      #chatbox {
+        position: fixed;
+        bottom: 100px;
+        right: 25px;
+        width: 330px;
+        height: 450px;
+        background: white;
+        border: 1px solid #ccc;
+        border-radius: 12px;
+        display: none;
+        flex-direction: column;
+        padding: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        z-index: 999999;
+      }
 
-  #chatbox-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #eee;
-  }
+      #chatbox-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #eee;
+      }
 
-  #chat-messages {
-    flex: 1;
-    margin-top: 10px;
-    overflow-y: auto;
-  }
+      #chat-messages {
+        flex: 1;
+        margin-top: 10px;
+        overflow-y: auto;
+      }
 
-  .message-bubble {
-    padding: 8px 12px;
-    border-radius: 10px;
-    margin-bottom: 6px;
-    max-width: 80%;
-    display: inline-block;
-  }
+      .message-bubble {
+        padding: 8px 12px;
+        border-radius: 10px;
+        margin-bottom: 6px;
+        max-width: 80%;
+        display: inline-block;
+      }
 
-  .user {
-    background: #F9B639 !important; /* Yellow */
-    color: #000 !important;
-    align-self: flex-end;
-  }
+      .user {
+        background: #F9B639 !important; /* Yellow */
+        color: #000 !important;
+        align-self: flex-end;
+      }
 
-  .bot {
-    background: #eee;
-    color: #333;
-    align-self: flex-start;
-  }
+      .bot {
+        background: #eee;
+        color: #333;
+        align-self: flex-start;
+      }
 
-  #chat-input {
-    width: 100%;
-    padding: 8px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-  }
+      #chat-input {
+        width: 100%;
+        padding: 8px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+      }
 
-  #chat-send {
-    margin-top: 8px;
-    width: 100%;
-    padding: 10px;
-    background: #F9B639; /* Yellow */
-    color: #000;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-  }
-</style>
-
+      #chat-send {
+        margin-top: 8px;
+        width: 100%;
+        padding: 10px;
+        background: #F9B639; /* Yellow */
+        color: #000;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+    </style>
 
     <div id="chatbot-btn">💬</div>
 
