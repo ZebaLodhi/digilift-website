@@ -1,27 +1,31 @@
-
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-console.log("API KEY LOADED:", process.env.OPENAI_API_KEY ? "YES" : "NO");
-export async function POST(request: Request) {
-  try {
-    const body = await request.json();
-    const message = body.message || "";
-    const lower = message.toLowerCase();
 
+export async function POST(request: NextRequest) {
+  try {
+    // --- FIXED: request.json() is type 'unknown' ---
+    const { message = "", history = [] } = (await request.json()) as {
+      message?: string;
+      history?: Array<{ role: string; message: string }>;
+    };
+
+    const lower = message.toLowerCase();
     let reply: string | null = null;
 
-    // --- RULE-BASED LOGIC (your custom business logic) ---
+    // ---------------------------------------------------
+    // RULE-BASED LOGIC
+    // ---------------------------------------------------
 
     // GREETINGS
     if (/(hi|hello|hey|good morning|good afternoon)/i.test(lower)) {
       reply = "Hi there! How can I help you today?";
     }
 
-    // PRICING LOGIC — SMART PACKAGE RECOMMENDER
+    // PRICING/BUDGET LOGIC
     if (!reply && (lower.includes("price") || lower.includes("pricing") || lower.includes("$"))) {
       const match = lower.match(/\$?(\d{2,4})/);
       const budget = match ? parseInt(match[1]) : null;
@@ -42,7 +46,7 @@ export async function POST(request: Request) {
             "• Branding system\n" +
             "• Google Business Profile\n" +
             "• Review system setup\n\n" +
-            "You’re close — we also offer split payments.";
+            "We also offer split payments.";
         } else if (budget >= 1200 && budget < 3000) {
           reply =
             "Great — your budget fits our **Premium Growth Package ($1,497)**.\n\n" +
@@ -68,7 +72,7 @@ export async function POST(request: Request) {
       }
     }
 
-    // FAQ LOGIC
+    // FAQ
     if (!reply && lower.includes("website")) {
       reply =
         "Yes! We design modern, mobile-optimized websites for daycares.\n\n" +
@@ -76,8 +80,7 @@ export async function POST(request: Request) {
     }
 
     if (!reply && lower.includes("how long")) {
-      reply =
-        "Most projects take **7–14 days**, depending on your package.";
+      reply = "Most projects take **7–14 days**, depending on your package.";
     }
 
     if (!reply && lower.includes("what do you offer")) {
@@ -90,31 +93,37 @@ export async function POST(request: Request) {
         "• Social presence\n\nAsk me more!";
     }
 
-    // --- FALLBACK TO OPENAI WHEN NO RULE MATCH ---
+    // ---------------------------------------------------
+    // FALLBACK TO OPENAI
+    // ---------------------------------------------------
 
     if (!reply) {
       const completion = await client.chat.completions.create({
-        model: "gpt-4o-mini", // lightweight, fast, cheap
+        model: "gpt-4o-mini",
         messages: [
           {
             role: "system",
             content:
-              "You are DigiLift's AI assistant. You help daycare owners understand pricing, websites, branding, and digital marketing. Be friendly, simple, and helpful.",
+              "You are DigiLift's AI assistant. You help daycare owners understand pricing, websites, branding, and digital marketing. Be friendly and simple.",
           },
           { role: "user", content: message },
         ],
         max_tokens: 200,
       });
 
-      reply = completion.choices[0].message.content || 
-              "I'm here to help! Could you please clarify your question?";
+      reply =
+        completion.choices?.[0]?.message?.content ??
+        "I'm here to help! Could you please clarify your question?";
     }
+
+    // ---------------------------------------------------
+    // RESPONSE WITH UPDATED HISTORY
+    // ---------------------------------------------------
 
     return NextResponse.json({
       reply,
-      history: [...(body.history || []), { role: "user", message }, { role: "bot", reply }],
+      history: [...history, { role: "user", message }, { role: "bot", reply }],
     });
-
   } catch (error: any) {
     console.error("❌ Chat API Route Error:", error?.message || error);
     return NextResponse.json(
