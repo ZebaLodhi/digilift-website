@@ -5,9 +5,16 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2025-10-29.clover",
 });
 
+interface CheckoutRequestBody {
+  priceId?: string;
+}
+
 export async function POST(req: Request) {
   try {
-    const { priceId } = await req.json();
+    // Explicitly cast the JSON result to avoid TS "unknown" errors
+    const body = (await req.json()) as CheckoutRequestBody;
+
+    const priceId = body.priceId;
 
     if (!priceId) {
       return NextResponse.json(
@@ -25,7 +32,10 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ url: session.url });
   } catch (err) {
-    console.error("Stripe error:", err);
-    return NextResponse.json({ error: "Stripe error" }, { status: 500 });
+    console.error("Stripe Checkout Error:", err);
+    return NextResponse.json(
+      { error: "Stripe error" },
+      { status: 500 }
+    );
   }
 }
