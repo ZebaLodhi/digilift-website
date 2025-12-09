@@ -1,57 +1,42 @@
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 
-export const runtime = "edge"; // Fastest on Vercel
+export const runtime = "edge"; // Faster & cheaper
 
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY!,
 });
 
-// Allow GET to avoid 405 browser errors
-export async function GET() {
-  return NextResponse.json(
-    { status: "ok", message: "Chat API is running" },
-    { status: 200 }
-  );
-}
-
-// Main POST handler used by DigiLift widget
-export async function POST(req: NextRequest) {
+export async function POST(request: NextRequest) {
   try {
-    const body = await req.json();
-    const message = body?.message;
+    const { message } = await request.json();
 
-    if (!message || typeof message !== "string") {
+    if (!message) {
       return NextResponse.json(
         { error: "Message is required" },
         { status: 400 }
       );
     }
 
-    // Send to GPT-4.1-mini
-    const completion = await client.chat.completions.create({
+    const response = await client.chat.completions.create({
       model: "gpt-4.1-mini",
       messages: [
-        {
-          role: "system",
-          content:
-            "You are DigiLift AI, a friendly assistant helping daycare owners understand website packages, pricing, branding, and Google Business optimization.",
-        },
+        { role: "system", content: "You are the DigiLift AI assistant." },
         { role: "user", content: message },
       ],
       max_tokens: 200,
+      temperature: 0.7,
     });
 
     const reply =
-      completion.choices?.[0]?.message?.content ??
-      "I'm sorry, I couldn't generate a reply.";
+      response.choices?.[0]?.message?.content ||
+      "Sorry, I couldn’t understand that.";
 
-    return NextResponse.json({ reply }, { status: 200 });
-  } catch (err) {
-    console.error("Chat API error:", err);
-
+    return NextResponse.json({ reply });
+  } catch (error: any) {
+    console.error("Chat API error:", error);
     return NextResponse.json(
-      { error: "Chat API failed" },
+      { error: "Internal server error" },
       { status: 500 }
     );
   }
