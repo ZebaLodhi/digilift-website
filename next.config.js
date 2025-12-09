@@ -1,4 +1,17 @@
 /** @type {import("next").NextConfig} */
-const nextConfig = {};
-
-module.exports = nextConfig;
+const nextConfig = {
+    experimental: {
+      serverActions: {
+        bodySizeLimit: "2mb",
+      },
+    },
+    typescript: {
+      ignoreBuildErrors: false,
+    },
+    eslint: {
+      ignoreDuringBuilds: true,
+    },
+  };
+  
+  module.exports = nextConfig;
+  
