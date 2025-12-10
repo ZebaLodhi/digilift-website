@@ -4,6 +4,7 @@ import { Resend } from "resend";
 
 export const runtime = "nodejs";
 
+// Create Resend client
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
@@ -26,16 +27,21 @@ export async function POST(request: NextRequest) {
       message,
     } = validated;
 
-    // SEND EMAIL
-    await resend.emails.send({
-      from: process.env.EMAIL_FROM ?? "onboarding@resend.dev",
-      to: process.env.EMAIL_TO ?? "team@digilift.ai",
+    // ---------------------------
+    // SEND EMAIL THROUGH RESEND
+    // ---------------------------
+    const sendResult = await resend.emails.send({
+      // 👇 Using Resend's safe global sender — prevents 401 MailChannels blocking
+      from: "DigiLift Bookings <onboarding@resend.dev>",
+      to: process.env.EMAIL_TO || "team@digilift.ai",
       subject: "New Booking Request - DigiLift.ai",
+
       html: `
         <h2>New Consultation Request</h2>
 
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Daycare Name:</strong> ${daycareName}</p>
+
         <p><strong>City:</strong> ${city}</p>
         <p><strong>State:</strong> ${state}</p>
 
@@ -43,7 +49,7 @@ export async function POST(request: NextRequest) {
         <p><strong>Phone:</strong> ${phone}</p>
 
         <p><strong>Preferred Contact:</strong> ${preferredContact}</p>
-        <p><strong>Services Interested:</strong> ${servicesInterested.join(", ")}</p>
+        <p><strong>Services Interested:</strong> ${(servicesInterested || []).join(", ")}</p>
 
         <p><strong>Current Website:</strong> ${currentWebsite || "None provided"}</p>
         <p><strong>Google Business Profile:</strong> ${currentGBP || "None provided"}</p>
@@ -59,13 +65,23 @@ export async function POST(request: NextRequest) {
       `,
     });
 
+    // Log result for debugging
+    console.log("Resend email result:", sendResult);
+
+    // If Resend returns an error object
+    if (sendResult.error) {
+      console.error("Resend API Error:", sendResult.error);
+      throw new Error(sendResult.error.message);
+    }
+
     return NextResponse.json({ success: true });
   } catch (error: any) {
     console.error("Booking API error:", error);
+
     return NextResponse.json(
       {
         success: false,
-        message: "Error submitting booking",
+        message: "Booking submission failed",
         error: error?.message,
       },
       { status: 500 }
@@ -73,6 +89,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
+// GET handler
 export async function GET() {
   return NextResponse.json({
     message: "Booking API endpoint. Submit via POST.",
