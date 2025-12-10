@@ -3,17 +3,25 @@ import Link from "next/link";
 
 import Hero from "@/components/Hero";
 import ValueProps from "@/components/ValueProps";
-import Testimonials from "@/components/Testimonials";
+// import Testimonials from "@/components/Testimonials"; // Hidden for now
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import faqData from "@/data/faq.json";
 
-import Chatbot from "@/components/Chatbot"; // ⭐ Chatbot injected into body
+import Chatbot from "@/components/Chatbot";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: "DigiLift – Digital Marketing & Websites for Daycare Centers",
   description:
-    "DigiLift helps local daycare centers modernize their digital presence with Google Business Profile optimization, professional websites, brand refresh, and online booking systems.",
+    "DigiLift transforms daycare centers with Google Business Profile optimization, mobile-friendly websites, branding, and automated booking systems. Designed for childcare providers.",
+  keywords: [
+    "daycare marketing",
+    "childcare website design",
+    "Google Business Profile daycare",
+    "daycare digital marketing",
+    "DigiLift",
+    "childcare branding",
+  ],
 };
 
 export default function Home() {
@@ -22,53 +30,62 @@ export default function Home() {
     "@type": "ChildCare",
     name: "DigiLift for Daycare",
     description:
-      "Digital marketing and web design services specifically for daycare centers and childcare providers",
-    url: "https://digilift-daycare.com",
-    logo: "https://digilift-daycare.com/logo.png",
-    image: "https://digilift-daycare.com/og-image.png",
+      "Digital marketing and web design services specifically for daycare centers and childcare providers.",
+    url: "https://digilift.ai",
+    logo: "https://digilift.ai/logo.png",
+    image: "https://digilift.ai/og-image.png",
     telephone: "+1-555-123-4567",
-    email: "hello@digilift-daycare.com",
+    email: "hello@digilift.ai",
     address: { "@type": "PostalAddress", addressCountry: "US" },
     priceRange: "$1,497 - $4,997",
-    aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "50" },
     areaServed: { "@type": "Country", name: "United States" },
   };
 
   return (
     <>
+      {/* SEO Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
+      {/* HERO SECTION */}
       <Hero />
+
+      {/* VALUE PROPS */}
       <ValueProps />
 
       {/* RESULTS SECTION */}
-      <section className="section bg-neutral">
-        <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="mb-4">Real Impact for Real Daycares</h2>
-            <p className="text-xl text-dark/70 max-w-2xl mx-auto">
-              Our proven process delivers measurable results that directly impact your enrollment
+      <section className="section bg-neutral px-4 md:px-0">
+        <div className="container-custom max-w-6xl">
+          <header className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Real Impact for Daycare Centers
+            </h2>
+            <p className="text-lg md:text-xl text-dark/70 max-w-2xl mx-auto">
+              Our proven strategies help daycare owners boost enrollment, modernize their online
+              presence, and build trust with parents.
             </p>
-          </div>
+          </header>
 
-          <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-            <div className="card">
-              <h3 className="text-2xl mb-6 text-center">Before DigiLift</h3>
-              <ul className="space-y-3">
+          {/* RESPONSIVE GRID */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            
+            {/* BEFORE */}
+            <article className="card p-6 md:p-8">
+              <h3 className="text-2xl text-center font-semibold mb-6">Before DigiLift</h3>
+              <ul className="space-y-4">
                 {[
-                  "Invisible in Google search results",
-                  "Outdated or non-existent website",
-                  "Inconsistent branding across platforms",
-                  "Manual tour scheduling = missed opportunities",
-                  "Few online reviews or outdated testimonials",
-                  "No way to measure marketing ROI",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
+                  "Low visibility on Google search results",
+                  "Outdated or no website",
+                  "Branding that doesn't build trust with parents",
+                  "Manual tour scheduling causing lost opportunities",
+                  "Few or outdated parent reviews",
+                  "No analytics or marketing insights",
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-3">
                     <svg
-                      className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5"
+                      className="w-5 h-5 text-red-500 mt-1 flex-shrink-0"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -80,61 +97,71 @@ export default function Home() {
                         d="M6 18L18 6M6 6l12 12"
                       />
                     </svg>
-                    <span className="text-dark/70">{item}</span>
+                    <span className="text-dark/80 text-base md:text-lg">{item}</span>
                   </li>
                 ))}
               </ul>
-            </div>
+            </article>
 
-            <div className="card bg-gradient-to-br from-accent/5 to-accent/10 ring-2 ring-accent">
-              <h3 className="text-2xl mb-6 text-center">After DigiLift</h3>
-              <ul className="space-y-3">
+            {/* AFTER */}
+            <article className="card p-6 md:p-8 bg-gradient-to-br from-accent/5 to-accent/10 ring-2 ring-accent">
+              <h3 className="text-2xl text-center font-semibold mb-6">After DigiLift</h3>
+              <ul className="space-y-4">
                 {[
-                  "Top of Google search results for local searches",
-                  "Professional, mobile-optimized website",
-                  "Cohesive brand that builds trust instantly",
-                  "Automated booking system capturing every lead",
-                  "Steady stream of 5-star reviews",
+                  "Top Google rankings for daycare searches",
+                  "Mobile-friendly website built for parents",
+                  "Professional branding that parents trust instantly",
+                  "Automated online tour booking system",
+                  "Continuous stream of new 5-star reviews",
                   "Clear analytics showing enrollment growth",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-3">
                     <svg
-                      className="w-5 h-5 text-accent flex-shrink-0 mt-0.5"
+                      className="w-5 h-5 text-accent mt-1 flex-shrink-0"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
-                    <span className="text-dark/70">{item}</span>
+                    <span className="text-dark/80 text-base md:text-lg">{item}</span>
                   </li>
                 ))}
               </ul>
-            </div>
+            </article>
+
           </div>
         </div>
       </section>
 
-      <Testimonials />
+      {/* TESTIMONIALS — HIDDEN */}
+      {/* <Testimonials /> */}
 
-      {/* ⭐ TRUSTED BY SECTION — HIDDEN FOR NOW */}
+      {/* TRUSTED BY SECTION — HIDDEN */}
       {false && (
-        <section className="section bg-white">
-          <div className="container-custom">
-            <div className="text-center mb-12">
-              <h3 className="text-2xl font-bold mb-4">Trusted by Daycare Centers Nationwide</h3>
-              <p className="text-dark/70">
-                Join the growing community of childcare providers who've modernized with DigiLift
-              </p>
-            </div>
+        <section className="section bg-white px-4 md:px-0">
+          <div className="container-custom max-w-6xl">
+            <h3 className="text-2xl md:text-3xl font-bold text-center mb-4">
+              Trusted by Daycare Centers Nationwide
+            </h3>
+            <p className="text-dark/70 text-center mb-10">
+              More centers are joining DigiLift every week.
+            </p>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-60">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 opacity-60">
               {[1, 2, 3, 4].map((i) => (
                 <div
                   key={i}
                   className="flex items-center justify-center h-20 bg-neutral-100 rounded-xl"
                 >
-                  <span className="text-dark/40 font-semibold">Daycare Logo {i}</span>
+                  <span className="text-dark/40 font-semibold text-sm md:text-base">
+                    Daycare Logo {i}
+                  </span>
                 </div>
               ))}
             </div>
@@ -142,31 +169,29 @@ export default function Home() {
         </section>
       )}
 
-      {/* FAQ */}
-      <section className="section bg-neutral">
-        <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="mb-4">Common Questions</h2>
-            <p className="text-xl text-dark/70 max-w-2xl mx-auto">
-              Everything you need to know about our services
+      {/* FAQ SECTION */}
+      <section className="section bg-neutral px-4 md:px-0">
+        <div className="container-custom max-w-5xl">
+          <header className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Common Questions</h2>
+            <p className="text-lg md:text-xl text-dark/70 max-w-2xl mx-auto">
+              Everything daycare owners need to know about DigiLift’s services.
             </p>
-          </div>
+          </header>
 
-          <div className="max-w-3xl mx-auto">
-            <FAQ items={faqData} limit={5} />
+          <FAQ items={faqData} limit={5} />
 
-            <div className="text-center mt-12">
-              <Link href="/about#faq" className="btn-outline">
-                View All FAQs
-              </Link>
-            </div>
+          <div className="text-center mt-12">
+            <Link href="/about#faq" className="btn-outline">
+              View All FAQs
+            </Link>
           </div>
         </div>
       </section>
 
       <CTA />
 
-      {/* Inject the chatbot DOM into body */}
+      {/* Chatbot */}
       <Chatbot />
     </>
   );
