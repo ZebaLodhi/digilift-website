@@ -117,28 +117,30 @@ export default function Home() {
 
       <Testimonials />
 
-      {/* TRUSTED BY */}
-      <section className="section bg-white">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h3 className="text-2xl font-bold mb-4">Trusted by Daycare Centers Nationwide</h3>
-            <p className="text-dark/70">
-              Join the growing community of childcare providers who've modernized with DigiLift
-            </p>
-          </div>
+      {/* ⭐ TRUSTED BY SECTION — HIDDEN FOR NOW */}
+      {false && (
+        <section className="section bg-white">
+          <div className="container-custom">
+            <div className="text-center mb-12">
+              <h3 className="text-2xl font-bold mb-4">Trusted by Daycare Centers Nationwide</h3>
+              <p className="text-dark/70">
+                Join the growing community of childcare providers who've modernized with DigiLift
+              </p>
+            </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-60">
-            {[1, 2, 3, 4].map((i) => (
-              <div
-                key={i}
-                className="flex items-center justify-center h-20 bg-neutral-100 rounded-xl"
-              >
-                <span className="text-dark/40 font-semibold">Daycare Logo {i}</span>
-              </div>
-            ))}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-60">
+              {[1, 2, 3, 4].map((i) => (
+                <div
+                  key={i}
+                  className="flex items-center justify-center h-20 bg-neutral-100 rounded-xl"
+                >
+                  <span className="text-dark/40 font-semibold">Daycare Logo {i}</span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* FAQ */}
       <section className="section bg-neutral">
