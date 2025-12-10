@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-[#FFF6EA] pt-24 pb-20 md:pt-32 md:pb-24">
 
-      {/* ⭐ MASCOT — FOREGROUND (z-20) */}
+      {/* ⭐ MASCOT — FOREGROUND */}
       <div className="absolute inset-0 pointer-events-none z-20" aria-hidden="true">
         <div
           className="mascot-bounce"
@@ -35,17 +35,17 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* CONTENT */}
+      {/* ⭐ CONTENT */}
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <div className="min-h-[60vh] flex items-center">
 
           <div className="max-w-xl lg:max-w-2xl">
 
-            {/* HERO TITLE */}
+            {/* ⭐ HERO TITLE (BIGGER ON MOBILE) */}
             <h1
               className="
                 text-slate-900
-                text-3xl sm:text-4xl md:text-6xl lg:text-7xl
+                text-4xl sm:text-5xl md:text-6xl lg:text-7xl
                 font-extrabold
                 leading-tight
                 tracking-tight
@@ -64,14 +64,7 @@ export default function Hero() {
             </p>
 
           </div>
-{/* MOBILE ONLY TEXTBOX */}
-<div className="block md:hidden mt-6">
-  <div className="bg-white/70 backdrop-blur-md border border-[#00C2A8] rounded-xl p-4 shadow-md">
-    <p className="text-slate-800 text-base font-medium leading-relaxed">
-      Welcome! You're viewing our mobile site — designed to make everything easier to read and navigate.
-    </p>
-  </div>
-</div>
+
         </div>
       </div>
 
