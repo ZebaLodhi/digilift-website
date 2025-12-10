@@ -4,16 +4,16 @@ import type { CSSProperties } from 'react';
 
 export default function Hero() {
   return (
-    // Light canvas, lots of breathing room
-    <section className="relative overflow-hidden bg-[#FFF6EA] pt-28 pb-20 md:pt-32 md:pb-24">
-      {/* ⬇️ KEEPING YOUR MASCOT CODE UNCHANGED */}
+    <section className="relative overflow-hidden bg-[#FFF6EA] pt-24 pb-20 md:pt-32 md:pb-24">
+
+      {/* MASCOT — NOW RESPONSIVE */}
       <div className="absolute inset-0 pointer-events-none z-2" aria-hidden="true">
         <div
           className="mascot-bounce"
           style={
             {
-              ['--mascot-w' as any]: '350px',
-              ['--mascot-top' as any]: '25%',
+              ['--mascot-w' as any]: '240px',        // smaller on mobile
+              ['--mascot-top' as any]: '30%',        // prevents overlap
               ['--fly-dur' as any]: '6s',
             } as CSSProperties
           }
@@ -22,48 +22,46 @@ export default function Hero() {
             src="/brand/digilift-mascot.png"
             alt=""
             role="presentation"
-            width={350}
-            height={170}
+            width={240}
+            height={140}
             priority
-            className="w-[200px] h-auto animate-float mascot-shadow"
+            className="
+              w-40 sm:w-48 md:w-64 lg:w-72 
+              h-auto 
+              animate-float 
+              mascot-shadow
+            "
           />
         </div>
       </div>
 
-      {/* Content */}
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="min-h-[70vh] flex items-center">
-          {/* Narrow text column like the reference */}
+      {/* CONTENT */}
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+        <div className="min-h-[60vh] flex items-center">
+
           <div className="max-w-xl lg:max-w-2xl">
-            <h1 className="text-slate-900 text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[0.20] tracking-tight">
-            “Making your <span className="text-[#00C2A8]">daycare</span> the talk of the playground.”
-              
+            {/* FIXED TEXT — NO MORE OVERLAP */}
+            <h1 className="
+              text-slate-900 
+              text-3xl sm:text-4xl md:text-6xl lg:text-7xl
+              font-extrabold 
+              leading-tight       /* FIXED */
+              tracking-tight
+            ">
+              Making your <span className="text-[#00C2A8]">daycare</span> the talk of the playground.
             </h1>
 
-            {/* Services line */}
-            <p className="mt-12 text-xl text-slate-800">
-            Website<span className="mx-3 text-[#00C2A8]">+</span>
-            Branding<span className="mx-3 text-[#00C2A8]">+</span>
-              Google Business Profile <span className="mx-3 text-[#00C2A8]">+</span>
+            {/* SERVICES */}
+            <p className="mt-8 text-lg md:text-xl text-slate-800">
+              Website <span className="mx-2 text-[#00C2A8]">+</span>
+              Branding <span className="mx-2 text-[#00C2A8]">+</span>
+              Google Business Profile <span className="mx-2 text-[#00C2A8]">+</span>
               AI Chatbot
             </p>
-
-            {/* Optional CTA (hide if you want it super minimal) */}
-            {/* <div className="mt-10">
-              <Link
-                href="#contact"
-                className="inline-flex items-center rounded-full border border-orange-500 px-6 py-3 text-base font-semibold text-orange-600 hover:bg-orange-50"
-              >
-                Get in touch
-              </Link>
-            </div> */}
           </div>
+
         </div>
       </div>
-      
-  
-  
-
     </section>
   );
 }
