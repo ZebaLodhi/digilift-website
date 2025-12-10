@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-[#FFF6EA] pt-24 pb-20 md:pt-32 md:pb-24">
 
-      {/* ⭐ MASCOT — FOREGROUND */}
+      {/* ⭐ MASCOT — FOREGROUND (z-20) */}
       <div className="absolute inset-0 pointer-events-none z-20" aria-hidden="true">
         <div
           className="mascot-bounce"
@@ -26,46 +26,48 @@ export default function Hero() {
             height={140}
             priority
             className="
-              w-40 sm:w-48 md:w-64 lg:w-72 
-              h-auto 
-              animate-float 
+              w-40 sm:w-48 md:w-64 lg:w-72
+              h-auto
+              animate-float
               mascot-shadow
             "
           />
         </div>
       </div>
 
-      {/* ⭐ CONTENT */}
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-30">
+      {/* CONTENT */}
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <div className="min-h-[60vh] flex items-center">
 
           <div className="max-w-xl lg:max-w-2xl">
 
-            {/* ⭐ NEW HEADLINE */}
+            {/* HERO TITLE */}
             <h1
               className="
-                text-slate-900 
+                text-slate-900
                 text-3xl sm:text-4xl md:text-6xl lg:text-7xl
-                font-extrabold 
+                font-extrabold
                 leading-tight
                 tracking-tight
+                relative z-30
               "
             >
-              We’re DigiLift,<br />and we’re here to uplift.
+              "Making your <span className="text-[#00C2A8]">daycare</span> the talk of the playground."
             </h1>
 
-            {/* ⭐ NEW DESCRIPTION */}
-            <p className="mt-6 text-lg md:text-xl text-slate-800 font-medium leading-relaxed">
-              We help daycares grow with modern websites, standout branding, 
-              Google visibility, and AI tools that connect better with parents.
-              <br /><br />
-              Why stay hidden when your daycare can shine?
+            {/* ⭐ SERVICES — NOW BOLD */}
+            <p className="mt-8 text-lg md:text-xl text-slate-800 font-semibold relative z-30">
+              Website <span className="mx-2 text-[#00C2A8] font-bold">+</span>
+              Branding <span className="mx-2 text-[#00C2A8] font-bold">+</span>
+              Google Business Profile <span className="mx-2 text-[#00C2A8] font-bold">+</span>
+              AI Chatbot
             </p>
 
           </div>
 
         </div>
       </div>
+
     </section>
   );
 }
