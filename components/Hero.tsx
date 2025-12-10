@@ -64,7 +64,14 @@ export default function Hero() {
             </p>
 
           </div>
-
+{/* MOBILE ONLY TEXTBOX */}
+<div className="block md:hidden mt-6">
+  <div className="bg-white/70 backdrop-blur-md border border-[#00C2A8] rounded-xl p-4 shadow-md">
+    <p className="text-slate-800 text-base font-medium leading-relaxed">
+      Welcome! You're viewing our mobile site — designed to make everything easier to read and navigate.
+    </p>
+  </div>
+</div>
         </div>
       </div>
 
