@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
     // SEND EMAIL THROUGH RESEND
     // ---------------------------
     const sendResult = await resend.emails.send({
-      from: process.env.EMAIL_FROM || "team@digilift.ai", // ✅ FIXED
+      from: process.env.EMAIL_FROM || "team@digilift.ai",
       to: process.env.EMAIL_TO || "team@digilift.ai",
       subject: "New Booking Request - DigiLift.ai",
 
@@ -63,16 +63,16 @@ export async function POST(request: NextRequest) {
       `,
     });
 
-    console.log("Resend email result:", sendResult);
+    console.log("✔️ Resend response:", sendResult);
 
     if (sendResult.error) {
-      console.error("Resend API Error:", sendResult.error);
+      console.error("❌ Resend API Error:", sendResult.error);
       throw new Error(sendResult.error.message);
     }
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
-    console.error("Booking API error:", error);
+    console.error("❌ Booking API error:", error);
 
     return NextResponse.json(
       {
