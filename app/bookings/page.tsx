@@ -61,6 +61,7 @@ export default function BookingsPage() {
       <section className="section bg-white">
         <div className="container-custom">
           <div className="grid lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+
             {/* Sidebar */}
             <div className="lg:col-span-1">
               <div className="card sticky top-24">
@@ -160,27 +161,13 @@ export default function BookingsPage() {
 
               {/* Alternative: Calendly Option */}
               {/* Uncomment this section to use Calendly instead of the custom form */}
-              {/* <div className="card">
-                <h3 className="text-2xl mb-6">Schedule Your Consultation</h3>
-                <p className="text-dark/70 mb-6">
-                  Pick a time that works for you using our calendar below:
-                </p>
-
-                <div className="calendly-inline-widget"
-                     data-url="https://calendly.com/your-calendly-link"
-                     style={{ minWidth: '320px', height: '700px' }}>
-                </div>
-                <script type="text/javascript"
-                        src="https://assets.calendly.com/assets/external/widget.js"
-                        async>
-                </script>
-              </div> */}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Social Proof */}
+      {/* SOCIAL PROOF (Hidden until you have clients) */}
+      {/*
       <section className="section bg-neutral">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
@@ -210,6 +197,7 @@ export default function BookingsPage() {
           </div>
         </div>
       </section>
+      */}
     </>
   );
 }
