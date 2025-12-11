@@ -163,7 +163,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* TEAM SECTION (HIDDEN UNTIL YOU HAVE A TEAM) */}
+      {/*
       <section className="section bg-white">
         <div className="container-custom">
           <div className="text-center mb-16">
@@ -205,6 +206,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      */}
 
       {/* FAQ Section */}
       <section id="faq" className="section bg-neutral">
