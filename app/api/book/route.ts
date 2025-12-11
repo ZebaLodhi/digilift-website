@@ -4,7 +4,6 @@ import { Resend } from "resend";
 
 export const runtime = "nodejs";
 
-// Create Resend client
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
@@ -31,8 +30,7 @@ export async function POST(request: NextRequest) {
     // SEND EMAIL THROUGH RESEND
     // ---------------------------
     const sendResult = await resend.emails.send({
-      // 👇 Using Resend's safe global sender — prevents 401 MailChannels blocking
-      from: "DigiLift Bookings <onboarding@resend.dev>",
+      from: process.env.EMAIL_FROM || "team@digilift.ai", // ✅ FIXED
       to: process.env.EMAIL_TO || "team@digilift.ai",
       subject: "New Booking Request - DigiLift.ai",
 
@@ -65,10 +63,8 @@ export async function POST(request: NextRequest) {
       `,
     });
 
-    // Log result for debugging
     console.log("Resend email result:", sendResult);
 
-    // If Resend returns an error object
     if (sendResult.error) {
       console.error("Resend API Error:", sendResult.error);
       throw new Error(sendResult.error.message);
@@ -89,7 +85,6 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// GET handler
 export async function GET() {
   return NextResponse.json({
     message: "Booking API endpoint. Submit via POST.",
