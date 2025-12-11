@@ -69,7 +69,8 @@ export default function BookingForm() {
     try {
       const validatedData = bookingFormSchema.parse(formData);
 
-      const response = await fetch('/api/send-booking', {
+      // ✅ FIXED ROUTE
+      const response = await fetch('/api/book', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
