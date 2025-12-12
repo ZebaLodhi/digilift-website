@@ -1,88 +1,85 @@
-import packagesData from '@/data/packages.json';
-import type { PackageData } from '@/types/package';
+"use client";
 
-const rawPackages = packagesData.packages as PackageData[];
+import { useState } from "react";
+import pkgData from "@/data/packages.json";
 
-// --- Expand inherited features (Everything in Starter/Growth) ---
-function expandFeatures(pkgs: PackageData[]): PackageData[] {
-  const starter = pkgs.find(p => p.id === "starter")!;
-  const growth = pkgs.find(p => p.id === "growth")!;
-  const premium = pkgs.find(p => p.id === "premium")!;
+const check = (
+  <span className="text-primary text-lg font-semibold leading-none">✔</span>
+);
+const dash = <span className="text-dark/40 text-lg leading-none">—</span>;
 
-  const starterFeatures = starter.features;
-
-  const growthFeatures = [
-    ...starterFeatures,
-    ...growth.features.filter(f => !f.toLowerCase().startsWith("everything in starter")),
-  ];
-
-  const premiumFeatures = [
-    ...growthFeatures,
-    ...premium.features.filter(f => !f.toLowerCase().startsWith("everything in growth")),
-  ];
-
-  return [
-    { ...starter, features: starterFeatures },
-    { ...growth, features: growthFeatures },
-    { ...premium, features: premiumFeatures },
-  ];
-}
-
-const packages = expandFeatures(rawPackages);
-
-// Build list of all unique features
-const ALL_FEATURES: string[] = Array.from(
-  new Set(packages.flatMap(pkg => pkg.features))
-).sort();
+// Highlighter column index — Premium package
+const PREMIUM_INDEX = 2; // starter=0, growth=1, premium=2
 
 export default function ComparisonTable() {
-  const pkgHasFeature = (feature: string, pkg: PackageData) =>
-    pkg.features.some(f => f.toLowerCase() === feature.toLowerCase());
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const renderCell = (value: boolean) => (
-    value ? (
-      <svg className="w-6 h-6 text-accent mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-      </svg>
-    ) : (
-      <svg className="w-6 h-6 text-neutral-300 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    )
-  );
+  // Extract only the package arrays
+  const packages = pkgData.packages;
+
+  // Build feature rows from Premium list then match others
+  const allFeatures = [
+    ...new Set(packages.flatMap((pkg) => pkg.features)),
+  ].sort();
+
+  const toggle = (i: number) =>
+    setOpenIndex(openIndex === i ? null : i);
 
   return (
-    <section className="section bg-white">
+    <section id="comparison" className="py-20 bg-white">
       <div className="container-custom">
-        <div className="text-center mb-16">
-          <h2 className="mb-4">Package Comparison</h2>
-          <p className="text-xl text-dark/70 max-w-2xl mx-auto">
-            Compare features across all DigiLift packages.
-          </p>
-        </div>
+        <h2 className="text-center mb-2">Package Comparison</h2>
+        <p className="text-center text-dark/60 mb-12 max-w-xl mx-auto">
+          Compare features across all DigiLift packages.
+        </p>
 
-        {/* Desktop Table */}
-        <div className="hidden lg:block overflow-x-auto">
-          <table className="w-full">
-            <thead>
-              <tr className="border-b-2 border-neutral-200">
-                <th className="text-left py-4 px-4 font-bold text-dark">Features</th>
-                {packages.map(pkg => (
-                  <th key={pkg.id} className="text-center py-4 px-4">
-                    <div className="font-bold text-xl text-primary">{pkg.name}</div>
-                    <div className="text-sm text-dark/60 mt-1">{pkg.price}</div>
+        {/* DESKTOP TABLE */}
+        <div className="hidden md:block overflow-x-auto rounded-xl border border-neutral-200 shadow-sm">
+          <table className="w-full border-collapse text-sm">
+            <thead className="bg-neutral-50 sticky top-0 z-10">
+              <tr>
+                <th className="py-4 px-6 text-left font-semibold text-dark/70 w-1/2">
+                  Features
+                </th>
+
+                {packages.map((pkg, index) => (
+                  <th
+                    key={pkg.id}
+                    className={`py-4 px-6 text-center font-semibold relative ${
+                      index === PREMIUM_INDEX
+                        ? "bg-primary/5 border-x border-primary/20"
+                        : ""
+                    }`}
+                  >
+                    <div className="text-base font-semibold">{pkg.name}</div>
+                    {index === PREMIUM_INDEX && (
+                      <span className="absolute -top-3 right-1/2 translate-x-1/2 bg-primary text-white text-xs px-2 py-1 rounded-md shadow-sm">
+                        Most Value
+                      </span>
+                    )}
                   </th>
                 ))}
               </tr>
             </thead>
 
             <tbody>
-              {ALL_FEATURES.map(feature => (
-                <tr key={feature} className="border-b border-neutral-200 hover:bg-neutral-50">
-                  <td className="py-4 px-4 font-medium text-dark">{feature}</td>
-                  {packages.map(pkg => (
-                    <td key={pkg.id} className="py-4 px-4 text-center">
-                      {renderCell(pkgHasFeature(feature, pkg))}
+              {allFeatures.map((feature, i) => (
+                <tr
+                  key={i}
+                  className={`border-t border-neutral-200 ${
+                    i % 2 === 0 ? "bg-neutral-50/40" : "bg-white"
+                  }`}
+                >
+                  <td className="py-3 px-6">{feature}</td>
+
+                  {packages.map((pkg, index) => (
+                    <td
+                      key={pkg.id + i}
+                      className={`py-3 px-6 text-center ${
+                        index === PREMIUM_INDEX ? "bg-primary/5" : ""
+                      }`}
+                    >
+                      {pkg.features.includes(feature) ? check : dash}
                     </td>
                   ))}
                 </tr>
@@ -91,21 +88,44 @@ export default function ComparisonTable() {
           </table>
         </div>
 
-        {/* Mobile View */}
-        <div className="lg:hidden space-y-6">
-          {packages.map(pkg => (
-            <div key={pkg.id} className="card">
-              <h3 className="text-2xl mb-2">{pkg.name}</h3>
-              <div className="text-accent font-bold mb-4">{pkg.price}</div>
+        {/* MOBILE ACCORDION */}
+        <div className="md:hidden space-y-4 mt-10">
+          {packages.map((pkg, pkgIndex) => (
+            <div
+              key={pkg.id}
+              className={`border rounded-xl overflow-hidden ${
+                pkgIndex === PREMIUM_INDEX
+                  ? "border-primary bg-primary/5 shadow-sm"
+                  : "border-neutral-200"
+              }`}
+            >
+              <button
+                onClick={() => toggle(pkgIndex)}
+                className="w-full flex items-center justify-between p-4"
+              >
+                <span className="font-semibold text-lg">{pkg.name}</span>
+                <span className="text-dark/50 text-xl">
+                  {openIndex === pkgIndex ? "−" : "+"}
+                </span>
+              </button>
 
-              <div className="space-y-3">
-                {ALL_FEATURES.map(feature => (
-                  <div key={feature} className="flex justify-between items-center py-2 border-b border-neutral-100">
-                    <span className="text-sm text-dark/70">{feature}</span>
-                    {renderCell(pkgHasFeature(feature, pkg))}
-                  </div>
-                ))}
-              </div>
+              {openIndex === pkgIndex && (
+                <div className="px-4 pb-4 space-y-2">
+                  {allFeatures.map((feature, i) => (
+                    <div
+                      key={i}
+                      className="flex justify-between border-b py-2 text-sm"
+                    >
+                      <span>{feature}</span>
+                      <span>
+                        {packages[pkgIndex].features.includes(feature)
+                          ? check
+                          : dash}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>
