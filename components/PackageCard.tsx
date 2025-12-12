@@ -5,43 +5,32 @@ import { useState } from "react";
 interface PackageCardProps {
   name: string;
   tagline: string;
-  price: string; // "$1,497"
+  price: string; // Display price e.g. "$1,497"
   priceNote: string;
   turnaround: string;
   description: string;
   features: string[];
   isPopular?: boolean;
+  priceId: string; // REQUIRED: Stripe Price ID
 }
 
 /* --------------------------------------------------------
    STRIPE CHECKOUT BUTTON
 -------------------------------------------------------- */
-function PayWithStripe({
-  payload,
-}: {
-  payload: {
-    serviceId: string;
-    rawPrice: string;
-    customerName: string;
-    customerEmail: string;
-  };
-}) {
+function PayWithStripe({ priceId }: { priceId: string }) {
   const [loading, setLoading] = useState(false);
 
   const startStripeCheckout = async () => {
     try {
       setLoading(true);
 
-      const response = await fetch(
-        "http://localhost:3001/api/stripe/checkout-session",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        }
-      );
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ priceId }),
+      });
 
-      const data: { url?: string } = await response.json();
+      const data = await res.json();
 
       if (!data.url) {
         alert("Stripe error. Please try again.");
@@ -81,6 +70,7 @@ export default function PackageCard({
   description,
   features,
   isPopular = false,
+  priceId,
 }: PackageCardProps) {
   return (
     <div
@@ -146,15 +136,8 @@ export default function PackageCard({
         </ul>
       </div>
 
-      {/* ------------ STRIPE BUTTON ONLY (NO PAYPAL) ------------ */}
-      <PayWithStripe
-        payload={{
-          serviceId: name.toLowerCase().replace(/\s+/g, "-"),
-          rawPrice: price,
-          customerName: "Website Visitor",
-          customerEmail: "visitor@example.com",
-        }}
-      />
+      {/* ------------ STRIPE CHECKOUT BUTTON ------------ */}
+      <PayWithStripe priceId={priceId} />
     </div>
   );
 }

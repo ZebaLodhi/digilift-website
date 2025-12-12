@@ -1,31 +1,25 @@
 "use client";
 
 import { useState } from "react";
-import { loadStripe } from "@stripe/stripe-js";
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
-
-export default function StripeCheckoutButton() {
+export default function StripeCheckoutButton({ priceId }) {
   const [loading, setLoading] = useState(false);
 
   const startCheckout = async () => {
-    setLoading(true);
-
     try {
-      const response = await fetch("http://localhost:3001/api/stripe/checkout-session", {
+      setLoading(true);
+
+      const response = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          serviceId: "cleaning-001",
-          customerName: "John Doe",
-          customerEmail: "john@example.com",
-        }),
+        body: JSON.stringify({ priceId }),
       });
 
       const data = await response.json();
 
       if (!data.url) {
-        alert("Something went wrong.");
+        console.error("Stripe error:", data);
+        alert("Stripe error. Please try again.");
         return;
       }
 
@@ -34,7 +28,7 @@ export default function StripeCheckoutButton() {
 
     } catch (error) {
       console.error("Stripe checkout error:", error);
-      alert("Payment error.");
+      alert("Payment failed. Please try again.");
     } finally {
       setLoading(false);
     }
