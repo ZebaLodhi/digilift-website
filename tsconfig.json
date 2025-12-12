@@ -14,9 +14,7 @@
     "jsx": "preserve",
     "incremental": true,
     "plugins": [
-      {
-        "name": "next"
-      }
+      { "name": "next" }
     ],
 
     "baseUrl": ".",
@@ -25,8 +23,13 @@
       "@components/*": ["components/*"],
       "@data/*": ["data/*"],
       "@app/*": ["app/*"],
-      "@public/*": ["public/*"]
-    }
+      "@public/*": ["public/*"],
+      "@types/*": ["types/*"]      // 🔥 IMPORTANT
+    },
+    "typeRoots": [
+      "./types",                   // 🔥 IMPORTANT
+      "./node_modules/@types"
+    ]
   },
 
   "include": [
@@ -38,6 +41,6 @@
 
   "exclude": [
     "node_modules",
-    "digilift-worker"   // <-- FIX: Ignore worker folder causing chanfana errors
+    "digilift-worker"
   ]
 }

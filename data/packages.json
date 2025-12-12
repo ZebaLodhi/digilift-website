@@ -1,101 +1,116 @@
-[
-  {
-    "id": "starter",
-    "name": "Starter",
-    "tagline": "Perfect for Getting Started",
-    "price": "$1,497",
-    "priceNote": "one-time",
-    "turnaround": "2–3 weeks",
-    "description": "A clean, modern digital presence designed to help new daycare centers get discovered online.",
-    "features": [
-      "Google Business Profile optimization",
-      "NAP citation audit & cleanup (top directories)",
-      "Basic brand refresh (colors, fonts, simple logo enhancement)",
-      "Custom 4-page website built with Next.js, Tailwind, and Vercel",
-      "Mobile-responsive, fast-loading design",
-      "Contact form integration (email or simple CRM-lite tool)",
-      "Basic SEO setup (titles, descriptions, alt tags)",
-      "Google Analytics & Search Console setup",
-      "1 round of revisions",
-      "Website training + launch support"
-    ],
-    "ideal": [
-      "New daycares establishing an online presence",
-      "Small centers with outdated or no website",
-      "Budget-conscious owners wanting essentials"
-    ],
-    "notIncluded": [
-      "Online booking systems",
-      "Social media templates",
-      "Advanced branding"
-    ],
-    "priceId": "price_1SdJd42fciJPp6HyN5kGNenF"
-  },
 
-  {
-    "id": "growth",
-    "name": "Growth",
-    "tagline": "Most Popular for Growing Daycares",
-    "price": "$2,997",
-    "priceNote": "one-time",
-    "turnaround": "4–5 weeks",
-    "description": "A stronger digital presence built to attract more parents and improve trust.",
-    "features": [
-      "Everything in Starter, plus:",
-      "Expanded brand kit (logo refinements, color palette, typography guide)",
-      "Social media kit (10 customizable Canva templates)",
-      "Custom 6-page website built with Next.js, Tailwind, and Vercel",
-      "Online booking integration (Calendly or embedded form)",
-      "Enhanced SEO with on-page optimization & keyword guidance",
-      "Additional citation building (10–15 directories)",
-      "Parent testimonial collection & display",
-      "Photo gallery setup (client-provided photos)",
-      "Simple automated review request link",
-      "2 rounds of revisions",
-      "30-day priority support"
-    ],
-    "ideal": [
-      "Established daycares ready to scale",
-      "Centers looking to increase enrollment",
-      "Businesses wanting a complete refresh"
-    ],
-    "addons": [
-      "Professional photography coordination (client pays vendor)",
-      "Social media management (starter package)"
-    ],
-    "priceId": "price_1SdJmk2fciJPp6HyCqZtqvII"
-  },
-
-  {
-    "id": "premium",
-    "name": "Premium",
-    "tagline": "Complete Digital Upgrade",
-    "price": "$4,497",
-    "priceNote": "one-time",
-    "turnaround": "6–8 weeks",
-    "description": "A polished, high-converting digital ecosystem tailored for daycares aiming to stand out and grow.",
-    "features": [
-      "Everything in Growth, plus:",
-      "Deeper brand identity upgrade (extended palette, secondary logos, patterns)",
-      "Custom 8-page premium website built with Next.js, Tailwind, and Vercel",
-      "Advanced booking flows (waitlist form, inquiry categories, automated email replies)",
-      "Parent resource center (PDFs, menus, calendars — client provides content)",
-      "Video integration (client-provided videos)",
-      "Local SEO enhancements (schema markup + additional citations)",
-      "Competitor review with recommendations",
-      "3 rounds of revisions",
-      "60-day priority support"
-    ],
-    "ideal": [
-      "Premium daycare centers",
-      "Multi-location operators",
-      "Businesses committed to market leadership"
-    ],
-    "addons": [
-      "Ongoing website maintenance ($150/month)",
-      "Social media management ($600/month)",
-      "Additional location setup"
-    ],
-    "priceId": "price_1SdJn82fciJPp6HyM42DkAWG"
-  }
-]
+{
+  "packages": [
+    {
+      "id": "starter",
+      "name": "Starter",
+      "tagline": "Perfect for Getting Started",
+      "price": "$1,497",
+      "priceNote": "one-time",
+      "turnaround": "2–3 weeks",
+      "description": "A clean, modern digital presence designed to help new daycare centers get discovered online.",
+      "features": [
+        "Google Business Profile optimization",
+        "NAP citation audit & cleanup (top directories)",
+        "Basic brand refresh (colors, fonts, simple logo enhancement)",
+        "Custom 4-page website built with Next.js, Tailwind, and Vercel",
+        "Mobile-responsive, fast-loading design",
+        "Contact form integration (email or simple CRM-lite tool)",
+        "Basic SEO setup (titles, descriptions, alt tags)",
+        "Google Analytics & Search Console setup",
+        "1 round of revisions",
+        "Website training + launch support"
+      ],
+      "ideal": [
+        "New daycares establishing an online presence",
+        "Small centers with outdated or no website",
+        "Budget-conscious owners wanting essentials"
+      ],
+      "notIncluded": [
+        "Online booking systems",
+        "Social media templates",
+        "Advanced branding"
+      ],
+      "priceId": "price_1SdJd42fciJPp6HyN5kGNenF"
+    },
+    {
+      "id": "growth",
+      "name": "Growth",
+      "tagline": "Most Popular for Growing Daycares",
+      "price": "$2,997",
+      "priceNote": "one-time",
+      "turnaround": "4–5 weeks",
+      "description": "A stronger digital presence built to attract more parents and improve trust.",
+      "features": [
+        "Everything in Starter, plus:",
+        "Expanded brand kit (logo refinements, color palette, typography guide)",
+        "Social media kit (10 customizable Canva templates)",
+        "Custom 6-page website built with Next.js, Tailwind, and Vercel",
+        "Online booking integration (Calendly or embedded form)",
+        "Enhanced SEO with on-page optimization & keyword guidance",
+        "Additional citation building (10–15 directories)",
+        "Parent testimonial collection & display",
+        "Photo gallery setup (client-provided photos)",
+        "Simple automated review request link",
+        "2 rounds of revisions",
+        "30-day priority support"
+      ],
+      "ideal": [
+        "Established daycares ready to scale",
+        "Centers looking to increase enrollment",
+        "Businesses wanting a complete refresh"
+      ],
+      "addons": [
+        "Professional photography coordination (client pays vendor)",
+        "Social media management (starter package)"
+      ],
+      "priceId": "price_1SdJmk2fciJPp6HyCqZtqvII"
+    },
+    {
+      "id": "premium",
+      "name": "Premium",
+      "tagline": "Complete Digital Upgrade",
+      "price": "$4,497",
+      "priceNote": "one-time",
+      "turnaround": "6–8 weeks",
+      "description": "A polished, high-converting digital ecosystem tailored for daycares aiming to stand out and grow.",
+      "features": [
+        "Everything in Growth, plus:",
+        "Deeper brand identity upgrade (extended palette, secondary logos, patterns)",
+        "Custom 8-page premium website built with Next.js, Tailwind, and Vercel",
+        "Advanced booking flows (waitlist form, inquiry categories, automated email replies)",
+        "Parent resource center (PDFs, menus, calendars — client provides content)",
+        "Video integration (client-provided videos)",
+        "Local SEO enhancements (schema markup + additional citations)",
+        "Competitor review with recommendations",
+        "3 rounds of revisions",
+        "60-day priority support"
+      ],
+      "ideal": [
+        "Premium daycare centers",
+        "Multi-location operators",
+        "Businesses committed to market leadership"
+      ],
+      "addons": [
+        "Ongoing website maintenance ($150/month)",
+        "Social media management ($600/month)",
+        "Additional location setup"
+      ],
+      "priceId": "price_1SdJn82fciJPp6HyM42DkAWG"
+    }
+  ],
+  "deliverables": [
+    "Complete audit of current digital presence",
+    "Detailed revamp strategy & timeline",
+    "All source files & brand assets",
+    "Training on how to maintain & update",
+    "Documentation & best practices guide"
+  ],
+  "process": [
+    "Free consultation & needs assessment",
+    "Kickoff call & information gathering",
+    "Design & development with regular updates",
+    "Review & revision rounds",
+    "Launch, training, & ongoing support"
+  ]
+}

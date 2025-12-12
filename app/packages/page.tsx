@@ -2,7 +2,12 @@ import type { Metadata } from 'next';
 import PackageCard from '@/components/PackageCard';
 import ComparisonTable from '@/components/ComparisonTable';
 import CTA from '@/components/CTA';
-import packages from '@/data/packages.json';
+
+import rawData from '@/data/packages.json';
+import type { PackagesJson } from '@/types/package';
+
+// Correctly cast the JSON to your interface
+const pkgData = rawData as PackagesJson;
 
 export const metadata: Metadata = {
   title: 'Packages & Pricing',
@@ -11,11 +16,11 @@ export const metadata: Metadata = {
 };
 
 export default function PackagesPage() {
-  // JSON-LD Schema for Service/Product
+  // JSON-LD Schema
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    itemListElement: packages.map((pkg, index) => ({
+    itemListElement: pkgData.packages.map((pkg, index) => ({
       '@type': 'ListItem',
       position: index + 1,
       item: {
@@ -35,6 +40,7 @@ export default function PackagesPage() {
 
   return (
     <>
+      {/* Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -46,8 +52,8 @@ export default function PackagesPage() {
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="mb-6">Simple, Transparent Pricing</h1>
             <p className="text-xl md:text-2xl text-dark/80 mb-8">
-              Choose the package that fits your daycare's needs and budget. No hidden fees,
-              no surprises—just clear deliverables and fast turnaround.
+              Choose the package that fits your daycare's needs and budget.
+              No hidden fees, no surprises—just clear deliverables and fast turnaround.
             </p>
           </div>
         </div>
@@ -57,7 +63,7 @@ export default function PackagesPage() {
       <section className="section bg-white">
         <div className="container-custom">
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
-            {packages.map((pkg) => (
+            {pkgData.packages.map((pkg) => (
               <PackageCard
                 key={pkg.id}
                 name={pkg.name}
@@ -68,64 +74,40 @@ export default function PackagesPage() {
                 description={pkg.description}
                 features={pkg.features}
                 isPopular={pkg.id === 'growth'}
-                priceId={pkg.priceId}   
+                priceId={pkg.priceId}
               />
             ))}
           </div>
 
-          {/* Additional Details */}
+          {/* Included In Every Package */}
           <div className="max-w-4xl mx-auto">
             <div className="card bg-neutral-100">
               <h3 className="text-2xl mb-6 text-center">What's Included in Every Package</h3>
+
               <div className="grid md:grid-cols-2 gap-6">
+                {/* Deliverables */}
                 <div>
                   <h4 className="font-bold text-lg mb-3 text-primary">Deliverables</h4>
                   <ul className="space-y-2 text-dark/70">
-                    <li className="flex items-start gap-2">
-                      <span className="text-accent">•</span>
-                      Complete audit of current digital presence
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-accent">•</span>
-                      Detailed revamp strategy & timeline
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-accent">•</span>
-                      All source files & brand assets
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-accent">•</span>
-                      Training on how to maintain & update
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-accent">•</span>
-                      Documentation & best practices guide
-                    </li>
+                    {pkgData.deliverables.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="text-accent">•</span>
+                        {item}
+                      </li>
+                    ))}
                   </ul>
                 </div>
+
+                {/* Process */}
                 <div>
                   <h4 className="font-bold text-lg mb-3 text-primary">Our Process</h4>
                   <ul className="space-y-2 text-dark/70">
-                    <li className="flex items-start gap-2">
-                      <span className="text-accent">1.</span>
-                      Free consultation & needs assessment
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-accent">2.</span>
-                      Kickoff call & information gathering
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-accent">3.</span>
-                      Design & development with regular updates
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-accent">4.</span>
-                      Review & revision rounds
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-accent">5.</span>
-                      Launch, training, & ongoing support
-                    </li>
+                    {pkgData.process.map((step, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="text-accent">{i + 1}.</span>
+                        {step}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -136,7 +118,7 @@ export default function PackagesPage() {
 
       <ComparisonTable />
 
-      {/* Add-ons Section */}
+      {/* Add-ons */}
       <section className="section bg-neutral">
         <div className="container-custom">
           <div className="text-center mb-12">
@@ -146,9 +128,7 @@ export default function PackagesPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {/* Add-ons cards left the same */}
-          </div>
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto"></div>
         </div>
       </section>
 
