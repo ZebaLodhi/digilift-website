@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import type { CSSProperties } from 'react';
+import Image from 'next/image'
+import type { CSSProperties } from 'react'
 
 export default function Hero() {
   return (
@@ -45,62 +45,56 @@ export default function Hero() {
       {/* ================= CONTENT ================= */}
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <div className="min-h-[60vh] flex items-center">
-          <div className="max-w-xl lg:max-w-2xl">
+          <div className="max-w-xl lg:max-w-2xl relative">
 
             {/* Visible headline */}
-            <h2
-              className="
-                text-slate-900
-                text-4xl sm:text-5xl md:text-6xl lg:text-7xl
-                font-extrabold
-                leading-tight
-                tracking-tight
-                relative z-30
-              "
-            >
+            <h2 className="text-slate-900 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight relative z-20">
               "Making your <span className="text-[#00C2A8]">daycare</span> the talk of the playground."
             </h2>
 
             {/* Services */}
-            <p className="mt-8 text-lg md:text-xl text-slate-800 font-semibold relative z-30">
+            <p className="mt-8 text-lg md:text-xl text-slate-800 font-semibold relative z-20">
               Website <span className="mx-2 text-[#00C2A8] font-bold">+</span>
               Branding <span className="mx-2 text-[#00C2A8] font-bold">+</span>
               Google Business Profile <span className="mx-2 text-[#00C2A8] font-bold">+</span>
               AI Chatbot
             </p>
-
-            {/* ================= MOBILE MASCOT (SAME SIZE + ANIMATION) ================= */}
-            <div className="relative mt-12 flex justify-center md:hidden">
-              <div
-                className="mascot-bounce"
-                style={
-                  {
-                    ['--mascot-w' as any]: '240px',
-                    ['--mascot-top' as any]: '0%',
-                    ['--fly-dur' as any]: '6s',
-                  } as CSSProperties
-                }
-              >
-                <Image
-                  src="/brand/digilift-mascot.png"
-                  alt=""
-                  role="presentation"
-                  width={240}
-                  height={140}
-                  priority
-                  className="
-                    w-40 sm:w-48
-                    h-auto
-                    animate-float
-                    mascot-shadow
-                  "
-                />
-              </div>
-            </div>
-
           </div>
         </div>
       </div>
+
+      {/* ================= MOBILE MASCOT (FRONT + EDGE BOUNCE) ================= */}
+      <div
+        className="absolute inset-0 pointer-events-none md:hidden z-40"
+        aria-hidden="true"
+      >
+        <div
+          className="mascot-bounce"
+          style={
+            {
+              ['--mascot-w' as any]: '240px',
+              ['--mascot-top' as any]: '10%',
+              ['--fly-dur' as any]: '6s',
+            } as CSSProperties
+          }
+        >
+          <Image
+            src="/brand/digilift-mascot.png"
+            alt=""
+            role="presentation"
+            width={240}
+            height={140}
+            priority
+            className="
+              w-40 sm:w-48
+              h-auto
+              animate-float
+              mascot-shadow
+            "
+          />
+        </div>
+      </div>
+
     </section>
-  );
+  )
 }
