@@ -6,8 +6,16 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-[#FFF6EA] pt-24 pb-20 md:pt-32 md:pb-24">
 
-      {/* ⭐ MASCOT — FOREGROUND */}
-      <div className="absolute inset-0 pointer-events-none z-20" aria-hidden="true">
+      {/* ================= SEO H1 (GOOGLE ONLY) ================= */}
+      <h1 className="sr-only">
+        Daycare Website Design & Digital Marketing for Childcare Centers
+      </h1>
+
+      {/* ================= DESKTOP MASCOT (UNCHANGED) ================= */}
+      <div
+        className="absolute inset-0 pointer-events-none z-20 hidden md:block"
+        aria-hidden="true"
+      >
         <div
           className="mascot-bounce"
           style={
@@ -35,14 +43,13 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ⭐ CONTENT */}
+      {/* ================= CONTENT ================= */}
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <div className="min-h-[60vh] flex items-center">
-
           <div className="max-w-xl lg:max-w-2xl">
 
-            {/* ⭐ HERO TITLE (BIGGER ON MOBILE) */}
-            <h1
+            {/* Visible headline (brand-led, unchanged visually) */}
+            <h2
               className="
                 text-slate-900
                 text-4xl sm:text-5xl md:text-6xl lg:text-7xl
@@ -53,9 +60,9 @@ export default function Hero() {
               "
             >
               "Making your <span className="text-[#00C2A8]">daycare</span> the talk of the playground."
-            </h1>
+            </h2>
 
-            {/* ⭐ SERVICES — NOW BOLD */}
+            {/* SERVICES */}
             <p className="mt-8 text-lg md:text-xl text-slate-800 font-semibold relative z-30">
               Website <span className="mx-2 text-[#00C2A8] font-bold">+</span>
               Branding <span className="mx-2 text-[#00C2A8] font-bold">+</span>
@@ -63,11 +70,21 @@ export default function Hero() {
               AI Chatbot
             </p>
 
-          </div>
+            {/* ================= MOBILE MASCOT (BELOW TEXT) ================= */}
+            <div className="mt-10 flex justify-center md:hidden">
+              <Image
+                src="/brand/digilift-mascot.png"
+                alt="DigiLift daycare mascot"
+                width={220}
+                height={130}
+                className="h-auto"
+                priority
+              />
+            </div>
 
+          </div>
         </div>
       </div>
-
     </section>
   );
 }
