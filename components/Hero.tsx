@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import type { CSSProperties } from 'react';
 
@@ -48,7 +47,7 @@ export default function Hero() {
         <div className="min-h-[60vh] flex items-center">
           <div className="max-w-xl lg:max-w-2xl">
 
-            {/* Visible headline (brand-led, unchanged visually) */}
+            {/* Visible headline */}
             <h2
               className="
                 text-slate-900
@@ -62,7 +61,7 @@ export default function Hero() {
               "Making your <span className="text-[#00C2A8]">daycare</span> the talk of the playground."
             </h2>
 
-            {/* SERVICES */}
+            {/* Services */}
             <p className="mt-8 text-lg md:text-xl text-slate-800 font-semibold relative z-30">
               Website <span className="mx-2 text-[#00C2A8] font-bold">+</span>
               Branding <span className="mx-2 text-[#00C2A8] font-bold">+</span>
@@ -70,16 +69,33 @@ export default function Hero() {
               AI Chatbot
             </p>
 
-            {/* ================= MOBILE MASCOT (BELOW TEXT) ================= */}
-            <div className="mt-10 flex justify-center md:hidden">
-              <Image
-                src="/brand/digilift-mascot.png"
-                alt="DigiLift daycare mascot"
-                width={220}
-                height={130}
-                className="h-auto"
-                priority
-              />
+            {/* ================= MOBILE MASCOT (SAME SIZE + ANIMATION) ================= */}
+            <div className="relative mt-12 flex justify-center md:hidden">
+              <div
+                className="mascot-bounce"
+                style={
+                  {
+                    ['--mascot-w' as any]: '240px',
+                    ['--mascot-top' as any]: '0%',
+                    ['--fly-dur' as any]: '6s',
+                  } as CSSProperties
+                }
+              >
+                <Image
+                  src="/brand/digilift-mascot.png"
+                  alt=""
+                  role="presentation"
+                  width={240}
+                  height={140}
+                  priority
+                  className="
+                    w-40 sm:w-48
+                    h-auto
+                    animate-float
+                    mascot-shadow
+                  "
+                />
+              </div>
             </div>
 
           </div>
