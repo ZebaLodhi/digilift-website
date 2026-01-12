@@ -4,7 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://digilift-daycare.com'),
+  metadataBase: new URL('https://digilift.ai'),
 
   title: {
     default: 'DigiLift for Daycare - Digitally Uplifting Local Daycares',
@@ -32,14 +32,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://digilift-daycare.com',
+    url: 'https://digilift.ai',
     siteName: 'DigiLift for Daycare',
     title: 'DigiLift for Daycare - Digitally Uplifting Local Daycares',
     description:
       'Transform your daycare with professional branding, modern websites, and Google Business Profile optimization. Increase enrollment and build trust with parents.',
     images: [
       {
-        url: 'https://digilift-daycare.com/og-facebook-v2.jpg',
+        url: 'https://digilift.ai/og-facebook-v2.jpg',
         width: 1200,
         height: 630,
         alt: 'DigiLift for Daycare',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     title: 'DigiLift for Daycare - Digitally Uplifting Local Daycares',
     description:
       'Transform your daycare with professional branding, modern websites, and Google Business Profile optimization.',
-    images: ['https://digilift-daycare.com/og-facebook-v2.jpg'],
+    images: ['https://digilift.ai/og-facebook-v2.jpg'],
     creator: '@digiliftdaycare',
   },
 

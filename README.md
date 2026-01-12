@@ -272,7 +272,7 @@ The project uses system fonts by default. To add custom fonts:
 
 ### Update Base URL
 
-Replace `https://digilift-daycare.com` with your actual domain in:
+The domain is configured as `https://digilift.ai` in:
 
 - `/app/layout.tsx` (metadata base URL)
 - `/app/sitemap.ts`

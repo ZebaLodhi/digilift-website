@@ -373,7 +373,7 @@ See [.env.example](.env.example) for template.
 
 Before launching:
 
-- [ ] Update domain URLs in all files (search for `digilift-daycare.com`)
+- [x] Update domain URLs in all files (configured as `digilift.ai`)
 - [ ] Add `favicon.ico` to `/public`
 - [ ] Add `og-image.png` to `/public`
 - [ ] Configure Google Analytics in `app/layout.tsx`

@@ -98,7 +98,7 @@ Add these files to `/public`:
 
 ## 7. Update SEO Settings
 
-Find and replace `https://digilift-daycare.com` with your actual domain in:
+The domain is configured as `https://digilift.ai` in:
 
 - `app/layout.tsx`
 - `app/sitemap.ts`

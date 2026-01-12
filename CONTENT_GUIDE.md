@@ -151,7 +151,7 @@ If you break something:
 Search for these lines and update:
 
 ```typescript
-hello@digilift-daycare.com  // Your email
+hello@digilift.ai  // Your email
 (555) 123-4567             // Your phone
 ```
 

@@ -32,7 +32,7 @@ export default function PackagesPage() {
           price: pkg.price.replace('$', '').replace(',', ''),
           priceCurrency: 'USD',
           availability: 'https://schema.org/InStock',
-          url: `https://digilift-daycare.com/packages#${pkg.id}`,
+          url: `https://digilift.ai/packages#${pkg.id}`,
         },
       },
     })),
