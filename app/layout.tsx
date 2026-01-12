@@ -5,12 +5,15 @@ import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://digilift-daycare.com'),
+
   title: {
     default: 'DigiLift for Daycare - Digitally Uplifting Local Daycares',
     template: '%s | DigiLift for Daycare',
   },
+
   description:
-    'Transform your daycare\'s digital presence with our complete revamp service. Google Business Profile optimization, modern websites, brand refresh, and online booking systems to fill more seats and build parent trust.',
+    "Transform your daycare's digital presence with our complete revamp service. Google Business Profile optimization, modern websites, brand refresh, and online booking systems to fill more seats and build parent trust.",
+
   keywords: [
     'daycare marketing',
     'daycare website',
@@ -21,9 +24,11 @@ export const metadata: Metadata = {
     'online booking for daycares',
     'daycare digital marketing',
   ],
+
   authors: [{ name: 'DigiLift for Daycare' }],
   creator: 'DigiLift for Daycare',
   publisher: 'DigiLift for Daycare',
+
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -34,21 +39,23 @@ export const metadata: Metadata = {
       'Transform your daycare with professional branding, modern websites, and Google Business Profile optimization. Increase enrollment and build trust with parents.',
     images: [
       {
-        url: '/og-image.png',
+        url: 'https://digilift-daycare.com/og-facebook-v2.jpg',
         width: 1200,
         height: 630,
         alt: 'DigiLift for Daycare',
       },
     ],
   },
+
   twitter: {
     card: 'summary_large_image',
     title: 'DigiLift for Daycare - Digitally Uplifting Local Daycares',
     description:
       'Transform your daycare with professional branding, modern websites, and Google Business Profile optimization.',
-    images: ['/og-image.png'],
+    images: ['https://digilift-daycare.com/og-facebook-v2.jpg'],
     creator: '@digiliftdaycare',
   },
+
   robots: {
     index: true,
     follow: true,
@@ -60,8 +67,14 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+
   icons: {
     icon: '/favicon.ico',
+  },
+
+  // 🔴 IMPORTANT: Helps Facebook Messenger previews
+  other: {
+    'fb:app_id': '966242223397117',
   },
 };
 
@@ -73,8 +86,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Google Analytics - Replace with your GA4 measurement ID */}
-        {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+        {/* Google Analytics (optional) */}
+        {/*
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -84,7 +98,8 @@ export default function RootLayout({
               gtag('config', 'G-XXXXXXXXXX');
             `,
           }}
-        /> */}
+        />
+        */}
       </head>
       <body>
         <Navbar />
