@@ -6,26 +6,43 @@ import ValueProps from "@/components/ValueProps";
 // import Testimonials from "@/components/Testimonials"; // Hidden for now
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
-import faqData from "@/data/faq.json";
 import Chatbot from "@/components/Chatbot";
+import faqData from "@/data/faq.json";
 
 /* =========================
-   SEO METADATA (CRITICAL)
+   SEO + OPEN GRAPH METADATA
    ========================= */
 export const metadata: Metadata = {
-  title: "Daycare Website Design & Digital Marketing | DigiLift",
+  title: "Daycare Website Design & Digital Marketing",
   description:
-    "DigiLift helps daycare centers get found on Google, build parent trust, and book more tours through professional website design and digital marketing.",
-  keywords: [
-    "daycare website design",
-    "daycare digital marketing",
-    "childcare website design",
-    "daycare marketing services",
-    "daycare Google SEO",
-    "DigiLift",
-  ],
+    "DigiLift helps home-based and local daycare centers increase enrollment through professional website design, Google Business Profile optimization, and digital marketing built for parents.",
+
   alternates: {
     canonical: "https://digilift.ai/",
+  },
+
+  openGraph: {
+    type: "website",
+    url: "https://digilift.ai/",
+    title: "Daycare Website Design & Digital Marketing | DigiLift",
+    description:
+      "Professional website design and digital marketing for daycare centers. Get found on Google, build parent trust, and book more tours.",
+    images: [
+      {
+        url: "https://digilift.ai/og-facebook-v2.jpg",
+        width: 1200,
+        height: 630,
+        alt: "DigiLift – Daycare Website Design & Digital Marketing",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Daycare Website Design & Digital Marketing | DigiLift",
+    description:
+      "Enrollment-focused marketing for home-based and local daycare centers.",
+    images: ["https://digilift.ai/og-facebook-v2.jpg"],
   },
 };
 
@@ -34,15 +51,15 @@ export const metadata: Metadata = {
    ========================= */
 export default function Home() {
   /* ---------- Business Schema ---------- */
-  const jsonLd = {
+  const businessSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    name: "DigiLift",
+    name: "DigiLift for Daycare",
     description:
-      "Website design and digital marketing services built specifically for daycare centers and childcare providers.",
-    url: "https://digilift.ai",
+      "Website design and digital marketing services built specifically for home-based and local daycare centers.",
+    url: "https://digilift.ai/",
     logo: "https://digilift.ai/logo.png",
-    image: "https://digilift.ai/og-image.png",
+    image: "https://digilift.ai/og-facebook-v2.jpg",
     areaServed: {
       "@type": "Country",
       name: "United States",
@@ -51,39 +68,40 @@ export default function Home() {
       "Daycare Website Design",
       "Daycare Digital Marketing",
       "Google Business Profile Optimization",
+      "Daycare SEO",
     ],
   };
 
-  /* ---------- HERO FAQ SCHEMA (GOOGLE ONLY) ---------- */
+  /* ---------- HERO FAQ SCHEMA ---------- */
   const heroFaqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": [
+    mainEntity: [
       {
         "@type": "Question",
-        "name": "Do you work with small daycare centers?",
-        "acceptedAnswer": {
+        name: "Do you work with small or home-based daycares?",
+        acceptedAnswer: {
           "@type": "Answer",
-          "text":
-            "Yes. DigiLift works with home daycares, single-location centers, and growing childcare businesses across the United States.",
+          text:
+            "Yes. DigiLift works with home-based daycares, single-location centers, and growing childcare businesses across the United States.",
         },
       },
       {
         "@type": "Question",
-        "name": "What services does DigiLift provide?",
-        "acceptedAnswer": {
+        name: "What services does DigiLift provide?",
+        acceptedAnswer: {
           "@type": "Answer",
-          "text":
-            "DigiLift provides daycare website design, Google Business Profile optimization, branding, and AI chatbots that help parents book tours.",
+          text:
+            "DigiLift provides daycare website design, Google Business Profile optimization, branding, and automated tools that help parents book tours.",
         },
       },
       {
         "@type": "Question",
-        "name": "How quickly can my daycare see results?",
-        "acceptedAnswer": {
+        name: "How quickly can my daycare see results?",
+        acceptedAnswer: {
           "@type": "Answer",
-          "text":
-            "Most daycare owners see improved visibility and increased parent inquiries within weeks of launching their DigiLift system.",
+          text:
+            "Most daycare owners see improved Google visibility and increased parent inquiries within weeks of launching their DigiLift system.",
         },
       },
     ],
@@ -96,26 +114,22 @@ export default function Home() {
          ========================= */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
       />
-
-      {/* =========================
-          HERO FAQ SCHEMA (INVISIBLE)
-         ========================= */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(heroFaqSchema) }}
       />
 
       {/* =========================
-          SEO INTRO (HIDDEN VISUALLY, READ BY GOOGLE)
+          SEO INTRO (INVISIBLE)
          ========================= */}
       <section className="sr-only">
-        <h1>Daycare Website Design & Digital Marketing for Childcare Centers</h1>
+        <h1>Daycare Website Design & Digital Marketing</h1>
         <p>
-          DigiLift helps daycare centers attract families, rank on Google, and
-          book more tours through professional website design and proven digital
-          marketing strategies.
+          DigiLift helps home-based and local daycare centers increase enrollment,
+          rank on Google, and book more tours through professional website design
+          and childcare-focused digital marketing.
         </p>
       </section>
 
@@ -125,7 +139,7 @@ export default function Home() {
       <Hero />
 
       {/* =========================
-          VALUE PROPS
+          VALUE PROPOSITIONS
          ========================= */}
       <ValueProps />
 
@@ -153,11 +167,11 @@ export default function Home() {
               <ul className="space-y-4">
                 {[
                   "Low visibility on Google search results",
-                  "Outdated or no daycare website",
-                  "Weak branding that doesn't build parent trust",
+                  "Outdated or missing daycare website",
+                  "Weak branding that doesn’t build trust",
                   "Manual tour scheduling and missed inquiries",
                   "Few or outdated online reviews",
-                  "No insight into website or marketing performance",
+                  "No insight into marketing performance",
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <span className="text-red-500 mt-1">✕</span>

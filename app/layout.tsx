@@ -8,22 +8,22 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://digilift.ai'),
 
   title: {
-    default: 'DigiLift for Daycare - Digitally Uplifting Local Daycares',
+    default: 'DigiLift for Daycare – Digitally Uplifting Local Daycares',
     template: '%s | DigiLift for Daycare',
   },
 
   description:
-    "Transform your daycare's digital presence with our complete revamp service. Google Business Profile optimization, modern websites, brand refresh, and online booking systems to fill more seats and build parent trust.",
+    "Transform your daycare's digital presence with professional branding, modern websites, Google Business Profile optimization, and enrollment-focused marketing that builds parent trust.",
 
   keywords: [
     'daycare marketing',
-    'daycare website',
-    'Google Business Profile',
-    'daycare branding',
-    'childcare marketing',
+    'daycare website design',
+    'home daycare marketing',
+    'childcare digital marketing',
+    'Google Business Profile for daycares',
     'daycare SEO',
-    'online booking for daycares',
-    'daycare digital marketing',
+    'daycare branding',
+    'daycare enrollment marketing',
   ],
 
   authors: [{ name: 'DigiLift for Daycare' }],
@@ -33,28 +33,29 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://digilift.ai',
+    url: 'https://digilift.ai/',
     siteName: 'DigiLift for Daycare',
-    title: 'DigiLift for Daycare - Digitally Uplifting Local Daycares',
+    title: 'DigiLift for Daycare – Digitally Uplifting Local Daycares',
     description:
-      'Transform your daycare with professional branding, modern websites, and Google Business Profile optimization. Increase enrollment and build trust with parents.',
+      'We help home-based and local daycares increase enrollment through professional branding, modern websites, and Google Business Profile optimization.',
     images: [
       {
         url: 'https://digilift.ai/og-facebook-v2.jpg',
         width: 1200,
         height: 630,
-        alt: 'DigiLift for Daycare',
+        alt: 'DigiLift for Daycare – Marketing for Home-Based Daycares',
       },
     ],
   },
 
   twitter: {
     card: 'summary_large_image',
-    title: 'DigiLift for Daycare - Digitally Uplifting Local Daycares',
-    description:
-      'Transform your daycare with professional branding, modern websites, and Google Business Profile optimization.',
-    images: ['https://digilift.ai/og-facebook-v2.jpg'],
+    site: '@digiliftdaycare',
     creator: '@digiliftdaycare',
+    title: 'DigiLift for Daycare – Digitally Uplifting Local Daycares',
+    description:
+      'Enrollment-focused marketing for home-based and local daycares.',
+    images: ['https://digilift.ai/og-facebook-v2.jpg'],
   },
 
   robots: {
@@ -71,9 +72,10 @@ export const metadata: Metadata = {
 
   icons: {
     icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
 
-  // 🔴 IMPORTANT: Helps Facebook Messenger previews
+  // Helps Facebook, Instagram, Messenger ecosystem
   other: {
     'fb:app_id': '966242223397117',
   },
@@ -86,28 +88,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        {/* Google Analytics (optional) */}
-        {/*
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-XXXXXXXXXX');
-            `,
-          }}
-        />
-        */}
-      </head>
       <body>
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
-
-        {/* ✅ Vercel Analytics */}
         <Analytics />
       </body>
     </html>
