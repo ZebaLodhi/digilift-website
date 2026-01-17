@@ -8,18 +8,18 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://digilift.ai'),
 
   title: {
-    default: 'DigiLift for Daycare – Digitally Uplifting Local Daycares',
+    default: 'Daycare Website Design & Marketing | DigiLift for Daycare',
     template: '%s | DigiLift for Daycare',
   },
 
   description:
-    "Transform your daycare's digital presence with professional branding, modern websites, Google Business Profile optimization, and enrollment-focused marketing that builds parent trust.",
+    'DigiLift for Daycare helps home-based and local daycare centers increase enrollment through professional website design, Google Business Profile optimization, and parent-focused digital marketing.',
 
   keywords: [
-    'daycare marketing',
     'daycare website design',
+    'daycare marketing',
     'home daycare marketing',
-    'childcare digital marketing',
+    'childcare website design',
     'Google Business Profile for daycares',
     'daycare SEO',
     'daycare branding',
@@ -35,15 +35,15 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://digilift.ai/',
     siteName: 'DigiLift for Daycare',
-    title: 'DigiLift for Daycare – Digitally Uplifting Local Daycares',
+    title: 'Daycare Website Design & Marketing | DigiLift for Daycare',
     description:
-      'We help home-based and local daycares increase enrollment through professional branding, modern websites, and Google Business Profile optimization.',
+      'Enrollment-focused website design and digital marketing built specifically for home-based and local daycare centers.',
     images: [
       {
         url: 'https://digilift.ai/og-facebook-v2.jpg',
         width: 1200,
         height: 630,
-        alt: 'DigiLift for Daycare – Marketing for Home-Based Daycares',
+        alt: 'DigiLift for Daycare – Daycare Website Design & Marketing',
       },
     ],
   },
@@ -52,9 +52,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@digiliftdaycare',
     creator: '@digiliftdaycare',
-    title: 'DigiLift for Daycare – Digitally Uplifting Local Daycares',
+    title: 'DigiLift for Daycare – Daycare Website Design & Marketing',
     description:
-      'Enrollment-focused marketing for home-based and local daycares.',
+      'Enrollment-focused marketing and websites for home-based and local daycares.',
     images: ['https://digilift.ai/og-facebook-v2.jpg'],
   },
 
@@ -75,7 +75,6 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
 
-  // Helps Facebook, Instagram, Messenger ecosystem
   other: {
     'fb:app_id': '966242223397117',
   },
