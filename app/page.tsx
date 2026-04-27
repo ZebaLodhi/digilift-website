@@ -50,7 +50,6 @@ export const metadata: Metadata = {
    ========================= */
 export default function Home() {
 
-  /* ---------- Business Schema ---------- */
   const businessSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
@@ -72,7 +71,6 @@ export default function Home() {
     ],
   };
 
-  /* ---------- FAQ Schema ---------- */
   const heroFaqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -227,20 +225,20 @@ export default function Home() {
 
               <h3 className="text-2xl font-bold mb-2">Seeds Academy</h3>
               <p className="text-dark/60 text-sm mb-6">
-                Early childhood education center — Summer Camp 2026 enrollment campaign
+                Early childhood education center — Summer Camp 2026 & School Year 2026–2027 enrollment campaigns
               </p>
 
               <p className="text-dark/70 leading-relaxed mb-8">
-                Created a school enrollment lead funnel using Meta Lead Ads, instant
+                Created two enrollment lead funnels using Meta Lead Ads, instant
                 form qualification, Google Sheets routing, and automated follow-up
                 workflows to improve lead quality and reduce manual tracking.
               </p>
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
                 {[
-                  { label: "Leads Generated", value: "In progress" },
-                  { label: "Cost Per Lead", value: "In progress" },
-                  { label: "Lead Qualification", value: "In progress" },
+                  { label: "Summer Camp Leads", value: "13" },
+                  { label: "School Year Leads", value: "1" },
+                  { label: "Total Leads", value: "14" },
                   { label: "Tools Used", value: "Meta · Sheets · Make.com · AI" },
                 ].map((stat, i) => (
                   <div key={i} className="text-center">
