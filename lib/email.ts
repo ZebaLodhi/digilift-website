@@ -1,66 +1,9 @@
 import { BookingFormData } from './validators';
 
-/**
- * Email sending stub - integrate with your preferred email service
- *
- * OPTION 1: Resend (recommended - https://resend.com)
- *
- * 1. Install: npm install resend
- * 2. Add to .env.local: RESEND_API_KEY=re_xxxxxxxxxxxx
- * 3. Uncomment and configure below:
- *
- * import { Resend } from 'resend';
- * const resend = new Resend(process.env.RESEND_API_KEY);
- *
- * export async function sendBookingEmail(data: BookingFormData) {
- *   await resend.emails.send({
- *     from: 'DigiLift <noreply@yourdomain.com>',
- *     to: ['bookings@yourdomain.com'],
- *     replyTo: data.email,
- *     subject: `New Booking Request from ${data.name} - ${data.daycareName}`,
- *     html: generateEmailHTML(data),
- *   });
- * }
- *
- *
- * OPTION 2: SendGrid (https://sendgrid.com)
- *
- * 1. Install: npm install @sendgrid/mail
- * 2. Add to .env.local: SENDGRID_API_KEY=SG.xxxxxxxxxxxx
- * 3. Uncomment and configure below:
- *
- * import sgMail from '@sendgrid/mail';
- * sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
- *
- * export async function sendBookingEmail(data: BookingFormData) {
- *   await sgMail.send({
- *     from: 'noreply@yourdomain.com',
- *     to: 'bookings@yourdomain.com',
- *     replyTo: data.email,
- *     subject: `New Booking Request from ${data.name} - ${data.daycareName}`,
- *     html: generateEmailHTML(data),
- *   });
- * }
- *
- *
- * OPTION 3: Nodemailer (for custom SMTP)
- *
- * 1. Install: npm install nodemailer
- * 2. Configure with your SMTP credentials
- */
-
 export async function sendBookingEmail(data: BookingFormData): Promise<void> {
-  // TODO: Implement email sending with your preferred service
-  // For now, this is a stub that simulates sending
-
-  console.log('📧 Email sending stub - Booking request received:');
+  console.log('Email sending stub - Booking request received:');
   console.log(JSON.stringify(data, null, 2));
-
-  // Simulate email delay
   await new Promise(resolve => setTimeout(resolve, 500));
-
-  // In production, uncomment one of the implementations above
-  // and remove this stub
 }
 
 function generateEmailHTML(data: BookingFormData): string {
@@ -82,8 +25,8 @@ function generateEmailHTML(data: BookingFormData): string {
       <body>
         <div class="container">
           <div class="header">
-            <h1>New Booking Request</h1>
-            <p>DigiLift for Daycare</p>
+            <h1>New Growth Automation Audit Request</h1>
+            <p>DigiLift AI</p>
           </div>
 
           <div class="content">
@@ -93,8 +36,13 @@ function generateEmailHTML(data: BookingFormData): string {
             </div>
 
             <div class="field">
-              <div class="label">Daycare Name:</div>
-              <div class="value">${data.daycareName}</div>
+              <div class="label">Business Name:</div>
+              <div class="value">${data.businessName}</div>
+            </div>
+
+            <div class="field">
+              <div class="label">Business Type:</div>
+              <div class="value">${data.businessType}</div>
             </div>
 
             <div class="field">
@@ -118,9 +66,21 @@ function generateEmailHTML(data: BookingFormData): string {
             </div>
 
             <div class="field">
-              <div class="label">Services Interested In:</div>
-              <div class="value">${data.servicesInterested.join(', ')}</div>
+              <div class="label">Current Lead Volume:</div>
+              <div class="value">${data.leadVolume}</div>
             </div>
+
+            <div class="field">
+              <div class="label">Biggest Challenges:</div>
+              <div class="value">${(data.challenges || []).join(', ')}</div>
+            </div>
+
+            ${data.currentTools ? `
+            <div class="field">
+              <div class="label">Current Tools:</div>
+              <div class="value">${data.currentTools}</div>
+            </div>
+            ` : ''}
 
             ${data.currentWebsite ? `
             <div class="field">
@@ -129,17 +89,17 @@ function generateEmailHTML(data: BookingFormData): string {
             </div>
             ` : ''}
 
-            ${data.currentGBP ? `
-            <div class="field">
-              <div class="label">Current Google Business Profile:</div>
-              <div class="value"><a href="${data.currentGBP}" target="_blank">${data.currentGBP}</a></div>
-            </div>
-            ` : ''}
-
             <div class="field">
               <div class="label">Timeline:</div>
               <div class="value">${formatTimeline(data.timeline)}</div>
             </div>
+
+            ${data.howHeard ? `
+            <div class="field">
+              <div class="label">How They Heard About Us:</div>
+              <div class="value">${data.howHeard}</div>
+            </div>
+            ` : ''}
 
             ${data.message ? `
             <div class="field">
@@ -150,8 +110,8 @@ function generateEmailHTML(data: BookingFormData): string {
           </div>
 
           <div class="footer">
-            <p>This booking request was submitted via the DigiLift for Daycare website.</p>
-            <p>Please respond within 24 hours to maintain excellent customer service.</p>
+            <p>This booking request was submitted via DigiLift.ai</p>
+            <p>Please respond within 24 hours.</p>
           </div>
         </div>
       </body>
