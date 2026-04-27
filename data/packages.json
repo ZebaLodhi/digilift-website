@@ -1,0 +1,86 @@
+{
+  "packages": [
+    {
+      "id": "audit",
+      "name": "Growth Intelligence Audit",
+      "tagline": "Find Out Exactly Where You're Losing Leads",
+      "price": "$1,497",
+      "priceNote": "one-time",
+      "turnaround": "5–7 business days",
+      "description": "A senior-level review of your entire lead generation and follow-up system. You leave with a clear, prioritized action plan — not a generic report.",
+      "features": [
+        "Full audit of your ads, forms, and landing pages",
+        "Follow-up process and response time assessment",
+        "Automation gap and tool stack review",
+        "Lead quality and qualification analysis",
+        "Funnel drop-off identification",
+        "Written Growth Roadmap with prioritized next steps",
+        "60-minute strategy call to walk through findings"
+      ],
+      "isPopular": false,
+      "priceId": "",
+      "cta": "Pay via Stripe",
+      "guarantee": "If you don't walk away with at least 3 actionable improvements, we'll refund you."
+    },
+    {
+      "id": "funnel",
+      "name": "Booked Appointment Engine",
+      "tagline": "A Complete System From First Click to Confirmed Appointment",
+      "price": "$2,997",
+      "priceNote": "one-time",
+      "turnaround": "2–3 weeks",
+      "description": "We build your entire lead-to-booking system — ads, qualification, automation, routing, and follow-up — so inquiries convert into appointments without manual effort.",
+      "features": [
+        "Meta Lead Ads campaign strategy and setup",
+        "Landing page build or optimization for your lead funnel",
+        "Lead form with multi-step qualification logic",
+        "Google Sheets or CRM lead routing and tagging",
+        "Automated email and SMS follow-up sequences",
+        "Missed lead recovery workflow",
+        "Appointment and tour confirmation automation",
+        "Lead quality reporting dashboard",
+        "30-day post-launch optimization support"
+      ],
+      "isPopular": true,
+      "priceId": "",
+      "cta": "Pay via Stripe",
+      "guarantee": "We build until it works. Includes revisions through the first 30 days."
+    },
+    {
+      "id": "partner",
+      "name": "Fractional Growth Partner",
+      "tagline": "Senior Growth Expertise Without a Full-Time Hire",
+      "price": "$1,495",
+      "priceNote": "per month",
+      "turnaround": "Ongoing",
+      "description": "Ongoing strategy, optimization, and execution from a dedicated growth partner. We run your lead system, improve performance month over month, and report on what actually matters.",
+      "features": [
+        "Dedicated growth partner — not an account manager",
+        "Monthly campaign and funnel performance review",
+        "Continuous automation workflow improvements",
+        "Cost-per-lead and lead quality tracking",
+        "Funnel drop-off analysis and optimization",
+        "New workflow builds as your business grows",
+        "Bi-weekly strategy and reporting calls",
+        "Priority support with same-day response"
+      ],
+      "isPopular": false,
+      "priceId": "",
+      "cta": "Pay via Stripe",
+      "guarantee": "Cancel anytime. No long-term contracts required."
+    }
+  ],
+  "deliverables": [
+    "Full documentation of your growth system",
+    "Lead tracking setup via Google Sheets or CRM",
+    "Automation workflow build and testing",
+    "Campaign performance reporting",
+    "Ongoing optimization and support access"
+  ],
+  "process": [
+    "Audit — review your current setup and identify gaps",
+    "Build — create your funnel, workflows, and tracking",
+    "Automate — connect lead sources to follow-up systems",
+    "Optimize — monitor performance and improve over time"
+  ]
+}

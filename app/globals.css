@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================
+   Base styles
+   ========================= */
+@layer base {
+  html { scroll-behavior: smooth; }
+
+  body { @apply bg-neutral text-dark antialiased; }
+
+  h1, h2, h3, h4, h5, h6 { @apply font-bold text-dark; }
+
+  h1 { @apply text-4xl md:text-5xl lg:text-6xl; }
+  h2 { @apply text-3xl md:text-4xl lg:text-5xl; }
+  h3 { @apply text-2xl md:text-3xl; }
+  h4 { @apply text-xl md:text-2xl; }
+
+  p  { @apply text-base md:text-lg leading-relaxed; }
+}
+
+/* =========================
+   Component classes
+   ========================= */
+@layer components {
+  .btn-primary {
+    @apply bg-accent hover:bg-accent-dark text-white font-semibold px-8 py-3 rounded-xl transition-all duration-200 shadow-soft hover:shadow-soft-lg hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply bg-white hover:bg-neutral-100 text-primary border-2 border-primary font-semibold px-8 py-3 rounded-xl transition-all duration-200;
+  }
+
+  .btn-outline {
+    @apply bg-transparent hover:bg-primary text-primary hover:text-white border-2 border-primary font-semibold px-8 py-3 rounded-xl transition-all duration-200;
+  }
+
+  .card { @apply bg-white rounded-2xl shadow-soft p-6 md:p-8; }
+
+  .card-hover { @apply card hover:shadow-soft-lg transition-all duration-300 hover:-translate-y-1; }
+
+  .section { @apply py-16 md:py-24; }
+
+  .container-custom { @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl; }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border-2 border-neutral-300 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all;
+  }
+
+  .input-error { @apply border-red-500 focus:border-red-500 focus:ring-red-500/20; }
+
+  .label { @apply block text-sm font-semibold text-dark mb-2; }
+
+  .error-message { @apply text-red-600 text-sm mt-1; }
+}
+
+/* =========================
+   Utilities (animations & effects)
+   ========================= */
+@layer utilities {
+  /* Gentle bob */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-120px); }
+  }
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  /* Entry fade */
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in { animation: fade-in .8s ease-out both; }
+
+  /* Subtle depth for PNG */
+  .mascot-shadow { filter: drop-shadow(0 14px 28px rgba(0,0,0,.18)); }
+
+  /* ---------------------------------
+     A) Bounce within frame (left <-> right)
+     Uses viewport width and mascot width var
+     so it hits both edges cleanly.
+     Use with: class="mascot-bounce"
+     Alias: .mascot-loop
+     --------------------------------- */
+  @keyframes fly-bounce {
+    0% {
+      transform: translateX(0) rotate(-8deg);
+    }
+    100% {
+      /* Move from the left edge to the right edge,
+         subtracting mascot width so its right side
+         touches the boundary */
+      transform: translateX(calc(110vw - var(--mascot-w, 140px))) rotate(4deg);
+    }
+  }
+
+  .mascot-bounce,
+  .mascot-loop { /* alias for older snippets */
+    position: absolute;
+    top: var(--mascot-top, 18%);
+    left: 0;
+    width: var(--mascot-w, 140px);
+    animation: fly-bounce var(--fly-dur, 20s) ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  /* ---------------------------------
+     B) Optional motion-path glide (Bald-style)
+     Use with: class="mascot-fly"
+     --------------------------------- */
+  @keyframes pathMove { to { offset-distance: 100%; } }
+
+  /* Default/mobile arc */
+  .mascot-fly {
+    position: absolute;
+    offset-path: path('M -60 180 C 120 80, 240 120, 360 160 S 620 160, 760 180');
+    offset-rotate: auto 6deg;
+    animation: pathMove 16s linear infinite;
+    will-change: offset-distance, transform;
+  }
+
+  /* Wider/slower arc on md+ */
+  @media (min-width: 768px) {
+    .mascot-fly {
+      offset-path: path('M -120 220 C 160 80, 420 120, 700 180 S 1120 180, 1360 220');
+      animation-duration: 16s;
+    }
+  }
+
+  /* Fallback for browsers without motion-path */
+  @supports not (offset-path: path('M0 0 L10 10')) {
+    @keyframes fly-x {
+      0%   { transform: translateX(-20vw) rotate(-2deg); }
+      50%  { transform: translateX(60vw)  rotate(0deg); }
+      100% { transform: translateX(140vw) rotate(2deg); }
+    }
+    .mascot-fly { animation: fly-x 18s linear infinite; }
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-fade-in,
+  .mascot-shadow,
+  .mascot-bounce,
+  .mascot-loop,
+  .mascot-fly {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "name": "Sarah M.",
+    "role": "Director",
+    "business": "Bright Beginnings Learning Center",
+    "location": "Northern Virginia",
+    "image": "/testimonials/sarah.jpg",
+    "rating": 5,
+    "quote": "Before working with DigiLift, we had no idea which leads were coming from where or why so many inquiries went cold. Now our follow-up is automatic and we can actually see which campaigns are working.",
+    "results": "Improved lead tracking and automated follow-up workflows"
+  },
+  {
+    "id": 2,
+    "name": "Marcus T.",
+    "role": "Owner",
+    "business": "Little Explorers Academy",
+    "location": "Ashburn, VA",
+    "image": "/testimonials/marcus.jpg",
+    "rating": 5,
+    "quote": "The audit alone was worth it. We found out we were losing leads in the follow-up step — not the ads. Once that was fixed, our tour bookings went up without spending more on advertising.",
+    "results": "Identified follow-up gap, increased tour bookings"
+  },
+  {
+    "id": 3,
+    "name": "Priya K.",
+    "role": "Administrator",
+    "business": "Sunflower Child Development Center",
+    "location": "Loudoun County, VA",
+    "image": "/testimonials/priya.jpg",
+    "rating": 5,
+    "quote": "The lead funnel DigiLift built for us routes every inquiry straight into our Google Sheet, sends an automatic follow-up, and flags leads that haven't responded. It saves us hours every week.",
+    "results": "Automated lead routing and follow-up, reduced manual work"
+  },
+  {
+    "id": 4,
+    "name": "Jennifer R.",
+    "role": "Owner",
+    "business": "Stepping Stones Preschool",
+    "location": "Herndon, VA",
+    "image": "/testimonials/jennifer.jpg",
+    "rating": 5,
+    "quote": "I was skeptical about AI tools being relevant to a small preschool. But the system DigiLift set up is practical, not complicated — it just works in the background and makes our enrollment process smoother.",
+    "results": "Streamlined enrollment process, better lead quality"
+  },
+  {
+    "id": 5,
+    "name": "Seeds Academy",
+    "role": "Client",
+    "business": "Seeds Academy",
+    "location": "Ashburn, VA",
+    "image": "/testimonials/seeds.jpg",
+    "rating": 5,
+    "quote": "Case study in progress. Meta Lead Ads campaign launched with instant form qualification, Google Sheets lead routing, and automated follow-up workflows.",
+    "results": "Meta Ads · Google Sheets routing · Automated follow-up · Lead qualification"
+  }
+]

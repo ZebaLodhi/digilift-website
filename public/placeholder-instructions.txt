@@ -1,0 +1,50 @@
+PLACEHOLDER ASSETS NEEDED
+=========================
+
+Please add the following image files to the /public directory:
+
+1. favicon.ico
+   - Size: 32x32 or 16x16 pixels
+   - Format: ICO format
+   - Tool: Use https://favicon.io or https://realfavicongenerator.net
+   - Content: Your "L" logo mark or company initials
+
+2. og-image.png
+   - Size: 1200x630 pixels
+   - Format: PNG or JPG
+   - Tool: Use Canva, Figma, or https://www.opengraph.xyz
+   - Content: Logo + tagline "Digitally Uplifting Local Daycares"
+   - Background: Use your brand colors (#1F3B73, #00C2A8)
+
+Optional but recommended:
+
+3. apple-touch-icon.png
+   - Size: 180x180 pixels
+   - Format: PNG
+   - Content: Logo on colored background
+
+4. testimonials/
+   - Create a folder for testimonial photos
+   - Photos should be square (400x400px minimum)
+   - Professional headshots or business photos
+
+Quick Tips:
+-----------
+- Favicon: Use your LogoMark component as inspiration
+- OG Image: This is what shows when sharing on social media
+- Keep file sizes small (og-image.png < 100KB if possible)
+- Use PNG for logos/icons, JPG for photos
+
+Free Tools:
+-----------
+- Favicon Generator: https://favicon.io
+- OG Image Creator: https://www.opengraph.xyz
+- Design Tool: https://canva.com (free tier)
+- Image Optimizer: https://tinypng.com
+
+After adding images:
+--------------------
+1. Restart your dev server (pnpm dev)
+2. Clear browser cache (Ctrl+Shift+R)
+3. Check that images load correctly
+4. Test social sharing with https://www.opengraph.xyz/url/
