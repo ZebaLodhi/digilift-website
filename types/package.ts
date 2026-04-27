@@ -11,6 +11,9 @@ export interface PackageData {
   notIncluded?: string[];
   addons?: string[];
   priceId: string;
+  isPopular?: boolean;
+  cta?: string;
+  guarantee?: string;
 }
 
 export interface PackagesJson {
