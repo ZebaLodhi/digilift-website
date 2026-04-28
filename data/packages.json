@@ -17,9 +17,20 @@
         "Written Growth Roadmap with prioritized next steps",
         "60-minute strategy call to walk through findings"
       ],
+      "ideal": [
+        "Businesses unsure where leads are being lost",
+        "Teams spending money on ads without clear results",
+        "Owners who want a clear starting point before investing in a full system"
+      ],
+      "notIncluded": [
+        "Ad campaign management",
+        "Automation builds or integrations",
+        "Ongoing support"
+      ],
+      "addons": [],
       "isPopular": false,
       "priceId": "",
-      "cta": "Pay via Stripe",
+      "cta": "Book a Call",
       "guarantee": "If you don't walk away with at least 3 actionable improvements, we'll refund you."
     },
     {
@@ -41,9 +52,23 @@
         "Lead quality reporting dashboard",
         "30-day post-launch optimization support"
       ],
+      "ideal": [
+        "Schools, daycares, and small businesses ready to build a complete lead system",
+        "Businesses currently losing leads due to slow or missing follow-up",
+        "Owners who want automation handling follow-up instead of doing it manually"
+      ],
+      "notIncluded": [
+        "Ongoing monthly management",
+        "Paid ad spend budget"
+      ],
+      "addons": [
+        "Additional automation workflows",
+        "CRM migration and setup",
+        "Extended post-launch support"
+      ],
       "isPopular": true,
       "priceId": "",
-      "cta": "Pay via Stripe",
+      "cta": "Book a Call",
       "guarantee": "We build until it works. Includes revisions through the first 30 days."
     },
     {
@@ -64,9 +89,23 @@
         "Bi-weekly strategy and reporting calls",
         "Priority support with same-day response"
       ],
+      "ideal": [
+        "Businesses with an existing funnel that want continuous improvement",
+        "Owners who want expert oversight without hiring full-time",
+        "Teams that need consistent reporting and optimization month over month"
+      ],
+      "notIncluded": [
+        "Paid ad spend budget",
+        "Third-party tool subscription costs"
+      ],
+      "addons": [
+        "Additional campaign setup",
+        "New landing page builds",
+        "Team training sessions"
+      ],
       "isPopular": false,
       "priceId": "",
-      "cta": "Pay via Stripe",
+      "cta": "Book a Call",
       "guarantee": "Cancel anytime. No long-term contracts required."
     }
   ],

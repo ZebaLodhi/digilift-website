@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -12,20 +11,29 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <Image
-                src="/brand/smalllogo.png"
-                alt="DigiLift AI Logo"
-                width={48}
-                height={48}
-                className="w-12 h-12"
-                priority
-              />
+              {/* SVG Logo Mark */}
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 36 36"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="36" height="36" rx="8" fill="white" fillOpacity="0.15" />
+                <path
+                  d="M10 24L24 10M24 10H14M24 10V20"
+                  stroke="#00C2A8"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
               <div className="flex flex-col">
                 <span className="text-xl font-bold leading-tight">
-                  DigiLift AI
+                  DigiLift<span className="text-[#00C2A8]"> AI</span>
                 </span>
-                <span className="text-sm text-neutral-300">
-                  AI-Powered Growth Systems for Schools & Small Businesses
+                <span className="text-xs text-neutral-300 uppercase tracking-wide">
+                  Growth & Automation
                 </span>
               </div>
             </div>
@@ -91,6 +99,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+
         </div>
 
         {/* Bottom Bar */}
@@ -105,6 +114,7 @@ export default function Footer() {
             </Link>
           </div>
         </div>
+
       </div>
     </footer>
   );

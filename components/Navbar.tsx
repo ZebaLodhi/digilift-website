@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
@@ -39,20 +38,47 @@ export default function Navbar() {
       <div className="container-custom">
         <div className="flex items-center justify-between h-24">
 
-          {/* Logo */}
+          {/* SVG Logo */}
           <Link
             href="/"
-            className="flex items-center gap-3 hover:opacity-90 transition-opacity"
+            className="flex items-center gap-2 hover:opacity-90 transition-opacity"
             aria-label="DigiLift AI — Home"
           >
-            <Image
-              src="/brand/digilift-logo-dark.png"
-              alt="DigiLift AI"
-              width={200}
-              height={80}
-              priority
-              className="object-contain h-16 w-auto md:h-20"
-            />
+            {/* Arrow Mark */}
+            <svg
+              width="36"
+              height="36"
+              viewBox="0 0 36 36"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              {/* Background square with rounded corners */}
+              <rect width="36" height="36" rx="8" fill="#1F3B73" />
+              {/* Arrow up-right */}
+              <path
+                d="M10 24L24 10M24 10H14M24 10V20"
+                stroke="#00C2A8"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+
+            {/* Wordmark */}
+            <div className="flex flex-col leading-none">
+              <span
+                className={[
+                  'text-xl font-extrabold tracking-tight',
+                  isOverlay ? 'text-slate-900' : 'text-slate-900',
+                ].join(' ')}
+              >
+                DigiLift
+                <span className="text-[#00C2A8]"> AI</span>
+              </span>
+              <span className="text-[10px] font-medium text-slate-400 tracking-wide uppercase">
+                Growth & Automation
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -120,7 +146,7 @@ export default function Navbar() {
           <div
             className={[
               'md:hidden py-4 animate-fade-in border-t',
-              isOverlay ? 'bg-black/60 border-white/20' : 'bg-white border-neutral-200',
+              isOverlay ? 'bg-white/95 border-neutral-200' : 'bg-white border-neutral-200',
             ].join(' ')}
           >
             <div className="flex flex-col gap-4">
@@ -132,12 +158,8 @@ export default function Navbar() {
                   className={[
                     'font-semibold py-2 transition-colors',
                     isActive(link.href)
-                      ? isOverlay
-                        ? 'text-white'
-                        : 'text-accent'
-                      : isOverlay
-                        ? 'text-white/90 hover:text-white'
-                        : 'text-dark hover:text-accent',
+                      ? 'text-accent'
+                      : 'text-dark hover:text-accent',
                   ].join(' ')}
                 >
                   {link.label}
@@ -147,10 +169,7 @@ export default function Navbar() {
               <Link
                 href="/bookings"
                 onClick={() => setIsOpen(false)}
-                className={[
-                  'btn-primary text-center px-5 py-2 rounded-xl font-semibold',
-                  isOverlay ? 'shadow-md' : '',
-                ].join(' ')}
+                className="btn-primary text-center px-5 py-2 rounded-xl font-semibold"
               >
                 Book an Audit
               </Link>

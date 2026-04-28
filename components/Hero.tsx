@@ -1,6 +1,4 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import type { CSSProperties } from 'react';
 
 export default function Hero() {
   return (
@@ -11,37 +9,16 @@ export default function Hero() {
         AI Growth & Automation Systems for Schools and Small Businesses
       </h1>
 
-      {/* Desktop Mascot */}
-      <div
-        className="absolute inset-0 pointer-events-none z-20 hidden md:block"
-        aria-hidden="true"
-      >
-        <div
-          className="mascot-bounce"
-          style={
-            {
-              ['--mascot-w' as any]: '240px',
-              ['--mascot-top' as any]: '30%',
-              ['--fly-dur' as any]: '6s',
-            } as CSSProperties
-          }
-        >
-          <Image
-            src="/brand/digilift-mascot.png"
-            alt=""
-            role="presentation"
-            width={240}
-            height={140}
-            priority
-            className="w-40 sm:w-48 md:w-64 lg:w-72 h-auto animate-float mascot-shadow"
-          />
-        </div>
+      {/* Subtle background decoration */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#00C2A8]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 -left-24 w-80 h-80 bg-[#1F3B73]/5 rounded-full blur-3xl" />
       </div>
 
       {/* Content */}
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <div className="min-h-[60vh] flex items-center">
-          <div className="max-w-xl lg:max-w-2xl relative">
+          <div className="max-w-2xl lg:max-w-3xl relative">
 
             {/* Label */}
             <p className="text-sm font-semibold text-[#00C2A8] uppercase tracking-widest mb-4">
@@ -49,28 +26,19 @@ export default function Hero() {
             </p>
 
             {/* Headline */}
-            <h2
-              className="
-                text-slate-900
-                text-4xl sm:text-5xl md:text-6xl lg:text-7xl
-                font-extrabold
-                leading-tight
-                tracking-tight
-                relative z-5
-              "
-            >
+            <h2 className="text-slate-900 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
               AI Growth Systems for{' '}
               <span className="text-[#00C2A8]">Schools</span> and Small Businesses
             </h2>
 
             {/* Subheadline */}
-            <p className="mt-6 text-lg md:text-xl text-slate-700 leading-relaxed relative z-30 max-w-lg">
+            <p className="mt-6 text-lg md:text-xl text-slate-700 leading-relaxed max-w-xl">
               We help schools, daycares, and local businesses generate qualified leads,
               automate follow-up, and turn inquiries into booked tours and appointments.
             </p>
 
             {/* CTA Buttons */}
-            <div className="mt-8 flex flex-wrap gap-4 relative z-30">
+            <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/bookings"
                 className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-[#1F3B73] text-white font-semibold text-base hover:bg-[#162D5C] transition-all duration-200 shadow-md hover:shadow-lg"
@@ -86,38 +54,34 @@ export default function Hero() {
             </div>
 
             {/* Trust line */}
-            <p className="mt-6 text-sm text-slate-500 relative z-30">
+            <p className="mt-6 text-sm text-slate-500">
               No long-term contracts &nbsp;·&nbsp; Built for schools and small businesses &nbsp;·&nbsp; Clear scope and deliverables
             </p>
 
-          </div>
-        </div>
-      </div>
+            {/* Stats bar */}
+            <div className="mt-12 flex flex-wrap gap-8">
+              <div>
+                <p className="text-2xl font-extrabold text-[#1F3B73]">2</p>
+                <p className="text-xs text-slate-500 uppercase tracking-wide mt-1">Active Clients</p>
+              </div>
+              <div className="w-px bg-slate-200" />
+              <div>
+                <p className="text-2xl font-extrabold text-[#1F3B73]">14+</p>
+                <p className="text-xs text-slate-500 uppercase tracking-wide mt-1">Leads Generated</p>
+              </div>
+              <div className="w-px bg-slate-200" />
+              <div>
+                <p className="text-2xl font-extrabold text-[#1F3B73]">4</p>
+                <p className="text-xs text-slate-500 uppercase tracking-wide mt-1">Avg Monthly Leads</p>
+              </div>
+              <div className="w-px bg-slate-200" />
+              <div>
+                <p className="text-2xl font-extrabold text-[#1F3B73]">2</p>
+                <p className="text-xs text-slate-500 uppercase tracking-wide mt-1">Active Campaigns</p>
+              </div>
+            </div>
 
-      {/* Mobile Mascot */}
-      <div
-        className="absolute left-0 right-0 bottom-0 top-[55%] pointer-events-none md:hidden z-40"
-        aria-hidden="true"
-      >
-        <div
-          className="mascot-bounce"
-          style={
-            {
-              ['--mascot-w' as any]: '240px',
-              ['--mascot-top' as any]: '0%',
-              ['--fly-dur' as any]: '6s',
-            } as CSSProperties
-          }
-        >
-          <Image
-            src="/brand/digilift-mascot.png"
-            alt=""
-            role="presentation"
-            width={240}
-            height={140}
-            priority
-            className="w-40 sm:w-48 h-auto animate-float mascot-shadow"
-          />
+          </div>
         </div>
       </div>
 

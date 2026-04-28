@@ -1,5 +1,4 @@
-"use client";
-import { useState } from "react";
+import Link from "next/link";
 
 interface PackageCardProps {
   name: string;
@@ -15,56 +14,6 @@ interface PackageCardProps {
   guarantee?: string;
 }
 
-function PayWithStripe({
-  priceId,
-  cta,
-  isPopular,
-}: {
-  priceId: string;
-  cta: string;
-  isPopular: boolean;
-}) {
-  const [loading, setLoading] = useState(false);
-
-  const startStripeCheckout = async () => {
-    try {
-      setLoading(true);
-      const res = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ priceId }),
-      });
-      const data = await res.json();
-      if (!data.url) {
-        alert("Something went wrong. Please try again.");
-        return;
-      }
-      window.location.href = data.url;
-    } catch (error) {
-      console.error("Checkout Error:", error);
-      alert("Something went wrong. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return (
-    <button
-      onClick={startStripeCheckout}
-      disabled={loading}
-      className={`block w-full text-center font-semibold px-8 py-4 rounded-xl transition-all duration-200 mt-6
-        ${
-          isPopular
-            ? "bg-accent hover:bg-accent-dark text-white shadow-soft-lg hover:shadow-xl"
-            : "bg-primary hover:bg-primary-dark text-white shadow-soft hover:shadow-soft-lg"
-        }
-        disabled:opacity-50 text-base`}
-    >
-      {loading ? "Redirecting..." : cta}
-    </button>
-  );
-}
-
 export default function PackageCard({
   name,
   tagline,
@@ -74,8 +23,7 @@ export default function PackageCard({
   description,
   features,
   isPopular = false,
-  priceId,
-  cta = "Get Started",
+  cta = "Book a Call",
   guarantee,
 }: PackageCardProps) {
   return (
@@ -155,7 +103,17 @@ export default function PackageCard({
       </ul>
 
       {/* CTA Button */}
-      <PayWithStripe priceId={priceId} cta={cta} isPopular={isPopular} />
+      <Link
+        href="/bookings"
+        className={`block w-full text-center font-semibold px-8 py-4 rounded-xl transition-all duration-200 mt-6 text-base
+          ${
+            isPopular
+              ? "bg-accent hover:bg-accent-dark text-white shadow-soft-lg hover:shadow-xl"
+              : "bg-primary hover:bg-primary-dark text-white shadow-soft hover:shadow-soft-lg"
+          }`}
+      >
+        {cta}
+      </Link>
 
       {/* Guarantee */}
       {guarantee && (
