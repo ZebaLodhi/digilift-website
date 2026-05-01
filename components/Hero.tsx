@@ -58,29 +58,6 @@ export default function Hero() {
               No long-term contracts &nbsp;·&nbsp; Built for schools and small businesses &nbsp;·&nbsp; Clear scope and deliverables
             </p>
 
-            {/* Stats bar */}
-            <div className="mt-12 flex flex-wrap gap-8">
-              <div>
-                <p className="text-2xl font-extrabold text-[#1F3B73]">2</p>
-                <p className="text-xs text-slate-500 uppercase tracking-wide mt-1">Active Clients</p>
-              </div>
-              <div className="w-px bg-slate-200" />
-              <div>
-                <p className="text-2xl font-extrabold text-[#1F3B73]">14+</p>
-                <p className="text-xs text-slate-500 uppercase tracking-wide mt-1">Leads Generated</p>
-              </div>
-              <div className="w-px bg-slate-200" />
-              <div>
-                <p className="text-2xl font-extrabold text-[#1F3B73]">4</p>
-                <p className="text-xs text-slate-500 uppercase tracking-wide mt-1">Avg Monthly Leads</p>
-              </div>
-              <div className="w-px bg-slate-200" />
-              <div>
-                <p className="text-2xl font-extrabold text-[#1F3B73]">2</p>
-                <p className="text-xs text-slate-500 uppercase tracking-wide mt-1">Active Campaigns</p>
-              </div>
-            </div>
-
           </div>
         </div>
       </div>
