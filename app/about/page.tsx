@@ -72,7 +72,7 @@ export default function AboutPage() {
               <div className="flex flex-col md:flex-row gap-8 items-start">
                 <div className="flex-shrink-0">
                   <Image
-                    src="/brand/zeba.jpg"
+                    src="/brand/zeba.png"
                     alt="Zeba Lodhi — AI Growth & Automation Consultant"
                     width={96}
                     height={96}
