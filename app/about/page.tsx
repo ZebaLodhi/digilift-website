@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
 import faqData from '@/data/faq.json';
@@ -70,11 +71,13 @@ export default function AboutPage() {
             <div className="card-hover">
               <div className="flex flex-col md:flex-row gap-8 items-start">
                 <div className="flex-shrink-0">
-                  <div className="w-24 h-24 rounded-2xl bg-[#1F3B73]/10 flex items-center justify-center">
-                    <svg className="w-10 h-10 text-[#1F3B73]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                  </div>
+                  <Image
+                    src="/brand/zeba.jpg"
+                    alt="Zeba Lodhi — AI Growth & Automation Consultant"
+                    width={96}
+                    height={96}
+                    className="w-24 h-24 rounded-2xl object-cover"
+                  />
                 </div>
                 <div className="flex-1">
                   <p className="text-sm font-semibold text-[#00C2A8] uppercase tracking-widest mb-2">
