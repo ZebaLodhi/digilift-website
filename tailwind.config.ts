@@ -25,12 +25,18 @@ const config: Config = {
           dark: '#00A890',
         },
         neutral: {
-          DEFAULT: '#F7F9FC',
+          DEFAULT: '#EFEFEF',
           50: '#FFFFFF',
-          100: '#F7F9FC',
-          200: '#E8EDF5',
-          300: '#D1DBE8',
-          400: '#B0BDD1',
+          100: '#F4F4F4',
+          200: '#E8E8E8',
+          300: '#D9D9D9',
+          400: '#C8C8C8',
+          500: '#A8A8A8',
+          600: '#565656',
+        },
+        ink: {
+          DEFAULT: '#0A0A0A',
+          light: '#262626',
         },
         dark: {
           DEFAULT: '#1C2230',
@@ -38,7 +44,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+        sans: ['var(--font-inter)', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
       },
       borderRadius: {
         'xl': '1rem',
