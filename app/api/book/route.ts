@@ -4,10 +4,17 @@ import { Resend } from "resend";
 
 export const runtime = "nodejs";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: NextRequest) {
   try {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      return NextResponse.json(
+        { success: false, message: "Email service is not configured" },
+        { status: 500 }
+      );
+    }
+    const resend = new Resend(apiKey);
+
     const body = await request.json();
     const validated = bookingFormSchema.parse(body);
 
