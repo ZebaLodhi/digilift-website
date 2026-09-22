@@ -309,6 +309,50 @@ export default function Home() {
               </div>
             </div>
 
+            {/* South Asian Business Council of Virginia */}
+            <div className="card p-8 ring-1 ring-neutral-200 md:col-span-2">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-xs font-bold uppercase tracking-widest text-white bg-[#00C2A8] px-3 py-1 rounded-full">
+                  Council Partner
+                </span>
+                <span className="text-sm text-dark/50">Virginia</span>
+              </div>
+              <h3 className="text-2xl font-bold mb-2">South Asian Business Council of Virginia</h3>
+              <p className="text-dark/60 text-sm mb-6">
+                Business council — Alumni portal, member platform, and event marketing
+              </p>
+              <p className="text-dark/70 leading-relaxed mb-8 max-w-3xl">
+                Built the alumni portal and member platform to connect and engage the
+                community, then ran the Meta ad campaign for Empower 2026 — using
+                targeted marketing to drive ticket sales.
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                {[
+                  { label: "Tickets Sold", value: "600+" },
+                  { label: "Alumni Target by 2027", value: "1,000+" },
+                  { label: "Campaign", value: "Empower 2026" },
+                  { label: "Engagement", value: "Ongoing" },
+                ].map((stat, i) => (
+                  <div key={i} className="text-center">
+                    <p className="text-sm font-bold text-[#1F3B73] mb-1">{stat.value}</p>
+                    <p className="text-xs text-dark/40 uppercase tracking-wide">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="border-t border-neutral-100 pt-6">
+                <p className="text-xs text-dark/40 uppercase tracking-widest font-medium mb-3">
+                  Deliverables
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {["Alumni Portal", "Member Platform", "Meta Ad Campaign", "Targeted Marketing", "Ticket Sales Campaign"].map((item, i) => (
+                    <span key={i} className="text-xs bg-neutral-100 text-dark/60 px-3 py-1 rounded-full">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
