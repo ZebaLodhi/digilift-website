@@ -6,9 +6,9 @@ import { usePathname } from 'next/navigation';
 
 const navLinks = [
   { href: '/#work', label: 'Work' },
-  { href: '/packages', label: 'Services' },
+  { href: '/#services', label: 'Services' },
+  { href: '/packages', label: 'Pricing' },
   { href: '/about', label: 'About' },
-  { href: '/bookings', label: 'Contact' },
 ];
 
 function Arrow() {
