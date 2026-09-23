@@ -51,10 +51,11 @@ export default function Footer() {
             <h5>Services</h5>
             <ul>
               <li><Link href="/packages">IT Development</Link></li>
-              <li><Link href="/packages">AI-Powered Solutions</Link></li>
               <li><Link href="/packages">Digital Marketing</Link></li>
+              <li><Link href="/packages">Lead Generation</Link></li>
               <li><Link href="/packages">Customer Acquisition</Link></li>
               <li><Link href="/packages">Growth Strategy</Link></li>
+              <li><Link href="/packages">AI-Powered Solutions</Link></li>
             </ul>
           </div>
 

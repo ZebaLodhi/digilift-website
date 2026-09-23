@@ -3,7 +3,8 @@ import Link from "next/link";
 
 import Hero from "@/components/Hero";
 import Approach from "@/components/Approach";
-import Services from "@/components/Services";
+import Pipeline from "@/components/Pipeline";
+import AuditCta from "@/components/AuditCta";
 import Work from "@/components/Work";
 import FAQ from "@/components/FAQ";
 import Chatbot from "@/components/Chatbot";
@@ -59,6 +60,7 @@ export default function Home() {
       "IT Development",
       "AI-Powered Solutions",
       "Digital Marketing",
+      "Lead Generation",
       "Customer Acquisition",
       "Growth Strategy",
     ],
@@ -96,7 +98,9 @@ export default function Home() {
 
       <Hero />
       <Approach />
-      <Services />
+      <Pipeline />
+      {/* Services cards (components/Services.tsx) are hidden for now. */}
+      <AuditCta />
       <Work />
 
       <section className="sec tight" id="faq">
