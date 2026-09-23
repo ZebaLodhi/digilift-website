@@ -70,10 +70,12 @@ export const metadata: Metadata = {
 
   icons: {
     icon: [
+      { url: '/favicon.ico', sizes: 'any' },
       { url: '/brand/logo/digilift-ai-icon.svg', type: 'image/svg+xml' },
-      { url: '/favicon.ico' },
+      { url: '/brand/logo/digilift-ai-icon-192.png', type: 'image/png', sizes: '192x192' },
+      { url: '/brand/logo/digilift-ai-icon-512.png', type: 'image/png', sizes: '512x512' },
     ],
-    apple: '/brand/logo/digilift-ai-icon-512.png',
+    apple: '/apple-touch-icon.png',
   },
 
   other: {

@@ -1,6 +1,7 @@
 export interface PackageData {
   id: string;
   name: string;
+  kicker: string;
   tagline: string;
   price: string;
   priceNote: string;

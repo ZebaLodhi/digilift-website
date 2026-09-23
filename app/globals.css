@@ -591,3 +591,45 @@ body.menu-open{overflow:hidden}
     animation: none !important;
   }
 }
+
+/* =========================================================
+   Brand accents, sampled from the logo mark
+   plate/deep #0C1418 · deep teal #054C5D · slate #486E8C
+   orbit cyan #06D1F9 · light cyan #8FEAFC
+   Cyan is a graphic accent only: at ~1.9:1 on white it is not
+   usable for text, so type accents use the deep teal instead.
+   ========================================================= */
+:root{
+  --brand-plate:#0C1418;--brand-deep:#054C5D;--brand-slate:#486E8C;
+  --brand-cyan:#06D1F9;--brand-cyan-lt:#8FEAFC;
+}
+
+.prices.two{grid-template-columns:repeat(2,1fr)}
+@media (max-width:900px){.prices.two{grid-template-columns:1fr}}
+
+.price{position:relative}
+/* the accent follows the card's own rounding; overflow:hidden would clip the badge */
+.price::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;
+  border-radius:24px 24px 0 0;
+  background:linear-gradient(90deg,var(--brand-slate),var(--brand-cyan))}
+.price .k{color:var(--brand-deep)}
+.price:hover{border-color:var(--brand-deep)}
+
+.price.featured{background:var(--brand-plate);border-color:var(--brand-plate)}
+.price.featured::before{background:linear-gradient(90deg,var(--brand-cyan),var(--brand-cyan-lt))}
+.price.featured .k{color:var(--brand-cyan-lt)}
+.price.featured:hover{border-color:var(--brand-cyan)}
+.price .best{background:var(--brand-cyan);border-color:var(--brand-cyan);color:var(--brand-plate)}
+.price.featured .checks li::before{background-color:var(--brand-cyan-lt);
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230C1418' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'><path d='M5 13l4 4L19 7'/></svg>")}
+.price .turn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;
+  font-size:12.5px;color:var(--gray)}
+.price.featured .turn{color:rgba(255,255,255,.6)}
+.price .not{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:13.5px;color:var(--gray-2)}
+.price.featured .not{border-top-color:var(--line-dark);color:rgba(255,255,255,.45)}
+.price .gtee{margin-top:16px;font-size:12.5px;color:var(--gray-2)}
+.price.featured .gtee{color:rgba(255,255,255,.45)}
+
+.includes .checks li::before{background-color:var(--brand-deep)}
+.pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
