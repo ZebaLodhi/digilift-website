@@ -110,276 +110,264 @@ export default function BookingForm() {
     }
   };
 
+  const fieldClass = (name: keyof BookingFormData) =>
+    errors[name] ? 'field has-error' : 'field';
+
+  const fieldError = (name: keyof BookingFormData) =>
+    errors[name] ? <p className="field-error">{errors[name]}</p> : null;
+
   if (submitStatus === 'success') {
     return (
-      <div className="card text-center">
-        <div className="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-          <svg className="w-10 h-10 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-          </svg>
-        </div>
-        <h3 className="text-3xl mb-4">Request Received</h3>
-        <p className="text-xl text-dark/70 mb-2">
-          We will be in touch within 24 hours.
-        </p>
-        <p className="text-dark/50 text-sm mb-8">
+      <div className="form-ok show" role="status">
+        <div className="eyebrow">Request received</div>
+        <h3 className="h3" style={{ marginTop: 16 }}>
+          Thank you. <i>We will be in touch within 24 hours.</i>
+        </h3>
+        <p className="lede" style={{ marginTop: 14 }}>
           In the meantime, take a look at our packages to see which growth system
           might be the right fit.
         </p>
-        <button onClick={() => setSubmitStatus('idle')} className="btn-primary">
-          Submit Another Request
-        </button>
+        <div className="cta-row" style={{ marginTop: 28 }}>
+          <a className="btn btn-ink" href="/packages">
+            See services and pricing
+          </a>
+          <button type="button" className="btn btn-ghost" onClick={() => setSubmitStatus('idle')}>
+            Submit another request
+          </button>
+        </div>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="card space-y-6">
+    <form onSubmit={handleSubmit} className="form" noValidate>
+      <h4>About you</h4>
 
-      {/* Name + Business Name */}
-      <div className="grid md:grid-cols-2 gap-6">
-        <div>
-          <label className="label">Your Name *</label>
+      <div className="two">
+        <div className={fieldClass('name')}>
+          <label htmlFor="bf-name">Your name *</label>
           <input
+            id="bf-name"
             type="text"
             name="name"
             value={formData.name}
             onChange={handleChange}
             placeholder="Jane Smith"
-            className={`input-field ${errors.name ? 'input-error' : ''}`}
+            autoComplete="name"
           />
-          {errors.name && <p className="error-message">{errors.name}</p>}
+          {fieldError('name')}
         </div>
-        <div>
-          <label className="label">Business Name *</label>
+        <div className={fieldClass('businessName')}>
+          <label htmlFor="bf-business">Business name *</label>
           <input
+            id="bf-business"
             type="text"
             name="businessName"
             value={formData.businessName}
             onChange={handleChange}
             placeholder="Seeds Academy"
-            className={`input-field ${errors.businessName ? 'input-error' : ''}`}
+            autoComplete="organization"
           />
-          {errors.businessName && <p className="error-message">{errors.businessName}</p>}
+          {fieldError('businessName')}
         </div>
       </div>
 
-      {/* Business Type */}
-      <div>
-        <label className="label">Business Type *</label>
-        <select
-          name="businessType"
-          value={formData.businessType}
-          onChange={handleChange}
-          className={`input-field ${errors.businessType ? 'input-error' : ''}`}
-        >
+      <div className={fieldClass('businessType')}>
+        <label htmlFor="bf-type">Business type *</label>
+        <select id="bf-type" name="businessType" value={formData.businessType} onChange={handleChange}>
           <option value="school-daycare">School / Daycare / Childcare Center</option>
           <option value="local-service">Local Service Business</option>
           <option value="health-wellness">Health and Wellness</option>
           <option value="other">Other Small Business</option>
         </select>
-        {errors.businessType && <p className="error-message">{errors.businessType}</p>}
+        {fieldError('businessType')}
       </div>
 
-      {/* City & State */}
-      <div className="grid md:grid-cols-2 gap-6">
-        <div>
-          <label className="label">City *</label>
+      <div className="two">
+        <div className={fieldClass('city')}>
+          <label htmlFor="bf-city">City *</label>
           <input
+            id="bf-city"
             type="text"
             name="city"
             value={formData.city}
             onChange={handleChange}
             placeholder="Ashburn"
-            className={`input-field ${errors.city ? 'input-error' : ''}`}
+            autoComplete="address-level2"
           />
-          {errors.city && <p className="error-message">{errors.city}</p>}
+          {fieldError('city')}
         </div>
-        <div>
-          <label className="label">State *</label>
+        <div className={fieldClass('state')}>
+          <label htmlFor="bf-state">State *</label>
           <input
+            id="bf-state"
             type="text"
             name="state"
             value={formData.state}
             onChange={handleChange}
             placeholder="VA"
-            className={`input-field ${errors.state ? 'input-error' : ''}`}
+            autoComplete="address-level1"
           />
-          {errors.state && <p className="error-message">{errors.state}</p>}
+          {fieldError('state')}
         </div>
       </div>
 
-      {/* Email & Phone */}
-      <div className="grid md:grid-cols-2 gap-6">
-        <div>
-          <label className="label">Email *</label>
+      <div className="two">
+        <div className={fieldClass('email')}>
+          <label htmlFor="bf-email">Email *</label>
           <input
+            id="bf-email"
             type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
             placeholder="jane@yourbusiness.com"
-            className={`input-field ${errors.email ? 'input-error' : ''}`}
+            autoComplete="email"
           />
-          {errors.email && <p className="error-message">{errors.email}</p>}
+          {fieldError('email')}
         </div>
-        <div>
-          <label className="label">Phone *</label>
+        <div className={fieldClass('phone')}>
+          <label htmlFor="bf-phone">Phone *</label>
           <input
+            id="bf-phone"
             type="tel"
             name="phone"
             value={formData.phone}
             onChange={handleChange}
             placeholder="(555) 123-4567"
-            className={`input-field ${errors.phone ? 'input-error' : ''}`}
+            autoComplete="tel"
           />
-          {errors.phone && <p className="error-message">{errors.phone}</p>}
+          {fieldError('phone')}
         </div>
       </div>
 
-      {/* Preferred Contact */}
-      <div>
-        <label className="label">Preferred Contact *</label>
+      <div className={fieldClass('preferredContact')}>
+        <label htmlFor="bf-contact">Preferred contact *</label>
         <select
+          id="bf-contact"
           name="preferredContact"
           value={formData.preferredContact}
           onChange={handleChange}
-          className="input-field"
         >
           <option value="email">Email</option>
           <option value="phone">Phone</option>
           <option value="either">Either</option>
         </select>
+        {fieldError('preferredContact')}
       </div>
 
-      {/* Lead Volume */}
-      <div>
-        <label className="label">Current Lead Volume *</label>
-        <select
-          name="leadVolume"
-          value={formData.leadVolume}
-          onChange={handleChange}
-          className={`input-field ${errors.leadVolume ? 'input-error' : ''}`}
-        >
+      <h4>Your lead process</h4>
+
+      <div className={fieldClass('leadVolume')}>
+        <label htmlFor="bf-volume">Current lead volume *</label>
+        <select id="bf-volume" name="leadVolume" value={formData.leadVolume} onChange={handleChange}>
           <option value="getting-started">Just getting started (0–10 leads/month)</option>
           <option value="growing">Growing (10–50 leads/month)</option>
           <option value="established">Established (50+ leads/month)</option>
         </select>
-        {errors.leadVolume && <p className="error-message">{errors.leadVolume}</p>}
+        {fieldError('leadVolume')}
       </div>
 
-      {/* Biggest Challenges */}
-      <div>
-        <label className="label">Biggest Challenge Right Now *</label>
-        <p className="text-xs text-dark/50 mb-3">Select all that apply</p>
-        <div className="space-y-3">
+      <fieldset className={fieldClass('challenges')}>
+        <legend>Biggest challenge right now * · select all that apply</legend>
+        <div className="choices">
           {challengeOptions.map((challenge) => (
-            <label key={challenge} className="flex items-start gap-3 cursor-pointer">
+            <label key={challenge}>
               <input
                 type="checkbox"
                 checked={formData.challenges.includes(challenge)}
                 onChange={() => handleCheckboxChange(challenge)}
-                className="mt-0.5 w-4 h-4 accent-[#00C2A8]"
               />
-              <span className="text-sm text-dark/80">{challenge}</span>
+              {challenge}
             </label>
           ))}
         </div>
-        {errors.challenges && <p className="error-message mt-2">{errors.challenges}</p>}
-      </div>
+        {fieldError('challenges')}
+      </fieldset>
 
-      {/* Current Tools */}
-      <div>
-        <label className="label">Current Tools</label>
+      <div className="field">
+        <label htmlFor="bf-tools">Current tools</label>
         <input
+          id="bf-tools"
           type="text"
           name="currentTools"
           value={formData.currentTools}
           onChange={handleChange}
           placeholder="e.g. Google Sheets, HubSpot, Mailchimp, nothing yet"
-          className="input-field"
         />
-        <p className="text-xs text-dark/40 mt-1">
+        <p className="field-hint">
           What tools are you currently using to track or follow up with leads?
         </p>
       </div>
 
-      {/* Current Website */}
-      <div>
-        <label className="label">Current Website</label>
+      <div className={fieldClass('currentWebsite')}>
+        <label htmlFor="bf-website">Current website</label>
         <input
+          id="bf-website"
           type="url"
           name="currentWebsite"
           value={formData.currentWebsite}
           onChange={handleChange}
           placeholder="https://yourwebsite.com"
-          className="input-field"
+          autoComplete="url"
         />
+        {fieldError('currentWebsite')}
       </div>
 
-      {/* Timeline */}
-      <div>
-        <label className="label">Timeline *</label>
-        <select
-          name="timeline"
-          value={formData.timeline}
-          onChange={handleChange}
-          className={`input-field ${errors.timeline ? 'input-error' : ''}`}
-        >
-          <option value="asap">As soon as possible</option>
-          <option value="1-3months">Within 1–3 months</option>
-          <option value="3-6months">Within 3–6 months</option>
-          <option value="exploring">Just exploring options</option>
-        </select>
-        {errors.timeline && <p className="error-message">{errors.timeline}</p>}
+      <div className="two">
+        <div className={fieldClass('timeline')}>
+          <label htmlFor="bf-timeline">Timeline *</label>
+          <select id="bf-timeline" name="timeline" value={formData.timeline} onChange={handleChange}>
+            <option value="asap">As soon as possible</option>
+            <option value="1-3months">Within 1–3 months</option>
+            <option value="3-6months">Within 3–6 months</option>
+            <option value="exploring">Just exploring options</option>
+          </select>
+          {fieldError('timeline')}
+        </div>
+        <div className="field">
+          <label htmlFor="bf-heard">How did you hear about us?</label>
+          <select id="bf-heard" name="howHeard" value={formData.howHeard} onChange={handleChange}>
+            <option value="">Select an option</option>
+            <option value="google">Google Search</option>
+            <option value="social-media">Social Media</option>
+            <option value="referral">Referral</option>
+            <option value="linkedin">LinkedIn</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
       </div>
 
-      {/* How Did You Hear */}
-      <div>
-        <label className="label">How Did You Hear About Us?</label>
-        <select
-          name="howHeard"
-          value={formData.howHeard}
-          onChange={handleChange}
-          className="input-field"
-        >
-          <option value="">Select an option</option>
-          <option value="google">Google Search</option>
-          <option value="social-media">Social Media</option>
-          <option value="referral">Referral</option>
-          <option value="linkedin">LinkedIn</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-
-      {/* Message */}
-      <div>
-        <label className="label">Anything Else We Should Know?</label>
+      <div className={fieldClass('message')}>
+        <label htmlFor="bf-message">Anything else we should know?</label>
         <textarea
+          id="bf-message"
           name="message"
           value={formData.message}
           onChange={handleChange}
           rows={4}
           placeholder="Tell us about your current lead process, what's working, what's not, or any specific goals you have in mind."
-          className="input-field"
         />
+        {fieldError('message')}
       </div>
 
-      {/* Submit */}
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="btn-primary w-full text-lg py-4"
-      >
-        {isSubmitting ? 'Submitting...' : 'Book a Growth Automation Audit'}
-      </button>
+      <div>
+        <button type="submit" disabled={isSubmitting} className="btn btn-ink">
+          {isSubmitting ? 'Submitting…' : 'Book a growth automation audit'}
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 17L17 7M8 7h9v9" />
+          </svg>
+        </button>
+        <p className="note" style={{ marginTop: 14 }}>
+          We reply within 24 hours. No long-term contracts.
+        </p>
+      </div>
 
       {submitStatus === 'error' && (
-        <p className="text-red-500 text-center text-sm mt-2">
+        <p className="field-error" role="alert">
           Something went wrong. Please try again or email us at team@digilift.ai
         </p>
       )}
-
     </form>
   );
 }
