@@ -103,11 +103,11 @@ export default function AboutPage() {
           <div className="founder">
             <div className="portrait">
               <Image
-                src="/brand/zeba.png"
+                src="/brand/zeba-founder.jpg"
                 alt="Zeba Lodhi — AI Growth & Automation Consultant"
                 fill
                 sizes="(max-width: 900px) 100vw, 45vw"
-                style={{ objectFit: 'cover' }}
+                style={{ objectFit: 'cover', objectPosition: '100% 50%' }}
               />
             </div>
             <div>
