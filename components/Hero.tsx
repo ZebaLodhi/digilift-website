@@ -1,54 +1,123 @@
 import Link from 'next/link';
+import GlobeMark from './GlobeMark';
+
+function Arrow() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M7 17L17 7M8 7h9v9" />
+    </svg>
+  );
+}
+
+function Check() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M5 13l4 4L19 7" />
+    </svg>
+  );
+}
 
 export default function Hero() {
   return (
-    <section className="relative isolate overflow-hidden bg-neutral pt-36 pb-24 md:pt-44 md:pb-32">
+    <section className="hero">
+      <div className="wrap">
+        <div className="eyebrow">AI · Automation · Digital growth</div>
 
-      {/* SEO H1 */}
-      <h1 className="sr-only">
-        AI Growth &amp; Automation Systems for Schools and Small Businesses
-      </h1>
+        <h1>
+          Your next idea,
+          <br />
+          <i>lifted</i> into results.
+        </h1>
 
-      {/* Chrome halo + studio floor */}
-      <div
-        className="absolute inset-0 -z-10 pointer-events-none flex items-center justify-center"
-        aria-hidden="true"
-      >
-        <div className="hero-chrome" />
-      </div>
-      <div
-        className="absolute inset-x-0 bottom-0 -z-10 h-1/3 pointer-events-none hero-floor"
-        aria-hidden="true"
-      />
-
-      {/* Content */}
-      <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-
-        <p className="eyebrow">AI Growth &amp; Automation Consultancy</p>
-
-        <h2 className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-ink leading-[1.05] tracking-[-0.04em]">
-          AI Growth Systems for{' '}
-          <span className="text-accent">Schools</span> and Small Businesses
-        </h2>
-
-        <p className="mx-auto mt-7 max-w-xl text-lg text-neutral-600 leading-relaxed">
-          We help schools, daycares, and local businesses generate qualified leads,
-          automate follow-up, and turn inquiries into booked tours and appointments.
+        <p className="lede">
+          DigiLift AI is your one-stop partner for technology, AI, automation and
+          digital growth. We build it, automate it, launch it, and help you grow it.
         </p>
 
-        <div className="mt-10 flex flex-wrap justify-center gap-3">
-          <Link href="/bookings" className="btn-ink">
-            Book a Growth Automation Audit
+        <div className="cta-row">
+          <Link className="btn btn-ink" href="/bookings">
+            Book a free growth audit <Arrow />
           </Link>
-          <Link href="#how-it-works" className="btn-ghost">
-            See How It Works
+          <Link className="btn btn-ghost" href="/#work">
+            See our work
           </Link>
         </div>
 
-        <p className="mt-10 text-sm text-neutral-600">
-          No long-term contracts &nbsp;·&nbsp; Built for schools and small businesses &nbsp;·&nbsp; Clear scope and deliverables
-        </p>
+        <div className="trust">
+          <span>No long-term contracts</span>
+          <span>Clear scope and deliverables</span>
+          <span>Response within 24 hours</span>
+        </div>
 
+        <div className="art" aria-hidden="true">
+          <div className="blob b1" />
+          <div className="blob b2" />
+          <div className="blob b3" />
+          <div className="blob b4" />
+          <div className="grid" />
+
+          <GlobeMark
+            size={560}
+            radius={200}
+            step={7}
+            dot={5}
+            color="#0A0A0A"
+            gradientId="hero-globe"
+            className="globe"
+          />
+
+          <div className="cap">People · Technology · Possibilities</div>
+
+          <div className="card">
+            <div className="t">
+              Automation running <i />
+            </div>
+            <div className="row">
+              <span className="ok">
+                <Check />
+              </span>
+              New inquiry from Meta Lead Ads
+            </div>
+            <div className="row">
+              <span className="ok">
+                <Check />
+              </span>
+              Qualified and routed to your CRM
+            </div>
+            <div className="row dim">
+              <span className="ok">
+                <Check />
+              </span>
+              Follow-up sent · tour booked
+            </div>
+          </div>
+
+          <div className="verbs">
+            <span>
+              <b>01</b>Build
+            </span>
+            <span>
+              <b>02</b>Automate
+            </span>
+            <span>
+              <b>03</b>Launch
+            </span>
+            <span>
+              <b>04</b>Grow
+            </span>
+          </div>
+        </div>
+
+        <div className="line-row">
+          <p>Built for growing organisations in</p>
+          <div className="inds">
+            <span>Schools &amp; daycares</span>
+            <span>Local businesses</span>
+            <span>Community organisations</span>
+            <span>Events</span>
+            <span>Professional services</span>
+          </div>
+        </div>
       </div>
     </section>
   );
