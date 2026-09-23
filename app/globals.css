@@ -823,3 +823,21 @@ fieldset.field{border:0;min-width:0}
   .flow-ai{margin-top:20px;justify-content:flex-start}
 }
 @media (prefers-reduced-motion:reduce){.flow-steps::after,.flow-steps .feed::after{display:none}}
+
+/* AUDIT CTA band (home) */
+.audit-band{position:relative;overflow:hidden;isolation:isolate;border-radius:var(--r);padding:72px 64px;color:#fff;
+  background:radial-gradient(55% 90% at 0% 0%,rgba(5,76,93,.7),transparent 70%),radial-gradient(45% 80% at 100% 100%,rgba(6,209,249,.18),transparent 70%),linear-gradient(135deg,#0C1418,#0A1013 45%,#060A0C)}
+.audit-band::after{content:"";position:absolute;inset:0;z-index:-1;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:20px 20px;
+  -webkit-mask-image:radial-gradient(90% 90% at 70% 50%,#000 30%,transparent 100%);mask-image:radial-gradient(90% 90% at 70% 50%,#000 30%,transparent 100%)}
+.audit-orbit{position:absolute;z-index:-1;right:56px;top:50%;width:min(560px,52%);transform:translateY(-50%);overflow:visible;opacity:.9;filter:drop-shadow(0 0 14px rgba(6,209,249,.35))}
+.audit-copy{position:relative;max-width:620px}
+.audit-band h2{font-size:58px;letter-spacing:-.04em;margin-top:20px}
+.audit-band h2 i{color:var(--brand-cyan-lt)}
+.audit-band p{color:rgba(255,255,255,.65);font-size:17px;max-width:520px;margin-top:20px}
+.audit-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+@media (max-width:900px){
+  .audit-band{padding:44px 22px;border-radius:20px}
+  .audit-band h2{font-size:34px}
+  .audit-band p{font-size:16px}
+  .audit-orbit{width:110%;right:-45%;top:auto;bottom:-30px;transform:none;opacity:.45}
+}
