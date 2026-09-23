@@ -36,10 +36,6 @@ export default function Work() {
           <div>
             <div className="partner-k">Partner</div>
             <h3>South Asian Business Council of Virginia</h3>
-            <p>
-              A Virginia nonprofit running events, programs and an internship program
-              under the banner Connect, Collaborate, Empower, Grow.
-            </p>
           </div>
         </div>
 
