@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import * as orbit from './logoOrbit';
 
 type Props = {
-  color?: string;
   /** Degrees between dot rows and columns. */
   step?: number;
   /** Seconds per full turn. */
@@ -11,24 +11,30 @@ type Props = {
   className?: string;
 };
 
-// Globe radius and orbit ellipse, as fractions of the box size.
+// Globe radius as a fraction of the box size.
 const R = 0.33;
-const ORBIT_RX = R * 1.38;
-const ORBIT_RY = R * 0.34;
-const ORBIT_ANGLE = -32;
 const TILT = -0.35;
 
+// The logo's globe sits at (195.7, 188.6) with radius 126; this viewBox maps
+// it onto the same centre and radius as the canvas, so the swoosh paths can
+// be used exactly as drawn in the icon.
+const SPAN = 126 / R;
+const VIEWBOX = `${(195.7 - SPAN / 2).toFixed(1)} ${(188.6 - SPAN / 2).toFixed(1)} ${SPAN.toFixed(1)} ${SPAN.toFixed(1)}`;
+
+// Dot colours sampled from the icon: slate in shadow, cyan in the light.
+const DIM = [0x48, 0x6e, 0x8c];
+const LIT = [0x62, 0xd6, 0xf0];
+// Light from the upper right, in front (view space, y up). Fixed, so the
+// shading stays put while the dots turn beneath it, as in the logo.
+const LIGHT = [0.4, 0.4, 0.82];
+
 /**
- * Dotted-globe brand mark that turns on its own (tilted) axis. The dots are
- * drawn to a canvas each frame; the orbit ring is a static SVG on top.
- * Stops when off screen, and holds still for prefers-reduced-motion.
+ * The DigiLift AI logo globe, turning on its own tilted axis. Dots are drawn
+ * to a canvas each frame; the orbit swoosh from the icon is layered in SVG,
+ * its back half behind the dots and its front half over them. Stops when
+ * off screen, and holds still for prefers-reduced-motion.
  */
-export default function SpinningGlobe({
-  color = '#0A0A0A',
-  step = 7,
-  period = 50,
-  className,
-}: Props) {
+export default function SpinningGlobe({ step = 7, period = 50, className }: Props) {
   const boxRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -55,9 +61,8 @@ export default function SpinningGlobe({
 
     const draw = (yaw: number) => {
       if (!size) return;
-      const cx = size / 2;
+      const c = size / 2;
       const r = size * R;
-      const base = Math.max(2.4, size / 90);
 
       const projected: { x: number; y: number; z: number }[] = [];
       for (const [cl, sl, lon] of dots) {
@@ -66,22 +71,23 @@ export default function SpinningGlobe({
         const z0 = cl * Math.sin(a);
         const y = sl * cosT - z0 * sinT;
         const z = sl * sinT + z0 * cosT;
-        if (z >= -0.05) projected.push({ x, y, z });
+        if (z >= -0.02) projected.push({ x, y, z });
       }
       projected.sort((p, q) => p.z - q.z);
 
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, size, size);
-      ctx.fillStyle = color;
       for (const p of projected) {
-        const d = (p.z + 1) / 2;
-        const s = base * (0.55 + 0.7 * d);
-        ctx.globalAlpha = 0.1 + 0.8 * d;
-        const x = cx + r * p.x - s / 2;
-        const y = cx - r * p.y - s / 2;
+        const lam = Math.max(0, p.x * LIGHT[0] + p.y * LIGHT[1] + p.z * LIGHT[2]);
+        const t = Math.min(1, Math.max(0, (lam - 0.2) / 0.8));
+        const s = r * (0.016 + 0.019 * Math.max(0, p.z));
+        ctx.globalAlpha = 0.15 + 0.72 * lam;
+        ctx.fillStyle = `rgb(${DIM.map((d, i) => Math.round(d + (LIT[i] - d) * t)).join(',')})`;
+        const x = c + r * p.x - s / 2;
+        const y = c - r * p.y - s / 2;
         if (ctx.roundRect) {
           ctx.beginPath();
-          ctx.roundRect(x, y, s, s, s * 0.18);
+          ctx.roundRect(x, y, s, s, s * 0.2);
           ctx.fill();
         } else {
           ctx.fillRect(x, y, s, s);
@@ -107,9 +113,9 @@ export default function SpinningGlobe({
     let last = 0;
     let visible = true;
 
-    const tick = (t: number) => {
-      if (last) yaw += ((t - last) / 1000) * ((Math.PI * 2) / period);
-      last = t;
+    const tick = (now: number) => {
+      if (last) yaw += ((now - last) / 1000) * ((Math.PI * 2) / period);
+      last = now;
       draw(yaw);
       raf = requestAnimationFrame(tick);
     };
@@ -144,37 +150,67 @@ export default function SpinningGlobe({
       document.removeEventListener('visibilitychange', sync);
       reduce.removeEventListener('change', sync);
     };
-  }, [color, step, period]);
-
-  // Orbit node sits on the ring, top right.
-  const ex = ORBIT_RX * Math.cos(TILT);
-  const ey = ORBIT_RY * Math.sin(TILT);
-  const o = (ORBIT_ANGLE * Math.PI) / 180;
-  const nodeX = 0.5 + ex * Math.cos(o) - ey * Math.sin(o);
-  const nodeY = 0.5 + ex * Math.sin(o) + ey * Math.cos(o);
+  }, [step, period]);
 
   return (
     <div ref={boxRef} className={className} aria-hidden="true">
-      <canvas ref={canvasRef} />
-      <svg viewBox="0 0 100 100">
+      <svg viewBox={VIEWBOX}>
         <defs>
-          <linearGradient id="globe-orbit" x1="0" y1="1" x2="1" y2="0">
-            <stop offset="0" stopColor={color} stopOpacity="0" />
-            <stop offset=".5" stopColor={color} stopOpacity=".45" />
-            <stop offset="1" stopColor={color} stopOpacity="1" />
-          </linearGradient>
+          <radialGradient id="dl-sphere-glow">
+            <stop offset="0" stopColor="#06d1f9" stopOpacity=".16" />
+            <stop offset="1" stopColor="#06d1f9" stopOpacity="0" />
+          </radialGradient>
         </defs>
-        <ellipse
-          cx="50"
-          cy="50"
-          rx={ORBIT_RX * 100}
-          ry={ORBIT_RY * 100}
-          transform={`rotate(${ORBIT_ANGLE} 50 50)`}
+        <circle cx="215" cy="170" r="170" fill="url(#dl-sphere-glow)" />
+        <path
+          d={orbit.back}
           fill="none"
-          stroke="url(#globe-orbit)"
-          strokeWidth=".6"
+          stroke="#056278"
+          strokeWidth="3"
+          strokeLinecap="round"
+          opacity=".38"
         />
-        <circle cx={(nodeX * 100).toFixed(2)} cy={(nodeY * 100).toFixed(2)} r="1.6" fill={color} />
+      </svg>
+
+      <canvas ref={canvasRef} />
+
+      <svg viewBox={VIEWBOX}>
+        <defs>
+          <linearGradient id="dl-ring" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stopColor="#056278" stopOpacity=".12" />
+            <stop offset=".22" stopColor="#06d1f9" stopOpacity=".85" />
+            <stop offset=".62" stopColor="#8feafc" />
+            <stop offset="1" stopColor="#ffffff" />
+          </linearGradient>
+          <radialGradient id="dl-tip">
+            <stop offset="0" stopColor="#ffffff" />
+            <stop offset=".22" stopColor="#8feafc" stopOpacity=".85" />
+            <stop offset="1" stopColor="#06d1f9" stopOpacity="0" />
+          </radialGradient>
+          <filter id="dl-soft" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="7" />
+          </filter>
+        </defs>
+        <path
+          d={orbit.glow}
+          fill="none"
+          stroke="#06d1f9"
+          strokeWidth="16"
+          strokeLinecap="round"
+          opacity=".24"
+          filter="url(#dl-soft)"
+        />
+        <path d={orbit.core} fill="none" stroke="url(#dl-ring)" strokeWidth="6.6" strokeLinecap="round" />
+        <path
+          d={orbit.highlight}
+          fill="none"
+          stroke="#ffffff"
+          strokeWidth="2.1"
+          strokeLinecap="round"
+          opacity=".5"
+        />
+        <circle cx={orbit.tip.x} cy={orbit.tip.y} r="21" fill="url(#dl-tip)" />
+        <circle cx={orbit.tip.x} cy={orbit.tip.y} r="3.8" fill="#ffffff" opacity=".95" />
       </svg>
     </div>
   );
