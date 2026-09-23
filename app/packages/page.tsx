@@ -8,31 +8,43 @@ import type { PackagesJson } from '@/types/package';
 const pkgData = rawData as PackagesJson;
 
 export const metadata: Metadata = {
-  title: 'Growth Systems & Pricing | DigiLift AI',
+  title: 'Services & Pricing | DigiLift AI',
   description:
-    'Choose the right growth system for your business. From a focused audit to a full appointment engine and ongoing fractional growth partnership. Clear scope, measurable outcomes.',
+    'Technology, AI and marketing under one roof. From a focused growth and AI audit to lead and booking engines, AI automation builds, custom software and an ongoing growth partnership. Clear scope, fixed prices.',
 };
 
 export default function PackagesPage() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    itemListElement: pkgData.packages.map((pkg, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      item: {
-        '@type': 'Product',
-        name: pkg.name,
-        description: pkg.description,
-        offers: {
-          '@type': 'Offer',
-          price: pkg.price.replace('$', '').replace(',', ''),
-          priceCurrency: 'USD',
-          availability: 'https://schema.org/InStock',
-          url: `https://digilift.ai/packages#${pkg.id}`,
+    itemListElement: pkgData.packages.map((pkg, index) => {
+      const amount = pkg.price.replace(/[^0-9.]/g, '');
+      const isFrom = /^from/i.test(pkg.price.trim());
+      return {
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@type': 'Product',
+          name: pkg.name,
+          description: pkg.description,
+          offers: isFrom
+            ? {
+                '@type': 'AggregateOffer',
+                lowPrice: amount,
+                priceCurrency: 'USD',
+                availability: 'https://schema.org/InStock',
+                url: `https://digilift.ai/packages#${pkg.id}`,
+              }
+            : {
+                '@type': 'Offer',
+                price: amount,
+                priceCurrency: 'USD',
+                availability: 'https://schema.org/InStock',
+                url: `https://digilift.ai/packages#${pkg.id}`,
+              },
         },
-      },
-    })),
+      };
+    }),
   };
 
   return (
@@ -51,11 +63,11 @@ export default function PackagesPage() {
               How We Work Together
             </p>
             <h1 className="mb-6">
-              Growth Systems Built Around Outcomes
+              Technology, AI and Marketing Under One Roof
             </h1>
             <p className="text-xl md:text-2xl text-dark/70 mb-8 max-w-2xl mx-auto">
-              Every engagement is scoped around a specific result — more qualified leads,
-              faster follow-up, and appointments that actually show up.
+              Every engagement is scoped around a specific, measurable result — whether
+              that is a system built, hours returned to your team, or leads that convert.
             </p>
             <div className="flex flex-wrap justify-center gap-6 text-sm text-dark/50">
               <span className="flex items-center gap-2">
@@ -74,7 +86,7 @@ export default function PackagesPage() {
                 <svg className="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                Built for schools and small businesses
+                Fixed prices agreed before we start
               </span>
             </div>
           </div>
@@ -88,7 +100,7 @@ export default function PackagesPage() {
           {/* Trust bar */}
           <div className="text-center mb-14">
             <p className="text-sm text-dark/40 uppercase tracking-widest font-medium">
-              Trusted by schools, daycares, and growth-stage small businesses
+              Technology × AI × Marketing × Real impact
             </p>
           </div>
 
