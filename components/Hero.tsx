@@ -21,17 +21,18 @@ export default function Hero() {
   return (
     <section className="hero">
       <div className="wrap">
-        <div className="eyebrow">AI · Automation · Digital growth</div>
+        <div className="eyebrow">People · Technology · Possibilities</div>
 
         <h1>
-          Your next idea,
+          Your all-in-one solution:
           <br />
-          <i>lifted</i> into results.
+          tech, AI, <i>marketing.</i>
         </h1>
 
         <p className="lede">
-          DigiLift AI is your one-stop partner for technology, AI, automation and
-          digital growth. We build it, automate it, launch it, and help you grow it.
+          We build and market digital solutions that grow your business. From custom
+          software and AI to automation and digital marketing, DigiLift AI takes you
+          from idea to impact.
         </p>
 
         <div className="cta-row">
@@ -44,9 +45,9 @@ export default function Hero() {
         </div>
 
         <div className="trust">
-          <span>No long-term contracts</span>
-          <span>Clear scope and deliverables</span>
-          <span>Response within 24 hours</span>
+          <span>Grow</span>
+          <span>Optimize</span>
+          <span>Support</span>
         </div>
 
         <div className="art" aria-hidden="true">
@@ -76,19 +77,19 @@ export default function Hero() {
               <span className="ok">
                 <Check />
               </span>
-              New inquiry from Meta Lead Ads
+              New lead captured from your campaign
             </div>
             <div className="row">
               <span className="ok">
                 <Check />
               </span>
-              Qualified and routed to your CRM
+              AI qualifies and routes it to your CRM
             </div>
             <div className="row dim">
               <span className="ok">
                 <Check />
               </span>
-              Follow-up sent · tour booked
+              Follow-up sent · meeting booked
             </div>
           </div>
 
@@ -100,7 +101,7 @@ export default function Hero() {
               <b>02</b>Automate
             </span>
             <span>
-              <b>03</b>Launch
+              <b>03</b>Market
             </span>
             <span>
               <b>04</b>Grow
@@ -109,13 +110,13 @@ export default function Hero() {
         </div>
 
         <div className="line-row">
-          <p>Built for growing organisations in</p>
+          <p>Technology × AI × Marketing × Real impact</p>
           <div className="inds">
-            <span>Schools &amp; daycares</span>
-            <span>Local businesses</span>
-            <span>Community organisations</span>
-            <span>Events</span>
-            <span>Professional services</span>
+            <span>Tech foundations</span>
+            <span>Efficiency</span>
+            <span>Reach</span>
+            <span>Leads</span>
+            <span>Growth</span>
           </div>
         </div>
       </div>

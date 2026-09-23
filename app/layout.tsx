@@ -8,53 +8,51 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://digilift.ai'),
 
   title: {
-    default: 'Daycare Website Design & Marketing | DigiLift for Daycare',
-    template: '%s | DigiLift for Daycare',
+    default: 'Your All-In-One Solution: Tech, AI and Marketing | DigiLift AI',
+    template: '%s | DigiLift AI',
   },
 
   description:
-    'DigiLift for Daycare helps home-based and local daycare centers increase enrollment through professional website design, Google Business Profile optimization, and parent-focused digital marketing.',
+    'DigiLift AI builds and markets digital solutions that grow your business. IT development, AI-powered solutions, digital marketing, customer acquisition and growth strategy under one roof.',
 
   keywords: [
-    'daycare website design',
-    'daycare marketing',
-    'home daycare marketing',
-    'childcare website design',
-    'Google Business Profile for daycares',
-    'daycare SEO',
-    'daycare branding',
-    'daycare enrollment marketing',
+    'IT development',
+    'AI-powered solutions',
+    'digital marketing agency',
+    'customer acquisition',
+    'growth strategy',
+    'custom software development',
+    'workflow automation',
+    'member portal development',
   ],
 
-  authors: [{ name: 'DigiLift for Daycare' }],
-  creator: 'DigiLift for Daycare',
-  publisher: 'DigiLift for Daycare',
+  authors: [{ name: 'DigiLift AI' }],
+  creator: 'DigiLift AI',
+  publisher: 'DigiLift AI',
 
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://digilift.ai/',
-    siteName: 'DigiLift for Daycare',
-    title: 'Daycare Website Design & Marketing | DigiLift for Daycare',
+    siteName: 'DigiLift AI',
+    title: 'Your All-In-One Solution: Tech, AI and Marketing | DigiLift AI',
     description:
-      'Enrollment-focused website design and digital marketing built specifically for home-based and local daycare centers.',
+      'We build and market digital solutions that grow your business \u2014 from idea to impact.',
     images: [
       {
         url: 'https://digilift.ai/og-facebook-v2.jpg',
         width: 1200,
         height: 630,
-        alt: 'DigiLift for Daycare – Daycare Website Design & Marketing',
+        alt: 'DigiLift AI \u2014 People, Technology, Possibilities',
       },
     ],
   },
 
   twitter: {
     card: 'summary_large_image',
-    site: '@digiliftdaycare',
-    creator: '@digiliftdaycare',
-    title: 'DigiLift for Daycare – Daycare Website Design & Marketing',
+    title: 'DigiLift AI \u2014 Technology, AI and Marketing',
     description:
-      'Enrollment-focused marketing and websites for home-based and local daycares.',
+      'We build and market digital solutions that grow your business \u2014 from idea to impact.',
     images: ['https://digilift.ai/og-facebook-v2.jpg'],
   },
 

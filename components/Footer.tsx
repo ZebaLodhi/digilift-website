@@ -1,121 +1,89 @@
-import Link from "next/link";
+import Link from 'next/link';
+
+function Arrow() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M7 17L17 7M8 7h9v9" />
+    </svg>
+  );
+}
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="bg-primary text-white">
-      <div className="container-custom py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+    <section className="dark contact" id="contact">
+      <div className="wrap">
+        <div className="eyebrow on-dark">Connect with us</div>
 
-          {/* Brand */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              {/* SVG Logo Mark */}
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 36 36"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect width="36" height="36" rx="8" fill="white" fillOpacity="0.15" />
-                <path
-                  d="M10 24L24 10M24 10H14M24 10V20"
-                  stroke="#00C2A8"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <div className="flex flex-col">
-                <span className="text-xl font-bold leading-tight">
-                  DigiLift<span className="text-[#00C2A8]"> AI</span>
-                </span>
-                <span className="text-xs text-neutral-300 uppercase tracking-wide">
-                  Growth & Automation
-                </span>
-              </div>
-            </div>
-            <p className="text-neutral-200 mb-6 max-w-md">
-              We help schools, daycares, childcare centers, and local businesses
-              generate qualified leads, automate follow-up, and turn inquiries
-              into booked appointments using AI-powered growth systems.
-            </p>
-            <p className="text-sm text-neutral-400">
-              Zeba Lodhi — AI Growth & Automation Consultant
+        <h2 style={{ marginTop: 22 }}>
+          Grow. Optimize. <i>Support.</i>
+        </h2>
+
+        <a className="mail" href="mailto:team@digilift.ai">
+          team@digilift.ai <Arrow />
+        </a>
+
+        <div className="actions">
+          <Link className="btn btn-white" href="/bookings">
+            Book a free growth audit <Arrow />
+          </Link>
+          <Link className="btn btn-ghost-dark" href="/packages">
+            See what we do
+          </Link>
+        </div>
+
+        <footer className="fgrid">
+          <div>
+            {/* The supplied lockup is drawn for dark backgrounds, so it is used
+                here exactly as provided. */}
+            <img
+              src="/brand/logo/digilift-ai-logo-transparent.svg"
+              alt="DigiLift AI — People, Technology, Possibilities"
+              width={260}
+              height={82}
+            />
+            <p>
+              Your all-in-one solution for technology, AI and marketing. We build and
+              market digital solutions that grow your business — from idea to impact.
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h4 className="font-bold text-lg mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/" className="text-neutral-200 hover:text-accent transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/packages" className="text-neutral-200 hover:text-accent transition-colors">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/#case-studies" className="text-neutral-200 hover:text-accent transition-colors">
-                  Case Studies
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="text-neutral-200 hover:text-accent transition-colors">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/bookings" className="text-neutral-200 hover:text-accent transition-colors">
-                  Book an Audit
-                </Link>
-              </li>
+            <h5>Services</h5>
+            <ul>
+              <li><Link href="/packages">IT Development</Link></li>
+              <li><Link href="/packages">AI-Powered Solutions</Link></li>
+              <li><Link href="/packages">Digital Marketing</Link></li>
+              <li><Link href="/packages">Customer Acquisition</Link></li>
+              <li><Link href="/packages">Growth Strategy</Link></li>
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
-            <h4 className="font-bold text-lg mb-4">Contact</h4>
-            <ul className="space-y-2 text-neutral-200">
-              <li>
-                <a href="mailto:team@digilift.ai" className="hover:text-accent transition-colors">
-                  team@digilift.ai
-                </a>
-              </li>
-              <li>
-                <a href="tel:+15715876824" className="hover:text-accent transition-colors">
-                  (571) 587-6824
-                </a>
-              </li>
-              <li className="pt-2 text-neutral-400 text-sm">
-                Monday – Friday<br />
-                9:00 AM – 6:00 PM EST
-              </li>
+            <h5>Company</h5>
+            <ul>
+              <li><Link href="/#work">Work</Link></li>
+              <li><Link href="/about">About</Link></li>
+              <li><Link href="/bookings">Book an audit</Link></li>
             </ul>
           </div>
 
-        </div>
+          <div>
+            <h5>Contact</h5>
+            <ul>
+              <li><a href="mailto:team@digilift.ai">team@digilift.ai</a></li>
+              <li><a href="https://www.digilift.ai">www.digilift.ai</a></li>
+              <li>Ideas. Brighter tomorrow.</li>
+            </ul>
+          </div>
+        </footer>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-white/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-neutral-300">
-          <p>&copy; {currentYear} DigiLift AI. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-accent transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="hover:text-accent transition-colors">
-              Terms of Service
-            </Link>
+        <div className="fbottom">
+          <div>© {new Date().getFullYear()} DigiLift AI. All rights reserved.</div>
+          <div className="links">
+            <span>People · Technology · Possibilities</span>
           </div>
         </div>
-
       </div>
-    </footer>
+    </section>
   );
 }
