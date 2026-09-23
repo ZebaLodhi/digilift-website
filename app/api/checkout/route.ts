@@ -3,19 +3,20 @@ import Stripe from "stripe";
 
 export const runtime = "nodejs"; // Ensures Node runtime
 
-// Validate environment variables
-if (!process.env.STRIPE_SECRET_KEY) {
-  throw new Error("❌ Missing STRIPE_SECRET_KEY in environment variables");
-}
-
-if (!process.env.NEXT_PUBLIC_SITE_URL) {
-  throw new Error("❌ Missing NEXT_PUBLIC_SITE_URL in environment variables");
-}
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
-
 export async function POST(req: Request) {
   try {
+    const secretKey = process.env.STRIPE_SECRET_KEY;
+    const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL;
+
+    if (!secretKey || !SITE_URL) {
+      return NextResponse.json(
+        { error: "Checkout is not configured" },
+        { status: 500 }
+      );
+    }
+
+    const stripe = new Stripe(secretKey);
+
     const { priceId } = await req.json();
 
     if (!priceId) {
@@ -24,8 +25,6 @@ export async function POST(req: Request) {
         { status: 400 }
       );
     }
-
-    const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL; // https://www.digilift.ai
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",

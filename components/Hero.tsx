@@ -1,67 +1,125 @@
 import Link from 'next/link';
+import GlobeMark from './GlobeMark';
+
+function Arrow() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M7 17L17 7M8 7h9v9" />
+    </svg>
+  );
+}
+
+function Check() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M5 13l4 4L19 7" />
+    </svg>
+  );
+}
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#FFF6EA] pt-24 pb-20 md:pt-32 md:pb-24">
+    <section className="hero">
+      <div className="wrap">
+        <div className="eyebrow">People · Technology · Possibilities</div>
 
-      {/* SEO H1 */}
-      <h1 className="sr-only">
-        AI Growth & Automation Systems for Schools and Small Businesses
-      </h1>
+        <h1>
+          Your all-in-one solution:
+          <br />
+          tech, AI, <i>marketing.</i>
+        </h1>
 
-      {/* Subtle background decoration */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#00C2A8]/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 -left-24 w-80 h-80 bg-[#1F3B73]/5 rounded-full blur-3xl" />
-      </div>
+        <p className="lede">
+          We build and market digital solutions that grow your business. From custom
+          software and AI to automation and digital marketing, DigiLift AI takes you
+          from idea to impact.
+        </p>
 
-      {/* Content */}
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-        <div className="min-h-[60vh] flex items-center">
-          <div className="max-w-2xl lg:max-w-3xl relative">
+        <div className="cta-row">
+          <Link className="btn btn-ink" href="/bookings">
+            Book a free growth audit <Arrow />
+          </Link>
+          <Link className="btn btn-ghost" href="/#work">
+            See our work
+          </Link>
+        </div>
 
-            {/* Label */}
-            <p className="text-sm font-semibold text-[#00C2A8] uppercase tracking-widest mb-4">
-              AI Growth & Automation Consultancy
-            </p>
+        <div className="trust">
+          <span>Grow</span>
+          <span>Optimize</span>
+          <span>Support</span>
+        </div>
 
-            {/* Headline */}
-            <h2 className="text-slate-900 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
-              AI Growth Systems for{' '}
-              <span className="text-[#00C2A8]">Schools</span> and Small Businesses
-            </h2>
+        <div className="art" aria-hidden="true">
+          <div className="blob b1" />
+          <div className="blob b2" />
+          <div className="blob b3" />
+          <div className="blob b4" />
+          <div className="grid" />
 
-            {/* Subheadline */}
-            <p className="mt-6 text-lg md:text-xl text-slate-700 leading-relaxed max-w-xl">
-              We help schools, daycares, and local businesses generate qualified leads,
-              automate follow-up, and turn inquiries into booked tours and appointments.
-            </p>
+          <GlobeMark
+            size={560}
+            radius={200}
+            step={7}
+            dot={5}
+            color="#0A0A0A"
+            gradientId="hero-globe"
+            className="globe"
+          />
 
-            {/* CTA Buttons */}
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="/bookings"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-[#1F3B73] text-white font-semibold text-base hover:bg-[#162D5C] transition-all duration-200 shadow-md hover:shadow-lg"
-              >
-                Book a Growth Automation Audit
-              </Link>
-              <Link
-                href="#how-it-works"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-xl border-2 border-[#1F3B73] text-[#1F3B73] font-semibold text-base hover:bg-[#1F3B73] hover:text-white transition-all duration-200"
-              >
-                See How It Works
-              </Link>
+          <div className="cap">People · Technology · Possibilities</div>
+
+          <div className="card">
+            <div className="t">
+              Automation running <i />
             </div>
+            <div className="row">
+              <span className="ok">
+                <Check />
+              </span>
+              New lead captured from your campaign
+            </div>
+            <div className="row">
+              <span className="ok">
+                <Check />
+              </span>
+              AI qualifies and routes it to your CRM
+            </div>
+            <div className="row dim">
+              <span className="ok">
+                <Check />
+              </span>
+              Follow-up sent · meeting booked
+            </div>
+          </div>
 
-            {/* Trust line */}
-            <p className="mt-6 text-sm text-slate-500">
-              No long-term contracts &nbsp;·&nbsp; Built for schools and small businesses &nbsp;·&nbsp; Clear scope and deliverables
-            </p>
+          <div className="verbs">
+            <span>
+              <b>01</b>Build
+            </span>
+            <span>
+              <b>02</b>Automate
+            </span>
+            <span>
+              <b>03</b>Market
+            </span>
+            <span>
+              <b>04</b>Grow
+            </span>
+          </div>
+        </div>
 
+        <div className="line-row">
+          <p>Technology × AI × Marketing × Real impact</p>
+          <div className="inds">
+            <span>Tech foundations</span>
+            <span>Efficiency</span>
+            <span>Reach</span>
+            <span>Leads</span>
+            <span>Growth</span>
           </div>
         </div>
       </div>
-
     </section>
   );
 }

@@ -2,28 +2,30 @@
   "packages": [
     {
       "id": "audit",
-      "name": "Growth Intelligence Audit",
-      "tagline": "Find Out Exactly Where You're Losing Leads",
-      "price": "$1,497",
+      "name": "Growth & AI Audit",
+      "kicker": "Start here",
+      "tagline": "Find Out Exactly Where Your Growth Is Leaking",
+      "price": "$1,470",
       "priceNote": "one-time",
       "turnaround": "5–7 business days",
-      "description": "A senior-level review of your entire lead generation and follow-up system. You leave with a clear, prioritized action plan — not a generic report.",
+      "description": "A senior-level review of your technology, marketing and follow-up systems. You leave with a prioritized action plan showing where AI and automation will pay back fastest — not a generic report.",
       "features": [
-        "Full audit of your ads, forms, and landing pages",
+        "Review of your website, ads, forms and landing pages",
         "Follow-up process and response time assessment",
-        "Automation gap and tool stack review",
+        "AI and automation opportunity mapping across your workflows",
+        "Tool stack and integration review",
         "Lead quality and qualification analysis",
         "Funnel drop-off identification",
-        "Written Growth Roadmap with prioritized next steps",
+        "Written roadmap with prioritized, costed next steps",
         "60-minute strategy call to walk through findings"
       ],
       "ideal": [
-        "Businesses unsure where leads are being lost",
-        "Teams spending money on ads without clear results",
-        "Owners who want a clear starting point before investing in a full system"
+        "Organizations unsure where leads or hours are being lost",
+        "Teams spending on marketing without clear attribution",
+        "Owners who want a clear starting point before investing in a build"
       ],
       "notIncluded": [
-        "Ad campaign management",
+        "Campaign management",
         "Automation builds or integrations",
         "Ongoing support"
       ],
@@ -35,31 +37,32 @@
     },
     {
       "id": "funnel",
-      "name": "Booked Appointment Engine",
-      "tagline": "A Complete System From First Click to Confirmed Appointment",
-      "price": "$2,997",
+      "name": "Lead & Booking Engine",
+      "kicker": "Complete system",
+      "tagline": "A Complete System From First Click to Confirmed Meeting",
+      "price": "$4,500",
       "priceNote": "one-time",
       "turnaround": "2–3 weeks",
-      "description": "We build your entire lead-to-booking system — ads, qualification, automation, routing, and follow-up — so inquiries convert into appointments without manual effort.",
+      "description": "We build your entire lead-to-booking system — campaigns, qualification, automation, routing and follow-up — so inquiries turn into booked meetings without anyone chasing them manually.",
       "features": [
-        "Meta Lead Ads campaign strategy and setup",
-        "Landing page build or optimization for your lead funnel",
+        "Campaign strategy and setup across Meta and search",
+        "Landing page build or optimization",
         "Lead form with multi-step qualification logic",
-        "Google Sheets or CRM lead routing and tagging",
+        "CRM or Google Sheets routing and tagging",
         "Automated email and SMS follow-up sequences",
-        "Missed lead recovery workflow",
-        "Appointment and tour confirmation automation",
-        "Lead quality reporting dashboard",
+        "Missed-lead recovery workflow",
+        "Booking and confirmation automation",
+        "Lead quality and cost-per-lead dashboard",
         "30-day post-launch optimization support"
       ],
       "ideal": [
-        "Schools, daycares, and small businesses ready to build a complete lead system",
-        "Businesses currently losing leads due to slow or missing follow-up",
-        "Owners who want automation handling follow-up instead of doing it manually"
+        "Organizations ready to build a complete acquisition system",
+        "Teams losing leads to slow or inconsistent follow-up",
+        "Owners who want automation handling follow-up instead of staff"
       ],
       "notIncluded": [
         "Ongoing monthly management",
-        "Paid ad spend budget"
+        "Paid media budget"
       ],
       "addons": [
         "Additional automation workflows",
@@ -72,30 +75,109 @@
       "guarantee": "We build until it works. Includes revisions through the first 30 days."
     },
     {
-      "id": "partner",
-      "name": "Fractional Growth Partner",
-      "tagline": "Senior Growth Expertise Without a Full-Time Hire",
-      "price": "$1,495",
-      "priceNote": "per month",
-      "turnaround": "Ongoing",
-      "description": "Ongoing strategy, optimization, and execution from a dedicated growth partner. We run your lead system, improve performance month over month, and report on what actually matters.",
+      "id": "automation",
+      "name": "AI Automation Build",
+      "kicker": "Scale operations",
+      "tagline": "Put AI to Work on the Tasks That Slow Your Team Down",
+      "price": "$8,700",
+      "priceNote": "one-time",
+      "turnaround": "4–6 weeks",
+      "description": "A multi-workflow automation program built around how your organization actually operates. We map the manual work, automate what should be automated, and connect it to the tools you already use.",
       "features": [
-        "Dedicated growth partner — not an account manager",
+        "Workflow discovery and process mapping",
+        "Multiple production automations, built and tested",
+        "AI-assisted document, data and enquiry processing",
+        "AI assistants trained on your content and policies",
+        "Integration with your CRM, sheets, email and SMS tools",
+        "Human-in-the-loop review steps where accuracy matters",
+        "Monitoring, error handling and alerting",
+        "Team documentation and training",
+        "30 days of tuning after go-live"
+      ],
+      "ideal": [
+        "Teams doing high-volume repetitive work by hand",
+        "Organizations with data spread across disconnected tools",
+        "Owners who want capacity back without adding headcount"
+      ],
+      "notIncluded": [
+        "Third-party AI or platform subscription costs",
+        "Ongoing monthly management"
+      ],
+      "addons": [
+        "Additional workflows beyond the agreed scope",
+        "Custom model or data pipeline work",
+        "Ongoing monitoring retainer"
+      ],
+      "isPopular": false,
+      "priceId": "",
+      "cta": "Book a Call",
+      "guarantee": "Scoped and fixed-price before we start. No surprise change orders."
+    },
+    {
+      "id": "software",
+      "name": "Custom Software & Portals",
+      "kicker": "Built for you",
+      "tagline": "Websites, Member Platforms and Internal Tools, Built to Scale",
+      "price": "From $15,000",
+      "priceNote": "scoped per project",
+      "turnaround": "8–16 weeks",
+      "description": "Custom builds designed around how your organization works — the alumni portal and member platform we built for the South Asian Business Council of Virginia is a recent example. Every project is scoped and fixed-price before we begin.",
+      "features": [
+        "Discovery, requirements and technical architecture",
+        "Interface design and prototyping",
+        "Full-stack build with your integrations",
+        "Member, customer or admin portals",
+        "Authentication, roles and permissions",
+        "Analytics and reporting built in",
+        "Testing, deployment and handover",
+        "Documentation and team training",
+        "Post-launch support window"
+      ],
+      "ideal": [
+        "Organizations whose needs off-the-shelf tools do not fit",
+        "Membership bodies, councils and associations",
+        "Teams replacing spreadsheets with a real platform"
+      ],
+      "notIncluded": [
+        "Hosting and infrastructure costs",
+        "Ongoing maintenance retainer"
+      ],
+      "addons": [
+        "Mobile application build",
+        "Ongoing maintenance and support plan",
+        "Additional integrations"
+      ],
+      "isPopular": false,
+      "priceId": "",
+      "cta": "Scope a Project",
+      "guarantee": "Fixed price agreed before a line of code is written."
+    },
+    {
+      "id": "partner",
+      "name": "Growth Partner",
+      "kicker": "Ongoing",
+      "tagline": "Senior Technology and Marketing Expertise Without a Full-Time Hire",
+      "price": "$1,950",
+      "priceNote": "per month",
+      "turnaround": "Ongoing · month to month",
+      "description": "Ongoing strategy, execution and optimization from a dedicated partner. We run your systems, improve performance month over month, and report on the numbers that matter.",
+      "features": [
+        "A dedicated partner, not an account manager",
         "Monthly campaign and funnel performance review",
-        "Continuous automation workflow improvements",
+        "Continuous automation and workflow improvements",
         "Cost-per-lead and lead quality tracking",
         "Funnel drop-off analysis and optimization",
-        "New workflow builds as your business grows",
+        "New builds and workflows as you grow",
         "Bi-weekly strategy and reporting calls",
         "Priority support with same-day response"
       ],
       "ideal": [
-        "Businesses with an existing funnel that want continuous improvement",
-        "Owners who want expert oversight without hiring full-time",
-        "Teams that need consistent reporting and optimization month over month"
+        "Organizations with systems in place that want continuous improvement",
+        "Owners who want senior oversight without hiring full-time",
+        "Teams that need consistent reporting month over month"
       ],
       "notIncluded": [
-        "Paid ad spend budget",
+        "Paid media budget",
         "Third-party tool subscription costs"
       ],
       "addons": [
@@ -110,16 +192,16 @@
     }
   ],
   "deliverables": [
-    "Full documentation of your growth system",
-    "Lead tracking setup via Google Sheets or CRM",
-    "Automation workflow build and testing",
-    "Campaign performance reporting",
+    "Full documentation of everything we build",
+    "Tracking and reporting connected to your tools",
+    "Automation workflows built, tested and monitored",
+    "Performance reporting against agreed outcomes",
     "Ongoing optimization and support access"
   ],
   "process": [
-    "Audit — review your current setup and identify gaps",
-    "Build — create your funnel, workflows, and tracking",
-    "Automate — connect lead sources to follow-up systems",
-    "Optimize — monitor performance and improve over time"
+    "Audit — review your current setup and find the gaps",
+    "Build — design and build what is missing",
+    "Automate & launch — connect it, test it, take it live",
+    "Grow & optimize — measure, improve, repeat"
   ]
 }

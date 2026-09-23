@@ -3,12 +3,17 @@ import OpenAI from "openai";
 
 export const runtime = "edge"; // Faster & cheaper
 
-const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY!,
-});
-
 export async function POST(request: NextRequest) {
   try {
+    const apiKey = process.env.OPENAI_API_KEY;
+    if (!apiKey) {
+      return NextResponse.json(
+        { error: "Chat is not configured" },
+        { status: 500 }
+      );
+    }
+    const client = new OpenAI({ apiKey });
+
     const { message } = await request.json();
 
     if (!message) {
