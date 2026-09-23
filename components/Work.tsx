@@ -47,10 +47,10 @@ export default function Work() {
         <article className="case">
           <div className="case-media portal">
             <Image
-              src="/work/sabcva-portal.jpg"
-              alt="SABCVA Alumni & Intern Platform home screen with Connect, Explore and Network cards"
-              width={1831}
-              height={885}
+              src="/work/sabcva-portal-matches.jpg"
+              alt="SABCVA Alumni & Intern Platform home screen showing AI-ranked top matches, each with a match score and a generated explanation"
+              width={1840}
+              height={1438}
               sizes="(max-width: 900px) 100vw, 55vw"
             />
           </div>
