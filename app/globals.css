@@ -705,10 +705,12 @@ fieldset.field{border:0;min-width:0}
 .svc-card .thumb.c2{background-image:radial-gradient(70% 70% at 0% 0%,rgba(5,76,93,.8),transparent 70%),radial-gradient(65% 65% at 100% 100%,rgba(6,209,249,.28),transparent 70%)}
 .svc-card .thumb.c3{background-image:radial-gradient(70% 70% at 0% 0%,rgba(143,234,252,.22),transparent 70%),radial-gradient(70% 70% at 90% 100%,rgba(72,110,140,.6),transparent 70%)}
 .svc-card .thumb.c4{background-image:radial-gradient(65% 65% at 100% 0%,rgba(72,110,140,.65),transparent 70%),radial-gradient(70% 60% at 20% 100%,rgba(6,209,249,.26),transparent 70%)}
+.svc-card .thumb.c5{background-image:radial-gradient(70% 70% at 100% 100%,rgba(6,209,249,.28),transparent 70%),radial-gradient(65% 65% at 0% 0%,rgba(72,110,140,.6),transparent 70%)}
 .svc-card .thumb svg{width:36px;height:36px;fill:none;stroke:var(--brand-cyan-lt);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 6px rgba(6,209,249,.55));transition:transform .4s var(--ease)}
 .svc-card:hover .thumb svg{transform:scale(1.08)}
 .svc-card .body{padding:4px 40px 0 0}
 .svc-card .n{font-size:12px;color:var(--gray);letter-spacing:.1em}
+.svc-card .n span{color:var(--brand-deep);text-transform:uppercase;letter-spacing:.14em;font-size:11px;font-weight:500;margin-left:4px}
 .svc-card h3{font-size:26px;letter-spacing:-.03em;margin-top:6px}
 .svc-card p{color:var(--gray);font-size:14.5px;line-height:1.5;margin-top:10px;max-width:360px}
 .svc-card .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
@@ -716,11 +718,21 @@ fieldset.field{border:0;min-width:0}
 .svc-card .go{position:absolute;top:18px;right:18px;width:32px;height:32px;border-radius:50%;border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;background:#fff;transition:background .25s,border-color .25s,color .25s}
 .svc-card .go svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .svc-card:hover .go{background:var(--brand-plate);border-color:var(--brand-plate);color:var(--brand-cyan-lt)}
+.svc-cta{grid-template-columns:1fr;align-items:center;border-color:var(--brand-plate);color:#fff;
+  background:radial-gradient(70% 90% at 0% 0%,rgba(5,76,93,.75),transparent 70%),radial-gradient(60% 80% at 100% 100%,rgba(6,209,249,.2),transparent 70%),var(--brand-plate)}
+.svc-cta:hover{border-color:var(--brand-cyan);box-shadow:0 18px 40px -28px rgba(6,209,249,.45)}
+.svc-cta .body{padding:10px 12px}
+.svc-cta .n{color:var(--brand-cyan-lt);letter-spacing:.14em;text-transform:uppercase;font-size:11px;font-weight:500}
+.svc-cta h3{color:#fff}.svc-cta h3 i{color:var(--brand-cyan-lt)}
+.svc-cta p{color:rgba(255,255,255,.65)}
+.svc-cta .btn{margin-top:18px;height:44px;padding:0 18px;font-size:14px}
 @media (max-width:1100px){.svc-cards{grid-template-columns:1fr}}
 @media (max-width:900px){
-  .svc-card{grid-template-columns:88px 1fr;gap:16px;padding:14px}
+  .svc-card{grid-template-columns:72px 1fr;gap:14px;padding:14px}
+  .svc-cta{grid-template-columns:1fr;padding:20px}
+  .svc-cta .body{padding:0}
   .svc-card .thumb{border-radius:12px}
-  .svc-card .thumb svg{width:28px;height:28px}
+  .svc-card .thumb svg{width:26px;height:26px}
   .svc-card h3{font-size:22px}
   .svc-card .body{padding-right:36px}
   .svc-card .go{top:14px;right:14px}
@@ -757,7 +769,6 @@ fieldset.field{border:0;min-width:0}
 .case-stat{font-size:51px;font-weight:500;letter-spacing:-.045em;line-height:1;color:#fff;white-space:nowrap}
 .case-stat small{font-size:19px;letter-spacing:-.02em;color:rgba(255,255,255,.6);margin-left:6px}
 .case-stat span{display:block;font-size:13px;line-height:1.45;letter-spacing:0;color:rgba(255,255,255,.5);margin-top:10px;white-space:normal;max-width:240px}
-.case-credit{font-size:13px;color:rgba(255,255,255,.45);max-width:260px}
 .case + .results-note{margin-top:56px}
 @media (max-width:900px){
   .partner{gap:16px;padding:28px 22px;margin-top:40px}

@@ -87,10 +87,6 @@ export default function Work() {
                 1,000<small>+ alumni</small>
                 <span>Target the platform is built to carry by 2027</span>
               </div>
-              <p className="case-credit">
-                Built by SABCVA&rsquo;s 2026 AI internship team. Zeba Lodhi was the AI
-                engineer on the matching engine.
-              </p>
             </div>
           </div>
         </article>
