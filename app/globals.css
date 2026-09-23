@@ -731,6 +731,7 @@ fieldset.field{border:0;min-width:0}
 .partner-logo{width:120px;height:auto;flex:0 0 auto}
 .partner-k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brand-cyan-lt);font-weight:500}
 .partner h3{font-size:24px;letter-spacing:-.03em;margin-top:8px;color:#fff}
+.partner p{color:rgba(255,255,255,.6);font-size:15px;margin:10px auto 0;max-width:640px}
 .case{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center;margin-top:72px}
 .case.flip{grid-template-columns:1fr 1.15fr}
 .case.flip .case-media{order:2}
