@@ -62,7 +62,7 @@ h1,h2,h3{font-weight:500;letter-spacing:-.035em;line-height:1.02}
 .header .pill{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.88);border:1px solid var(--line);border-radius:999px;padding:8px 8px 8px 18px;box-shadow:0 10px 40px -24px rgba(0,0,0,.25);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:box-shadow .3s,padding .3s}
 .header.scrolled{top:12px}.header.scrolled .pill{box-shadow:0 16px 50px -24px rgba(0,0,0,.35);padding:6px 6px 6px 16px}
 .brand{display:flex;align-items:center;gap:10px;font-family:var(--logo);font-weight:700;font-size:21px;letter-spacing:-.02em;color:var(--ink)}
-.brand svg{width:34px;height:34px}
+.brand svg,.brand img{width:34px;height:34px}
 .brand.on-dark{color:#fff}
 .menu{display:flex;gap:2px;margin-left:auto;margin-right:8px}
 .menu a{padding:8px 13px;border-radius:999px;font-size:14px;font-weight:500;color:var(--gray);transition:color .2s,background .2s}
@@ -321,7 +321,7 @@ body.menu-open{overflow:hidden}
   .menu,.header .btn{display:none}
   .burger{display:inline-flex}
   .header .pill{padding:6px 6px 6px 14px}
-  .brand{font-size:18px}.brand svg{width:30px;height:30px}
+  .brand{font-size:18px}.brand svg,.brand img{width:30px;height:30px}
   .hero,.page-hero{padding-top:108px}
   .hero h1{font-size:48px;margin-top:14px}.page-hero h1{font-size:44px;margin-top:14px}
   .hero .lede,.page-hero .lede{font-size:17px;margin-top:20px}

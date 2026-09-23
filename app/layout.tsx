@@ -71,8 +71,11 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+    icon: [
+      { url: '/brand/logo/digilift-ai-icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico' },
+    ],
+    apple: '/brand/logo/digilift-ai-icon-512.png',
   },
 
   other: {

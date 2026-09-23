@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import GlobeMark from './GlobeMark';
 
 const navLinks = [
   { href: '/#work', label: 'Work' },
@@ -46,15 +45,10 @@ export default function Navbar() {
       <header className={scrolled ? 'header scrolled' : 'header'}>
         <div className="pill">
           <Link className="brand" href="/" aria-label="DigiLift AI home">
-            <GlobeMark
-              size={100}
-              radius={33}
-              step={16}
-              dot={3.4}
-              color="#0A0A0A"
-              gradientId="mark-light"
-              className="logo-mark"
-            />
+            {/* The brand mark is drawn for dark backgrounds, so the header uses
+                the tiled icon rather than the transparent one, which is close to
+                invisible on white at this size. */}
+            <img src="/brand/logo/digilift-ai-icon.svg" alt="" width={34} height={34} />
             <span>DigiLift AI</span>
           </Link>
 
