@@ -15,11 +15,11 @@ function Arrow() {
  */
 export default function Pipeline() {
   return (
-    <section className="sec dark" id="pipeline">
+    <section className="sec paper" id="pipeline">
       <div className="wrap">
         <div className="head">
           <div>
-            <div className="eyebrow on-dark">End-to-end pipeline</div>
+            <div className="eyebrow">End-to-end pipeline</div>
             <h2 className="h2">
               From first build to <i>lasting growth.</i>
             </h2>
@@ -28,7 +28,7 @@ export default function Pipeline() {
               the way.
             </p>
           </div>
-          <Link className="link" href="/bookings" style={{ color: '#fff' }}>
+          <Link className="link" href="/bookings">
             Book a free growth audit <Arrow />
           </Link>
         </div>

@@ -11,26 +11,26 @@ function Arrow() {
 
 export default function Work() {
   return (
-    <section className="sec dark" id="work">
+    <section className="sec" id="work">
       <div className="wrap">
         <div className="head">
           <div>
-            <div className="eyebrow on-dark">Partner success story</div>
+            <div className="eyebrow">Partner success story</div>
             <h2 className="h2">
               Two projects, <i>one partner.</i>
             </h2>
           </div>
-          <Link className="link" href="/bookings" style={{ color: '#fff' }}>
+          <Link className="link" href="/bookings">
             Start a project <Arrow />
           </Link>
         </div>
 
         <div className="partner">
           <Image
-            src="/work/sabcva-logo.png"
+            src="/work/sabcva-seal.png"
             alt="South Asian Business Council of Virginia"
-            width={360}
-            height={449}
+            width={320}
+            height={319}
             className="partner-logo"
           />
           <div>

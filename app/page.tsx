@@ -103,7 +103,7 @@ export default function Home() {
       <AuditCta />
       <Work />
 
-      <section className="sec tight" id="faq">
+      <section className="sec paper" id="faq">
         <div className="wrap">
           <div className="faq">
             <div>
