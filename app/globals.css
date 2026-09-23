@@ -451,9 +451,9 @@ body.menu-open{overflow:hidden}
 @tailwind utilities;
 
 /* =========================================================
-   Legacy component classes — still used by /about, /packages,
-   /bookings and the existing forms. Kept until those pages are
-   moved onto the v2 system.
+   Legacy component classes — no longer used by any routed page
+   (Testimonials and ComparisonTable still reference them but are
+   not imported). Kept until those components are removed.
    ========================================================= */
 @layer components {
   .btn-primary {
@@ -635,3 +635,19 @@ body.menu-open{overflow:hidden}
 .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
 .cta-band .eyebrow{justify-content:center}
 .cta-band .pill-row{justify-content:center}
+
+/* Booking form + sidebar on the v2 system */
+fieldset.field{border:0;min-width:0}
+.field legend{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);font-weight:500;margin-bottom:12px;padding:0}
+.field select{appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:28px;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236F6F6C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>") right 2px center/16px no-repeat}
+.field input::placeholder,.field textarea::placeholder{color:var(--gray-2)}
+.field.has-error input,.field.has-error textarea,.field.has-error select{border-color:#B42318}
+.field-error{margin-top:8px;font-size:13px;color:#B42318}
+.field-hint{margin-top:8px;font-size:13px;color:var(--gray-2)}
+.form .btn:disabled{opacity:.6;cursor:not-allowed}
+.form-ok.show{display:block}
+.side ol li b{color:var(--ink);font-weight:500}
+.side a.big:hover{text-decoration:underline;text-underline-offset:4px}
+.field .choices label{display:inline-flex;margin-bottom:0;font-size:14px;letter-spacing:-.01em;text-transform:none;color:var(--ink);font-weight:400}
+.field .choices label:has(input:checked){color:#fff}
