@@ -13,10 +13,10 @@ export const metadata: Metadata = {
   },
 
   description:
-    'DigiLift AI builds and markets digital solutions that grow your business. IT development, AI-powered solutions, digital marketing, customer acquisition and growth strategy under one roof.',
+    'DigiLift AI builds and markets digital solutions that grow your business. Application development, AI-powered solutions, digital marketing, customer acquisition and growth strategy under one roof.',
 
   keywords: [
-    'IT development',
+    'application development',
     'AI-powered solutions',
     'digital marketing agency',
     'customer acquisition',

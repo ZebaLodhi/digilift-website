@@ -8,7 +8,7 @@ import faqData from '@/data/faq.json';
 export const metadata: Metadata = {
   title: 'About DigiLift AI | From First Build to Lasting Growth',
   description:
-    'DigiLift AI runs the whole pipeline — IT development, digital marketing, lead generation, customer acquisition and growth strategy — with AI powering every step.',
+    'DigiLift AI runs the whole pipeline — application development, digital marketing, lead generation, customer acquisition and growth strategy — with AI powering every step.',
   alternates: {
     canonical: '/about',
   },
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 // What we do at each pipeline step, keyed to the shared service list.
 const whatWeDo: Record<string, string> = {
-  'IT Development':
+  'Application Development':
     'We build the product your growth runs on: websites, portals and custom software designed around how your organization works.',
   'Digital Marketing':
     'We put that product in front of the right people with targeted campaigns, content and creative.',
@@ -47,7 +47,7 @@ export default function AboutPage() {
           </h1>
           <p className="lede">
             DigiLift AI takes a business from the product it runs on to the customers it
-            wins: IT development, digital marketing, lead generation, customer
+            wins: application development, digital marketing, lead generation, customer
             acquisition and growth strategy, with AI powering every step.
           </p>
           <div className="pill-row">

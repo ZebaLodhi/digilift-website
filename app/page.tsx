@@ -56,7 +56,7 @@ export default function Home() {
       name: "United States",
     },
     serviceType: [
-      "IT Development",
+      "Application Development",
       "AI-Powered Solutions",
       "Digital Marketing",
       "Lead Generation",
@@ -90,7 +90,7 @@ export default function Home() {
         <h1>Your All-In-One Solution: Technology, AI and Marketing</h1>
         <p>
           DigiLift AI builds and markets digital solutions that grow your business,
-          spanning IT development, AI-powered solutions, digital marketing, customer
+          spanning application development, AI-powered solutions, digital marketing, customer
           acquisition and growth strategy.
         </p>
       </section>

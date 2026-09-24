@@ -51,7 +51,7 @@ export default function Footer() {
           <div>
             <h5>Services</h5>
             <ul>
-              <li><Link href="/packages">IT Development</Link></li>
+              <li><Link href="/packages">Application Development</Link></li>
               <li><Link href="/packages">Digital Marketing</Link></li>
               <li><Link href="/packages">Lead Generation</Link></li>
               <li><Link href="/packages">Customer Acquisition</Link></li>
