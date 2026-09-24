@@ -861,3 +861,19 @@ fieldset.field{border:0;min-width:0}
 @media (max-width:900px){.steps.five{grid-template-columns:1fr}.about-ai{align-items:flex-start}}
 .steps.five .step{display:flex;flex-direction:column}
 .steps.five .step .out{margin-top:auto;padding-top:14px}
+
+/* Projects: text first, picture below, on every screen size */
+.case,.case.flip{grid-template-columns:1fr;gap:36px;align-items:start}
+.case .case-media,.case.flip .case-media{order:2}
+.case-body{max-width:900px}
+.case-lede{max-width:760px}
+.case-media.portal{padding:40px 48px 0}
+.case-media.portal img{max-width:1040px;margin:0 auto}
+.case-media.poster{min-height:0;padding:48px}
+.case-media.poster img{width:min(100%,340px)}
+@media (max-width:900px){
+  .case,.case.flip{gap:24px}
+  .case-media.portal{padding:16px 16px 0}
+  .case-media.poster{padding:28px}
+  .case-media.poster img{width:min(80%,300px)}
+}
