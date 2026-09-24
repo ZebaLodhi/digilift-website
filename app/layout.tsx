@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://digilift.ai'),
+  metadataBase: new URL('https://www.digilift.ai'),
 
   title: {
     default: 'Your All-In-One Solution: Tech, AI and Marketing | DigiLift AI',
@@ -33,14 +33,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://digilift.ai/',
+    url: 'https://www.digilift.ai/',
     siteName: 'DigiLift AI',
     title: 'Your All-In-One Solution: Tech, AI and Marketing | DigiLift AI',
     description:
       'We build and market digital solutions that grow your business \u2014 from idea to impact.',
     images: [
       {
-        url: 'https://digilift.ai/og-digilift-2026.jpg',
+        url: 'https://www.digilift.ai/og-digilift-2026.jpg',
         width: 1200,
         height: 630,
         alt: 'DigiLift AI \u2014 People, Technology, Possibilities',
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     title: 'DigiLift AI \u2014 Technology, AI and Marketing',
     description:
       'We build and market digital solutions that grow your business \u2014 from idea to impact.',
-    images: ['https://digilift.ai/og-digilift-2026.jpg'],
+    images: ['https://www.digilift.ai/og-digilift-2026.jpg'],
   },
 
   robots: {

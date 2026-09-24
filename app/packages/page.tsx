@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: 'Services & Pricing',
   description:
     'Technology, AI and marketing under one roof. From a focused growth and AI audit to lead and booking engines, AI automation builds, custom software and an ongoing growth partnership. Clear scope, fixed prices.',
+  alternates: {
+    canonical: '/packages',
+  },
 };
 
 function Arrow() {
@@ -80,14 +83,14 @@ export default function PackagesPage() {
                 lowPrice: amount,
                 priceCurrency: 'USD',
                 availability: 'https://schema.org/InStock',
-                url: `https://digilift.ai/packages#${pkg.id}`,
+                url: `https://www.digilift.ai/packages#${pkg.id}`,
               }
             : {
                 '@type': 'Offer',
                 price: amount,
                 priceCurrency: 'USD',
                 availability: 'https://schema.org/InStock',
-                url: `https://digilift.ai/packages#${pkg.id}`,
+                url: `https://www.digilift.ai/packages#${pkg.id}`,
               },
         },
       };

@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://digilift.ai/sitemap.xml
+Sitemap: https://www.digilift.ai/sitemap.xml

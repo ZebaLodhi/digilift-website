@@ -14,17 +14,17 @@ export const metadata: Metadata = {
   description:
     "DigiLift AI builds and markets digital solutions that grow your business. Custom software, AI-powered solutions, digital marketing, customer acquisition and growth strategy under one roof.",
   alternates: {
-    canonical: "https://digilift.ai/",
+    canonical: "https://www.digilift.ai/",
   },
   openGraph: {
     type: "website",
-    url: "https://digilift.ai/",
+    url: "https://www.digilift.ai/",
     title: "Your All-In-One Solution: Tech, AI and Marketing | DigiLift AI",
     description:
       "We build and market digital solutions that grow your business — from idea to impact.",
     images: [
       {
-        url: "https://digilift.ai/og-digilift-2026.jpg",
+        url: "https://www.digilift.ai/og-digilift-2026.jpg",
         width: 1200,
         height: 630,
         alt: "DigiLift AI — Technology, AI and Marketing",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "Your All-In-One Solution: Tech, AI and Marketing | DigiLift AI",
     description:
       "We build and market digital solutions that grow your business — from idea to impact.",
-    images: ["https://digilift.ai/og-digilift-2026.jpg"],
+    images: ["https://www.digilift.ai/og-digilift-2026.jpg"],
   },
 };
 
@@ -47,10 +47,10 @@ export default function Home() {
     name: "DigiLift AI",
     description:
       "End-to-end technology and marketing solutions: custom software, AI-powered solutions, digital marketing, customer acquisition and growth strategy.",
-    url: "https://digilift.ai/",
+    url: "https://www.digilift.ai/",
     email: "team@digilift.ai",
-    logo: "https://digilift.ai/brand/logo/digilift-ai-icon-512.png",
-    image: "https://digilift.ai/og-digilift-2026.jpg",
+    logo: "https://www.digilift.ai/brand/logo/digilift-ai-icon-512.png",
+    image: "https://www.digilift.ai/og-digilift-2026.jpg",
     areaServed: {
       "@type": "Country",
       name: "United States",
