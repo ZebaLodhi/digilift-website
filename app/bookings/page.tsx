@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'Book a Growth Automation Audit | DigiLift AI',
   description:
     "Tell us about your business, your current lead process, and where follow-up or conversion is breaking down. We'll help identify where AI and automation can create the biggest impact.",
+  alternates: {
+    canonical: '/bookings',
+  },
 };
 
 export default function BookingsPage() {

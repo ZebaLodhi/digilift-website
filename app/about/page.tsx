@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: 'About DigiLift AI | From First Build to Lasting Growth',
   description:
     'DigiLift AI runs the whole pipeline — IT development, digital marketing, lead generation, customer acquisition and growth strategy — with AI powering every step.',
+  alternates: {
+    canonical: '/about',
+  },
 };
 
 // What we do at each pipeline step, keyed to the shared service list.

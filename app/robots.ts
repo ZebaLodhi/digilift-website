@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/api/',
     },
-    sitemap: 'https://digilift.ai/sitemap.xml',
+    sitemap: 'https://www.digilift.ai/sitemap.xml',
   };
 }
