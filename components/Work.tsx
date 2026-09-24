@@ -123,11 +123,6 @@ export default function Work() {
             </div>
           </div>
         </article>
-
-        <p className="results-note">
-          Ticket figure as reported by SABCVA at the time of writing. The 2027 alumni
-          figure is a target, not a current count.
-        </p>
       </div>
     </section>
   );
