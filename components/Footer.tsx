@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 function Arrow() {
   return (
@@ -9,27 +12,34 @@ function Arrow() {
 }
 
 export default function Footer() {
+  // The "Connect with us" band is left off the homepage; other pages keep it.
+  const showBand = usePathname() !== '/';
+
   return (
-    <section className="dark contact" id="contact">
+    <section className={showBand ? 'dark contact' : 'dark contact short'} id="contact">
       <div className="wrap">
-        <div className="eyebrow on-dark">Connect with us</div>
+        {showBand && (
+          <>
+            <div className="eyebrow on-dark">Connect with us</div>
 
-        <h2 style={{ marginTop: 22 }}>
-          Grow. Optimize. <i>Support.</i>
-        </h2>
+            <h2 style={{ marginTop: 22 }}>
+              Grow. Optimize. <i>Support.</i>
+            </h2>
 
-        <a className="mail" href="mailto:team@digilift.ai">
-          team@digilift.ai <Arrow />
-        </a>
+            <a className="mail" href="mailto:team@digilift.ai">
+              team@digilift.ai <Arrow />
+            </a>
 
-        <div className="actions">
-          <Link className="btn btn-white" href="/bookings">
-            Book a free growth audit <Arrow />
-          </Link>
-          <Link className="btn btn-ghost-dark" href="/packages">
-            See what we do
-          </Link>
-        </div>
+            <div className="actions">
+              <Link className="btn btn-white" href="/bookings">
+                Book a free growth audit <Arrow />
+              </Link>
+              <Link className="btn btn-ghost-dark" href="/packages">
+                See what we do
+              </Link>
+            </div>
+          </>
+        )}
 
         <footer className="fgrid">
           <div>

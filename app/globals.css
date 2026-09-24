@@ -234,7 +234,8 @@ body.menu-open{overflow:hidden}
 .contact .mail svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .contact .actions{display:flex;gap:12px;margin-top:44px;flex-wrap:wrap}
 .fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-top:120px;padding-top:48px;border-top:1px solid var(--line-dark)}
-.contact.short .fgrid{margin-top:0;padding-top:120px;border-top:0}
+.contact.short{padding-top:0}
+.contact.short .fgrid{margin-top:0;padding-top:80px;border-top:0}
 .fgrid .tag-line{margin-top:16px;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.45)}
 .fgrid p{color:rgba(255,255,255,.55);font-size:14.5px;max-width:320px;margin-top:14px}
 .fgrid h5{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45);font-weight:500;margin-bottom:16px}
@@ -353,7 +354,8 @@ body.menu-open{overflow:hidden}
   .contact .mail{font-size:16px}
   .fgrid{grid-template-columns:1fr 1fr;gap:28px;margin-top:72px}
   .fgrid>div:first-child{grid-column:1/-1}
-  .contact.short .fgrid{padding-top:72px}
+  .contact.short{padding-top:0}
+  .contact.short .fgrid{padding-top:56px}
   .form .two{grid-template-columns:1fr}
   .cta-band{padding:88px 0}.cta-band h2{font-size:32px}
   .err h1{font-size:58px}
