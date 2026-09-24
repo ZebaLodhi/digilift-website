@@ -24,7 +24,7 @@ export const metadata: Metadata = {
       "We build and market digital solutions that grow your business — from idea to impact.",
     images: [
       {
-        url: "https://digilift.ai/og-facebook-v2.jpg",
+        url: "https://digilift.ai/og-digilift-2026.jpg",
         width: 1200,
         height: 630,
         alt: "DigiLift AI — Technology, AI and Marketing",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "Your All-In-One Solution: Tech, AI and Marketing | DigiLift AI",
     description:
       "We build and market digital solutions that grow your business — from idea to impact.",
-    images: ["https://digilift.ai/og-facebook-v2.jpg"],
+    images: ["https://digilift.ai/og-digilift-2026.jpg"],
   },
 };
 
@@ -50,7 +50,7 @@ export default function Home() {
     url: "https://digilift.ai/",
     email: "team@digilift.ai",
     logo: "https://digilift.ai/brand/logo/digilift-ai-icon-512.png",
-    image: "https://digilift.ai/og-facebook-v2.jpg",
+    image: "https://digilift.ai/og-digilift-2026.jpg",
     areaServed: {
       "@type": "Country",
       name: "United States",
