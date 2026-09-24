@@ -4,7 +4,6 @@ import Link from "next/link";
 import Hero from "@/components/Hero";
 import Approach from "@/components/Approach";
 import Pipeline from "@/components/Pipeline";
-import AuditCta from "@/components/AuditCta";
 import Work from "@/components/Work";
 import FAQ from "@/components/FAQ";
 import Chatbot from "@/components/Chatbot";
@@ -99,8 +98,8 @@ export default function Home() {
       <Hero />
       <Approach />
       <Pipeline />
-      {/* Services cards (components/Services.tsx) are hidden for now. */}
-      <AuditCta />
+      {/* Hidden for now: the services cards (components/Services.tsx) and the
+          growth audit band (components/AuditCta.tsx). */}
       <Work />
 
       <section className="sec paper" id="faq">
