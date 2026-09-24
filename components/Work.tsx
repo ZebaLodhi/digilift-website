@@ -115,6 +115,12 @@ export default function Work() {
               campaign that drove its ticket sales.
             </p>
 
+            <div className="case-stack">
+              <span>Meta Business Suite</span>
+              <span>Anthropic Claude</span>
+              <span>Canva</span>
+            </div>
+
             <div className="case-foot">
               <div className="case-stat">
                 600<small>+ tickets</small>
