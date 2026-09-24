@@ -776,7 +776,7 @@ fieldset.field{border:0;min-width:0}
   .partner-logo{width:96px}
   .partner h3{font-size:20px}
   .case,.case.flip{grid-template-columns:1fr;gap:28px;margin-top:56px}
-  .case.flip .case-media{order:0}
+  .case .case-media,.case.flip .case-media{order:2}
   .case-media.portal{padding:16px 16px 0}
   .case-media.poster{min-height:0;padding:28px}
   .case-body h3{font-size:26px}
