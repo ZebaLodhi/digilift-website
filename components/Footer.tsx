@@ -33,13 +33,14 @@ export default function Footer() {
 
         <footer className="fgrid">
           <div>
-            {/* The supplied lockup is drawn for dark backgrounds, so it is used
-                here exactly as provided. */}
+            {/* The supplied lockup, drawn for dark backgrounds, with its empty
+                margin trimmed so the wordmark and tagline read at footer size. */}
             <img
-              src="/brand/logo/digilift-ai-logo-transparent.svg"
+              className="flogo"
+              src="/brand/logo/digilift-ai-logo-footer.svg"
               alt="DigiLift AI — People, Technology, Possibilities"
-              width={260}
-              height={82}
+              width={940}
+              height={288}
             />
             <p>
               Your all-in-one solution for technology, AI and marketing. We build and
