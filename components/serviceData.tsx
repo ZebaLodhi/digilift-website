@@ -39,7 +39,7 @@ export const icons = {
 export const services = [
   {
     n: '01',
-    title: 'Application Development',
+    title: 'App Development',
     kicker: 'Tech foundations',
     output: 'Your product',
     icon: icons.it,

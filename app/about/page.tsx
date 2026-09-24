@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 // What we do at each pipeline step, keyed to the shared service list.
 const whatWeDo: Record<string, string> = {
-  'Application Development':
+  'App Development':
     'We build the product your growth runs on: websites, portals and custom software designed around how your organization works.',
   'Digital Marketing':
     'We put that product in front of the right people with targeted campaigns, content and creative.',
