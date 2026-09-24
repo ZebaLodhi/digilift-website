@@ -40,7 +40,7 @@ export const metadata: Metadata = {
       'We build and market digital solutions that grow your business \u2014 from idea to impact.',
     images: [
       {
-        url: 'https://digilift.ai/og-facebook-v2.jpg',
+        url: 'https://digilift.ai/og-digilift-2026.jpg',
         width: 1200,
         height: 630,
         alt: 'DigiLift AI \u2014 People, Technology, Possibilities',
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     title: 'DigiLift AI \u2014 Technology, AI and Marketing',
     description:
       'We build and market digital solutions that grow your business \u2014 from idea to impact.',
-    images: ['https://digilift.ai/og-facebook-v2.jpg'],
+    images: ['https://digilift.ai/og-digilift-2026.jpg'],
   },
 
   robots: {
