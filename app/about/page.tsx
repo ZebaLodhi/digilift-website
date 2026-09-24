@@ -1,36 +1,37 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
+import { icons, services } from '@/components/serviceData';
 import faqData from '@/data/faq.json';
 
 export const metadata: Metadata = {
-  title: 'About DigiLift AI | AI Growth & Automation Consultant',
+  title: 'About DigiLift AI | From First Build to Lasting Growth',
   description:
-    'DigiLift AI was built to help small businesses move beyond scattered marketing tactics and into structured growth systems. Learn about our approach.',
+    'DigiLift AI runs the whole pipeline — IT development, digital marketing, lead generation, customer acquisition and growth strategy — with AI powering every step.',
 };
 
-const steps = [
-  {
-    title: 'Audit',
-    description:
-      'We review your current website, ads, lead forms, follow-up process, and reporting to identify where leads are being lost and where the biggest improvements are possible.',
-  },
-  {
-    title: 'Build',
-    description:
-      'We create or improve your lead funnel, automation workflows, and tracking setup based on what the audit reveals. Every build is scoped around a specific outcome.',
-  },
-  {
-    title: 'Automate',
-    description:
-      'We connect your lead sources to tools like Google Sheets, CRM systems, email and SMS platforms, and AI-assisted workflows — so follow-up happens automatically.',
-  },
-  {
-    title: 'Optimize',
-    description:
-      'We monitor performance, improve lead quality, reduce wasted spend, and help convert more inquiries into customers. Results improve month over month.',
-  },
-];
+// What we do at each pipeline step, keyed to the shared service list.
+const whatWeDo: Record<string, string> = {
+  'IT Development':
+    'We build the product your growth runs on: websites, portals and custom software designed around how your organization works.',
+  'Digital Marketing':
+    'We put that product in front of the right people with targeted campaigns, content and creative.',
+  'Lead Generation':
+    'We turn that attention into inquiries, capturing and qualifying every one automatically.',
+  'Customer Acquisition':
+    'We follow up, book and recover missed leads, so qualified interest becomes new business.',
+  'Growth Strategy':
+    'We track what worked, report on cost per lead and keep optimizing, so the next cycle starts stronger.',
+};
+
+function Arrow() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M7 17L17 7M8 7h9v9" />
+    </svg>
+  );
+}
 
 export default function AboutPage() {
   return (
@@ -39,16 +40,17 @@ export default function AboutPage() {
         <div className="wrap">
           <div className="eyebrow">About DigiLift AI</div>
           <h1>
-            Built to replace scattered marketing with <i>structured growth systems.</i>
+            One team, from first build to <i>lasting growth.</i>
           </h1>
           <p className="lede">
-            We combine data analytics, AI tools, automation workflows, and performance
-            marketing to help businesses capture, qualify, and convert leads more efficiently.
+            DigiLift AI takes a business from the product it runs on to the customers it
+            wins: IT development, digital marketing, lead generation, customer
+            acquisition and growth strategy, with AI powering every step.
           </p>
           <div className="pill-row">
-            <span className="tag">Data analytics</span>
-            <span className="tag">AI &amp; automation</span>
-            <span className="tag">Performance marketing</span>
+            <span className="tag">Five services, one pipeline</span>
+            <span className="tag">AI-powered throughout</span>
+            <span className="tag">Fixed prices agreed up front</span>
           </div>
           <div className="rule" />
         </div>
@@ -60,26 +62,26 @@ export default function AboutPage() {
             <div>
               <div className="eyebrow">Why DigiLift AI exists</div>
               <h2 className="h2">
-                The problem is rarely the ads. <i>It is the system around them.</i>
+                Growth rarely breaks at one step. <i>It breaks between them.</i>
               </h2>
             </div>
             <div className="prose">
               <p>
-                DigiLift AI was built to help small businesses move beyond scattered
-                marketing tactics and into structured growth systems. Most businesses
-                are running ads, building websites, and sending follow-up emails
-                manually — without a clear picture of what&rsquo;s working or why leads go cold.
+                Most businesses hire one vendor for the website, another for the ads and a
+                third for the CRM. Each does its part, then hands off, and results leak at
+                every handoff: campaigns send traffic to a site that does not convert, leads
+                arrive with no one to follow them up, and nobody can say which spend
+                actually worked.
               </p>
               <p>
-                The problem isn&rsquo;t always the ads or the website. It&rsquo;s the system around
-                them — how leads are captured, qualified, routed, and followed up with.
-                When that system is broken or missing, marketing spend gets wasted and
-                good leads fall through the cracks.
+                DigiLift AI runs the whole pipeline instead. Each step hands a result to the
+                next: the product we build becomes something to market, marketing builds an
+                audience, the audience becomes qualified leads, leads become paying
+                customers, and customers become growth you can measure.
               </p>
               <p>
-                We build the systems that connect those pieces and make the whole process
-                measurable and repeatable — so businesses can grow without adding more
-                manual work to their plate.
+                AI works underneath all of it, taking on the repetitive work at every step
+                so the pipeline keeps moving without adding manual work to your plate.
               </p>
               <p>
                 <strong>
@@ -95,21 +97,45 @@ export default function AboutPage() {
         <div className="wrap">
           <div className="eyebrow">How we work</div>
           <h2 className="h2">
-            One process, <i>four steps.</i>
+            One pipeline, <i>five steps.</i>
           </h2>
           <p className="lede">
-            Every engagement follows the same structured approach — from understanding
-            your current setup to optimizing results over time.
+            Every engagement is built around the same flow, and each step is scoped
+            around the result it hands to the next.
           </p>
 
-          <div className="steps">
-            {steps.map((step, i) => (
-              <div className="step" key={step.title}>
-                <span className="n">{String(i + 1).padStart(2, '0')}</span>
+          <div className="steps five">
+            {services.map((step) => (
+              <div className="step" key={step.n}>
+                <span className="n">{step.n}</span>
                 <h3>{step.title}</h3>
-                <p>{step.description}</p>
+                <p>{whatWeDo[step.title]}</p>
+                <div className="out">{step.output}</div>
               </div>
             ))}
+          </div>
+
+          <div className="about-ai">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              {icons.ai}
+            </svg>
+            <p>
+              <b>AI powers every step:</b> AI assistants, workflow automation and data
+              processing take on the repetitive work, from build to reporting.
+            </p>
+          </div>
+
+          <div className="custom" style={{ marginTop: 24 }}>
+            <div>
+              <h3>Already have part of the pipeline in place?</h3>
+              <p>
+                Start with a free growth audit. We find the step where results are leaking
+                and begin there.
+              </p>
+            </div>
+            <Link className="btn btn-ink" href="/bookings">
+              Book a free growth audit <Arrow />
+            </Link>
           </div>
         </div>
       </section>
