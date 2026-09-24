@@ -1,6 +1,4 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
 import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
 import faqData from '@/data/faq.json';
@@ -8,7 +6,7 @@ import faqData from '@/data/faq.json';
 export const metadata: Metadata = {
   title: 'About DigiLift AI | AI Growth & Automation Consultant',
   description:
-    'DigiLift AI was built to help small businesses move beyond scattered marketing tactics and into structured growth systems. Learn about our approach and founder Zeba Lodhi.',
+    'DigiLift AI was built to help small businesses move beyond scattered marketing tactics and into structured growth systems. Learn about our approach.',
 };
 
 const steps = [
@@ -93,49 +91,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="sec paper" id="founder">
-        <div className="wrap">
-          <div className="eyebrow">Founder</div>
-          <h2 className="h2">
-            The person behind <i>the work.</i>
-          </h2>
-
-          <div className="founder">
-            <div className="portrait">
-              <Image
-                src="/brand/zeba-founder.jpg"
-                alt="Zeba Lodhi — AI Growth & Automation Consultant"
-                fill
-                sizes="(max-width: 900px) 100vw, 45vw"
-                style={{ objectFit: 'cover', objectPosition: '100% 50%' }}
-              />
-            </div>
-            <div>
-              <h3>Zeba Lodhi</h3>
-              <p className="role">AI Growth &amp; Automation Consultant</p>
-              <div className="prose">
-                <p>
-                  Zeba Lodhi is an AI Growth &amp; Automation Consultant with a background
-                  in business intelligence, data analytics, machine learning projects,
-                  and digital growth systems. She helps businesses use AI tools,
-                  automation platforms, and analytics to improve lead generation,
-                  follow-up, and conversion workflows.
-                </p>
-              </div>
-              <div style={{ marginTop: 32 }}>
-                <Link className="btn btn-ink" href="/bookings">
-                  Book a call with Zeba
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M7 17L17 7M8 7h9v9" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="sec" id="process">
+      <section className="sec tight" id="process">
         <div className="wrap">
           <div className="eyebrow">How we work</div>
           <h2 className="h2">
