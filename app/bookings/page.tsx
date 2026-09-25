@@ -44,29 +44,30 @@ export default function BookingsPage() {
                 <ol>
                   <li>
                     <span>
-                      <b>Tell us about your business.</b> Fill out the form so we
-                      understand your current setup, lead process, and where things
-                      are breaking down.
+                      <b>Tell us where you are today.</b> Fill out the form so we
+                      understand what you have built, how you reach customers and
+                      where growth is stalling.
                     </span>
                   </li>
                   <li>
                     <span>
-                      <b>We review and respond.</b> Within 24 hours we will reach out
-                      to schedule a strategy call and discuss next steps.
+                      <b>We review and respond.</b> Within 24 hours we reach out to
+                      schedule a free strategy call.
                     </span>
                   </li>
                   <li>
                     <span>
-                      <b>Growth automation audit.</b> We review your ads, forms,
-                      follow-up process, and reporting to identify exactly where leads
-                      are being lost.
+                      <b>Free growth audit.</b> We look at each step of your
+                      pipeline, from your app or website through marketing, lead
+                      generation and customer acquisition to reporting, to find where
+                      results are leaking.
                     </span>
                   </li>
                   <li>
                     <span>
-                      <b>Clear roadmap and recommendation.</b> You receive a
-                      prioritized action plan and a recommendation for the right next
-                      step — no pressure, no hard sell.
+                      <b>A clear roadmap.</b> You receive a prioritized plan showing
+                      which step to start with and where AI can take on the manual
+                      work — no pressure, no hard sell.
                     </span>
                   </li>
                 </ol>
@@ -79,10 +80,10 @@ export default function BookingsPage() {
                 </a>
                 <a
                   className="big"
-                  href="tel:+15715876824"
+                  href="tel:+15715713949"
                   style={{ display: 'block', marginTop: 6 }}
                 >
-                  (571) 587-6824
+                  (571) 571-3949
                 </a>
               </div>
             </aside>
