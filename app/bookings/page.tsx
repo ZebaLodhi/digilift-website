@@ -79,10 +79,10 @@ export default function BookingsPage() {
                 </a>
                 <a
                   className="big"
-                  href="tel:+15715876824"
+                  href="tel:+15715713949"
                   style={{ display: 'block', marginTop: 6 }}
                 >
-                  (571) 587-6824
+                  (571) 571-3949
                 </a>
               </div>
             </aside>
