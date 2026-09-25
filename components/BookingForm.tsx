@@ -353,7 +353,7 @@ export default function BookingForm() {
 
       <div>
         <button type="submit" disabled={isSubmitting} className="btn btn-ink">
-          {isSubmitting ? 'Submitting…' : 'Book a growth automation audit'}
+          {isSubmitting ? 'Submitting…' : 'Book a free growth audit'}
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M7 17L17 7M8 7h9v9" />
           </svg>

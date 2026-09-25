@@ -2,11 +2,11 @@
   "packages": [
     {
       "id": "audit",
-      "name": "Growth & AI Audit",
+      "name": "Free Growth Audit",
       "kicker": "Start here",
       "tagline": "Find Out Exactly Where Your Growth Is Leaking",
-      "price": "$1,470",
-      "priceNote": "one-time",
+      "price": "Free",
+      "priceNote": "no obligation",
       "turnaround": "5–7 business days",
       "description": "A senior-level review of your technology, marketing and follow-up systems. You leave with a prioritized action plan showing where AI and automation will pay back fastest — not a generic report.",
       "features": [
@@ -32,8 +32,8 @@
       "addons": [],
       "isPopular": false,
       "priceId": "",
-      "cta": "Book a Call",
-      "guarantee": "If you don't walk away with at least 3 actionable improvements, we'll refund you."
+      "cta": "Book a free growth audit",
+      "guarantee": "No cost, no obligation and no hard sell."
     },
     {
       "id": "funnel",
