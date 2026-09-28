@@ -8,14 +8,20 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.digilift.ai'),
 
   title: {
-    default: 'Your All-In-One Solution: Tech, AI and Marketing | DigiLift AI',
+    default: 'AI, Tech & Marketing Agency in the USA | DigiLift AI',
     template: '%s | DigiLift AI',
   },
 
   description:
-    'DigiLift AI builds and markets digital solutions that grow your business. Application development, AI-powered solutions, digital marketing, customer acquisition and growth strategy under one roof.',
+    'DigiLift AI is a US AI, technology and marketing agency. We build apps and websites, run digital marketing, generate leads and grow customers, with AI powering every step.',
 
   keywords: [
+    'AI agency',
+    'AI agency USA',
+    'AI automation agency',
+    'technology agency',
+    'tech agency USA',
+    'marketing agency USA',
     'application development',
     'AI-powered solutions',
     'digital marketing agency',
@@ -35,7 +41,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://www.digilift.ai/',
     siteName: 'DigiLift AI',
-    title: 'Your All-In-One Solution: Tech, AI and Marketing | DigiLift AI',
+    title: 'AI, Tech & Marketing Agency in the USA | DigiLift AI',
     description:
       'We build and market digital solutions that grow your business \u2014 from idea to impact.',
     images: [

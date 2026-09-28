@@ -10,16 +10,16 @@ import Chatbot from "@/components/Chatbot";
 import faqData from "@/data/faq.json";
 
 export const metadata: Metadata = {
-  title: "Your All-In-One Solution: Tech, AI and Marketing | DigiLift AI",
+  title: "AI, Tech & Marketing Agency in the USA | DigiLift AI",
   description:
-    "DigiLift AI builds and markets digital solutions that grow your business. Custom software, AI-powered solutions, digital marketing, customer acquisition and growth strategy under one roof.",
+    "DigiLift AI is a US AI, technology and marketing agency. We build apps and websites, run digital marketing, generate leads and grow customers, with AI powering every step.",
   alternates: {
     canonical: "https://www.digilift.ai/",
   },
   openGraph: {
     type: "website",
     url: "https://www.digilift.ai/",
-    title: "Your All-In-One Solution: Tech, AI and Marketing | DigiLift AI",
+    title: "AI, Tech & Marketing Agency in the USA | DigiLift AI",
     description:
       "We build and market digital solutions that grow your business — from idea to impact.",
     images: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Your All-In-One Solution: Tech, AI and Marketing | DigiLift AI",
+    title: "AI, Tech & Marketing Agency in the USA | DigiLift AI",
     description:
       "We build and market digital solutions that grow your business — from idea to impact.",
     images: ["https://www.digilift.ai/og-digilift-2026.jpg"],
@@ -45,16 +45,29 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: "DigiLift AI",
+    alternateName: "DigiLift",
+    slogan: "People · Technology · Possibilities",
     description:
-      "End-to-end technology and marketing solutions: custom software, AI-powered solutions, digital marketing, customer acquisition and growth strategy.",
+      "AI, technology and marketing agency serving businesses across the United States: application development, AI-powered solutions, digital marketing, lead generation, customer acquisition and growth strategy.",
     url: "https://www.digilift.ai/",
     email: "team@digilift.ai",
+    telephone: "+1-571-571-3949",
     logo: "https://www.digilift.ai/brand/logo/digilift-ai-icon-512.png",
     image: "https://www.digilift.ai/og-digilift-2026.jpg",
     areaServed: {
       "@type": "Country",
       name: "United States",
     },
+    knowsAbout: [
+      "Artificial intelligence",
+      "AI automation",
+      "Application development",
+      "Web development",
+      "Digital marketing",
+      "Meta advertising",
+      "Lead generation",
+      "Growth strategy",
+    ],
     serviceType: [
       "Application Development",
       "AI-Powered Solutions",
@@ -87,9 +100,10 @@ export default function Home() {
       />
 
       <section className="sr-only">
-        <h1>Your All-In-One Solution: Technology, AI and Marketing</h1>
+        <h1>AI, Technology and Marketing Agency for US Businesses</h1>
         <p>
-          DigiLift AI builds and markets digital solutions that grow your business,
+          DigiLift AI is a US-based AI, tech and marketing agency. We build and market
+          digital solutions that grow your business,
           spanning application development, AI-powered solutions, digital marketing, customer
           acquisition and growth strategy.
         </p>

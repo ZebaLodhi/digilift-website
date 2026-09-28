@@ -1,0 +1,25 @@
+# DigiLift AI
+
+> DigiLift AI is an AI, technology and marketing agency serving businesses and organizations across the United States. We take a business from the product it runs on to the customers it wins, with AI powering every step.
+
+## Services (one end-to-end pipeline)
+
+1. App Development: websites, portals and custom software built around how an organization works.
+2. Digital Marketing: targeted campaigns, content and creative, including Meta and search advertising.
+3. Lead Generation: capturing and qualifying every inquiry automatically.
+4. Customer Acquisition: follow-up, booking and missed-lead recovery that turn leads into customers.
+5. Growth Strategy: analytics, reporting and ongoing optimization.
+
+AI-powered solutions (AI assistants, workflow automation, data processing) run underneath every step.
+
+## Work
+
+- SABCVA Alumni & Intern Platform: an AI-powered portal with AI smart-matching for the South Asian Business Council of Virginia.
+- Empower Virginia 2026: a Meta ad campaign for SABCVA's networking event and CEO summit; 600+ tickets sold.
+
+## Getting started
+
+- Free growth audit: https://www.digilift.ai/bookings
+- Services and pricing: https://www.digilift.ai/packages
+- About: https://www.digilift.ai/about
+- Contact: team@digilift.ai · (571) 571-3949

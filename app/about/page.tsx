@@ -6,7 +6,7 @@ import { icons, services } from '@/components/serviceData';
 import faqData from '@/data/faq.json';
 
 export const metadata: Metadata = {
-  title: 'About DigiLift AI | From First Build to Lasting Growth',
+  title: 'About Us: From First Build to Lasting Growth',
   description:
     'DigiLift AI runs the whole pipeline — application development, digital marketing, lead generation, customer acquisition and growth strategy — with AI powering every step.',
   alternates: {
