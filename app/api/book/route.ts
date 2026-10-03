@@ -1,8 +1,23 @@
 import { NextRequest, NextResponse } from "next/server";
-import { bookingFormSchema } from "@/lib/validators";
+import {
+  bookingFormSchema,
+  auditFocusLabels,
+  industryLabels,
+  teamSizeLabels,
+  timelineLabels,
+} from "@/lib/validators";
 import { Resend } from "resend";
 
 export const runtime = "nodejs";
+
+/** The submission is interpolated into an HTML email, so escape it first. */
+function esc(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -27,8 +42,9 @@ export async function POST(request: NextRequest) {
       email,
       phone,
       preferredContact,
-      leadVolume,
-      challenges,
+      teamSize,
+      auditFocus,
+      priorities,
       currentTools,
       currentWebsite,
       timeline,
@@ -36,35 +52,39 @@ export async function POST(request: NextRequest) {
       message,
     } = validated;
 
+    const row = (label: string, value: string) =>
+      `<p><strong>${label}:</strong> ${value}</p>`;
+
     const sendResult = await resend.emails.send({
       from: process.env.EMAIL_FROM || "team@digilift.ai",
       to: process.env.EMAIL_TO || "team@digilift.ai",
-      subject: "New Booking Request - DigiLift AI",
+      subject: `Growth & AI Audit request — ${businessName}`,
       html: `
-        <h2>New Growth Automation Audit Request</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Business Name:</strong> ${businessName}</p>
-        <p><strong>Business Type:</strong> ${businessType}</p>
-        <p><strong>City:</strong> ${city}</p>
-        <p><strong>State:</strong> ${state}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Preferred Contact:</strong> ${preferredContact}</p>
-        <p><strong>Current Lead Volume:</strong> ${leadVolume}</p>
-        <p><strong>Biggest Challenges:</strong> ${(challenges || []).join(", ")}</p>
-        <p><strong>Current Tools:</strong> ${currentTools || "None provided"}</p>
-        <p><strong>Current Website:</strong> ${currentWebsite || "None provided"}</p>
-        <p><strong>Timeline:</strong> ${timeline}</p>
-        <p><strong>How They Heard About Us:</strong> ${howHeard || "Not specified"}</p>
-        <p><strong>Message:</strong><br>${message || "No message provided"}</p>
+        <h2>New Growth &amp; AI Audit request</h2>
+        ${row("Name", esc(name))}
+        ${row("Business", esc(businessName))}
+        ${row("Industry", industryLabels[businessType])}
+        ${row("Team size", teamSizeLabels[teamSize])}
+        ${row("Location", `${esc(city)}, ${esc(state)}`)}
+        ${row("Email", esc(email))}
+        ${row("Phone", esc(phone))}
+        ${row("Preferred contact", preferredContact)}
+        <hr/>
+        ${row("Audit focus", auditFocusLabels[auditFocus])}
+        ${row("Priorities", priorities.map(esc).join(", "))}
+        ${row("Current stack", currentTools ? esc(currentTools) : "Not provided")}
+        ${row("Website", currentWebsite ? esc(currentWebsite) : "Not provided")}
+        ${row("Timeline", timelineLabels[timeline])}
+        ${row("How they heard about us", howHeard ? esc(howHeard) : "Not specified")}
+        <p><strong>Message:</strong><br>${
+          message ? esc(message).replace(/\n/g, "<br>") : "No message provided"
+        }</p>
         <br/>
         <p style="font-size:12px;color:#888;">
           This email was sent automatically from DigiLift.ai
         </p>
       `,
     });
-
-    console.log("Resend response:", sendResult);
 
     if (sendResult.error) {
       console.error("Resend API Error:", sendResult.error);

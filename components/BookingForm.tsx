@@ -1,7 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { bookingFormSchema, type BookingFormData } from '@/lib/validators';
+import {
+  bookingFormSchema,
+  priorityOptions,
+  type BookingFormData,
+} from '@/lib/validators';
 
 type FormErrors = Partial<Record<keyof BookingFormData, string>>;
 
@@ -9,14 +13,15 @@ export default function BookingForm() {
   const [formData, setFormData] = useState<BookingFormData>({
     name: '',
     businessName: '',
-    businessType: 'school-daycare',
+    businessType: 'professional-services',
     city: '',
     state: '',
     email: '',
     phone: '',
     preferredContact: 'email',
-    leadVolume: 'getting-started',
-    challenges: [],
+    teamSize: '1-5',
+    auditFocus: 'everything',
+    priorities: [],
     currentTools: '',
     currentWebsite: '',
     timeline: 'asap',
@@ -28,14 +33,6 @@ export default function BookingForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const challengeOptions = [
-    'Not enough leads coming in',
-    'Leads go cold before we follow up',
-    'No system to track or qualify leads',
-    'Unclear which campaigns are working',
-    'Too much manual work in the process',
-  ];
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
@@ -46,15 +43,15 @@ export default function BookingForm() {
     }
   };
 
-  const handleCheckboxChange = (challenge: string) => {
+  const handleCheckboxChange = (priority: string) => {
     setFormData((prev) => ({
       ...prev,
-      challenges: prev.challenges.includes(challenge)
-        ? prev.challenges.filter((c) => c !== challenge)
-        : [...prev.challenges, challenge],
+      priorities: prev.priorities.includes(priority)
+        ? prev.priorities.filter((p) => p !== priority)
+        : [...prev.priorities, priority],
     }));
-    if (errors.challenges) {
-      setErrors((prev) => ({ ...prev, challenges: undefined }));
+    if (errors.priorities) {
+      setErrors((prev) => ({ ...prev, priorities: undefined }));
     }
   };
 
@@ -79,14 +76,15 @@ export default function BookingForm() {
       setFormData({
         name: '',
         businessName: '',
-        businessType: 'school-daycare',
+        businessType: 'professional-services',
         city: '',
         state: '',
         email: '',
         phone: '',
         preferredContact: 'email',
-        leadVolume: 'getting-started',
-        challenges: [],
+        teamSize: '1-5',
+        auditFocus: 'everything',
+        priorities: [],
         currentTools: '',
         currentWebsite: '',
         timeline: 'asap',
@@ -165,7 +163,7 @@ export default function BookingForm() {
             name="businessName"
             value={formData.businessName}
             onChange={handleChange}
-            placeholder="Seeds Academy"
+            placeholder="Your organisation"
             autoComplete="organization"
           />
           {fieldError('businessName')}
@@ -173,12 +171,15 @@ export default function BookingForm() {
       </div>
 
       <div className={fieldClass('businessType')}>
-        <label htmlFor="bf-type">Business type *</label>
+        <label htmlFor="bf-type">Industry *</label>
         <select id="bf-type" name="businessType" value={formData.businessType} onChange={handleChange}>
-          <option value="school-daycare">School / Daycare / Childcare Center</option>
-          <option value="local-service">Local Service Business</option>
-          <option value="health-wellness">Health and Wellness</option>
-          <option value="other">Other Small Business</option>
+          <option value="professional-services">Professional services</option>
+          <option value="local-service">Local service business</option>
+          <option value="health-wellness">Health and wellness</option>
+          <option value="education">Education and childcare</option>
+          <option value="membership-nonprofit">Membership body or nonprofit</option>
+          <option value="ecommerce-retail">E-commerce or retail</option>
+          <option value="other">Something else</option>
         </select>
         {fieldError('businessType')}
       </div>
@@ -256,47 +257,61 @@ export default function BookingForm() {
         {fieldError('preferredContact')}
       </div>
 
-      <h4>Your lead process</h4>
+      <h4>What the audit would cover</h4>
 
-      <div className={fieldClass('leadVolume')}>
-        <label htmlFor="bf-volume">Current lead volume *</label>
-        <select id="bf-volume" name="leadVolume" value={formData.leadVolume} onChange={handleChange}>
-          <option value="getting-started">Just getting started (0–10 leads/month)</option>
-          <option value="growing">Growing (10–50 leads/month)</option>
-          <option value="established">Established (50+ leads/month)</option>
-        </select>
-        {fieldError('leadVolume')}
+      <div className="two">
+        <div className={fieldClass('teamSize')}>
+          <label htmlFor="bf-team">How many people in the team? *</label>
+          <select id="bf-team" name="teamSize" value={formData.teamSize} onChange={handleChange}>
+            <option value="1-5">1–5 people</option>
+            <option value="6-20">6–20 people</option>
+            <option value="21-50">21–50 people</option>
+            <option value="51-200">51–200 people</option>
+            <option value="200+">200+ people</option>
+          </select>
+          {fieldError('teamSize')}
+        </div>
+        <div className={fieldClass('auditFocus')}>
+          <label htmlFor="bf-focus">Where should the audit focus? *</label>
+          <select id="bf-focus" name="auditFocus" value={formData.auditFocus} onChange={handleChange}>
+            <option value="everything">All of it — a full review</option>
+            <option value="technology">Technology and systems</option>
+            <option value="ai-automation">AI and automation</option>
+            <option value="marketing">Marketing and customer acquisition</option>
+          </select>
+          {fieldError('auditFocus')}
+        </div>
       </div>
 
-      <fieldset className={fieldClass('challenges')}>
-        <legend>Biggest challenge right now * · select all that apply</legend>
+      <fieldset className={fieldClass('priorities')}>
+        <legend>What is slowing growth down? * · select all that apply</legend>
         <div className="choices">
-          {challengeOptions.map((challenge) => (
-            <label key={challenge}>
+          {priorityOptions.map((priority) => (
+            <label key={priority}>
               <input
                 type="checkbox"
-                checked={formData.challenges.includes(challenge)}
-                onChange={() => handleCheckboxChange(challenge)}
+                checked={formData.priorities.includes(priority)}
+                onChange={() => handleCheckboxChange(priority)}
               />
-              {challenge}
+              {priority}
             </label>
           ))}
         </div>
-        {fieldError('challenges')}
+        {fieldError('priorities')}
       </fieldset>
 
       <div className="field">
-        <label htmlFor="bf-tools">Current tools</label>
+        <label htmlFor="bf-tools">What is in your stack today?</label>
         <input
           id="bf-tools"
           type="text"
           name="currentTools"
           value={formData.currentTools}
           onChange={handleChange}
-          placeholder="e.g. Google Sheets, HubSpot, Mailchimp, nothing yet"
+          placeholder="e.g. Google Sheets, HubSpot, QuickBooks, nothing yet"
         />
         <p className="field-hint">
-          What tools are you currently using to track or follow up with leads?
+          The software your team runs on day to day — including the spreadsheets.
         </p>
       </div>
 
@@ -316,7 +331,7 @@ export default function BookingForm() {
 
       <div className="two">
         <div className={fieldClass('timeline')}>
-          <label htmlFor="bf-timeline">Timeline *</label>
+          <label htmlFor="bf-timeline">When do you want to act on it? *</label>
           <select id="bf-timeline" name="timeline" value={formData.timeline} onChange={handleChange}>
             <option value="asap">As soon as possible</option>
             <option value="1-3months">Within 1–3 months</option>
@@ -339,14 +354,14 @@ export default function BookingForm() {
       </div>
 
       <div className={fieldClass('message')}>
-        <label htmlFor="bf-message">Anything else we should know?</label>
+        <label htmlFor="bf-message">Anything else the audit should look at?</label>
         <textarea
           id="bf-message"
           name="message"
           value={formData.message}
           onChange={handleChange}
           rows={4}
-          placeholder="Tell us about your current lead process, what's working, what's not, or any specific goals you have in mind."
+          placeholder="A process that eats the week, a tool nobody uses, a report you rebuild by hand every month."
         />
         {fieldError('message')}
       </div>
