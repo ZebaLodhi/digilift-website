@@ -42,6 +42,10 @@ const processors = [
     name: 'OpenAI',
     role: 'Powers the assistant on our homepage; it processes the messages you type into it.',
   },
+  {
+    name: 'Meta (Facebook and Instagram)',
+    role: 'Hosts the daycare lead forms we run on Facebook and Instagram; enquiries submitted there reach us through Meta.',
+  },
 ];
 
 export default function PrivacyPage() {
@@ -70,10 +74,11 @@ export default function PrivacyPage() {
           <div className="prose">
             <p>
               This policy explains how DigiLift AI (&ldquo;DigiLift AI&rdquo;,
-              &ldquo;we&rdquo;, &ldquo;us&rdquo;) handles information when you use
-              www.digilift.ai, contact us, or work with us on a project. It covers both
-              the personal information you give us and the confidential business
-              information we come across while doing the work.
+              &ldquo;we&rdquo;, &ldquo;us&rdquo;) handles information when you use{' '}
+              <a href="https://www.digilift.ai">www.digilift.ai</a>, contact us, or work
+              with us on a project. It covers both the personal information you give us
+              and the confidential business information we come across while doing the
+              work.
             </p>
 
             <h3>The short version</h3>
@@ -84,6 +89,12 @@ export default function PrivacyPage() {
               The only parties who ever handle your information are the service providers
               listed below, who process it on our behalf, under contract, solely to run
               this site and deliver the work you have asked us for.
+            </p>
+            <p>
+              There is one deliberate exception, and you control it: if you ask us to
+              arrange a daycare tour, we pass your name and contact details to that
+              daycare so they can host you &mdash; and only after you have agreed to the
+              tour. See &ldquo;Daycare enquiries&rdquo; below.
             </p>
 
             <h3>What we collect</h3>
@@ -112,6 +123,27 @@ export default function PrivacyPage() {
               will typically be given access to systems, accounts, documents and data in
               order to do the work — for example analytics accounts, ad accounts, CRM
               records, internal process documentation or source code.
+            </p>
+
+            <h3>Daycare enquiries (DigiLift for Daycare)</h3>
+            <p>
+              If you submit a daycare enquiry through one of our forms, including forms on
+              Facebook or Instagram, we collect your name, phone number, email, zip code,
+              your child&rsquo;s age group, and your childcare needs (start date, schedule
+              and preferred tour times).
+            </p>
+            <p>
+              We use this information only to contact you about daycare options and to
+              arrange tours.{' '}
+              <strong>
+                We share your name and contact details with a daycare only after you have
+                agreed to a tour with that daycare.
+              </strong>{' '}
+              We do not sell this information or use it for unrelated marketing.
+            </p>
+            <p>
+              To have your enquiry deleted, email{' '}
+              <a href="mailto:team@digilift.ai">team@digilift.ai</a>.
             </p>
 
             <h3>Why we use it</h3>
@@ -205,9 +237,13 @@ export default function PrivacyPage() {
 
             <h3>Children</h3>
             <p>
-              This site is intended for businesses and organisations. We do not knowingly
-              collect personal information from children under 13. If you believe a child
-              has given us information, contact us and we will delete it.
+              Our forms are for adults &mdash; business decision-makers, and parents or
+              guardians arranging childcare. We do not collect information directly from
+              children, and children should not submit our forms. Where a daycare enquiry
+              includes a child&rsquo;s age group, a parent or guardian gives us that
+              detail, and we use it only to match the enquiry to suitable childcare and
+              tour times. If you believe a child has given us information directly,
+              contact us and we will delete it.
             </p>
 
             <h3>International transfers</h3>
