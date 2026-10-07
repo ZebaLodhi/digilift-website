@@ -92,6 +92,7 @@ export default function Footer() {
         <div className="fbottom">
           <div>© {new Date().getFullYear()} DigiLift AI. All rights reserved.</div>
           <div className="links">
+            <Link href="/privacy">Privacy Policy</Link>
             <span>People · Technology · Possibilities</span>
           </div>
         </div>

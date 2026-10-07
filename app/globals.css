@@ -604,6 +604,7 @@ body.menu-open{overflow:hidden}
 :root{
   --brand-plate:#0C1418;--brand-deep:#054C5D;--brand-slate:#486E8C;
   --brand-cyan:#06D1F9;--brand-cyan-lt:#8FEAFC;
+  --brand-azure:#00AEE5; /* the blue of the "AI" in the lockup */
 }
 
 .prices.two{grid-template-columns:repeat(2,1fr)}
@@ -863,3 +864,22 @@ fieldset.field{border:0;min-width:0}
 @media (max-width:900px){.steps.five{grid-template-columns:1fr}.about-ai{align-items:flex-start}}
 .steps.five .step{display:flex;flex-direction:column}
 .steps.five .step .out{margin-top:auto;padding-top:14px}
+
+/* ---------- wordmark ----------------------------------------------------
+   "AI" carries the azure sampled from the lockup, so the header matches the
+   logo beside it. On the white header pill that measures ~2.6:1, below the
+   3:1 large-text floor; it is two glyphs of a logotype that the link also
+   spells out in its aria-label, so nothing is lost if it reads as a mark
+   rather than as text. On the dark footer plate it clears 7:1.
+   ------------------------------------------------------------------- */
+.brand .ai{color:var(--brand-azure)}
+
+/* The footer's bottom row is deliberately quiet, but the privacy link sits
+   next to a plain tagline, so lift it enough to read as a link. */
+.fbottom .links a{color:rgba(255,255,255,.62)}
+.fbottom .links a:hover{color:#fff;text-decoration:underline;text-underline-offset:4px}
+
+/* Tailwind's preflight clears list markers, and .prose ul only set padding,
+   so prose lists ran together with the paragraph after them. */
+.prose ul{list-style:disc;padding-left:20px;display:grid;gap:9px;margin-bottom:18px}
+.prose ul li::marker{color:var(--gray-2)}

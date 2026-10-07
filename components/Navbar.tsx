@@ -49,7 +49,9 @@ export default function Navbar() {
                 the tiled icon rather than the transparent one, which is close to
                 invisible on white at this size. */}
             <img src="/brand/logo/digilift-ai-icon.svg" alt="" width={34} height={34} />
-            <span>DigiLift AI</span>
+            <span>
+              DigiLift <span className="ai">AI</span>
+            </span>
           </Link>
 
           <nav className="menu" aria-label="Primary">

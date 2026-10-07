@@ -4,7 +4,7 @@ import BookingForm from '@/components/BookingForm';
 export const metadata: Metadata = {
   title: 'Book a Free Growth Audit',
   description:
-    "Tell us about your business, your current lead process, and where follow-up or conversion is breaking down. We'll help identify where AI and automation can create the biggest impact.",
+    'Tell us about your business, the systems you run on and where growth is stalling. The audit shows where technology, AI and marketing will pay back fastest.',
   alternates: {
     canonical: '/bookings',
   },
@@ -17,17 +17,17 @@ export default function BookingsPage() {
         <div className="wrap">
           <div className="eyebrow">Get started</div>
           <h1>
-            Ready to build a <i>smarter growth system?</i>
+            Ready to find out <i>what is holding growth back?</i>
           </h1>
           <p className="lede">
-            Tell us about your business, your current lead process, and where
-            follow-up or conversion is breaking down. We will help identify where
-            AI and automation can create the biggest impact.
+            Tell us about your business, the systems you run on day to day, and where
+            things stall. The audit shows where technology, AI and marketing will pay
+            back fastest — and what each step would cost.
           </p>
           <div className="pill-row">
             <span className="tag">No long-term contracts</span>
             <span className="tag">Response within 24 hours</span>
-            <span className="tag">Built for schools and small businesses</span>
+            <span className="tag">Fixed prices agreed up front</span>
           </div>
           <div className="rule" />
         </div>
