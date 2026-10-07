@@ -9,7 +9,7 @@ const pkgData = rawData as PackagesJson;
 export const metadata: Metadata = {
   title: 'Services & Pricing',
   description:
-    'Technology, AI and marketing under one roof. From a focused growth and AI audit to lead and booking engines, AI automation builds, custom software and an ongoing growth partnership. Clear scope, fixed prices.',
+    'Technology, AI and marketing under one roof. From a free growth audit to lead and booking engines, AI automation builds, custom software and an ongoing growth partnership. Clear scope, fixed prices.',
   alternates: {
     canonical: '/packages',
   },
@@ -68,7 +68,7 @@ export default function PackagesPage() {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     itemListElement: pkgData.packages.map((pkg, index) => {
-      const amount = pkg.price.replace(/[^0-9.]/g, '');
+      const amount = pkg.price.replace(/[^0-9.]/g, '') || '0';
       const isFrom = /^from/i.test(pkg.price.trim());
       return {
         '@type': 'ListItem',
@@ -208,8 +208,8 @@ export default function PackagesPage() {
             <div>
               <h3>Not sure which one fits?</h3>
               <p>
-                Start with the audit. It is the cheapest way to find out what you actually
-                need, and the fee comes off the price of whatever you build next.
+                Start with the free growth audit. It costs nothing and shows exactly what
+                you need before you spend anything on a build.
               </p>
             </div>
             <Link className="btn btn-ink" href="/bookings">

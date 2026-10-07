@@ -33,7 +33,7 @@ export default function Hero() {
       <div className="wrap">
         <div className="hero-grid">
           <div>
-            <div className="eyebrow">AI · Automation · Digital growth</div>
+            <div className="eyebrow">AI, tech &amp; marketing agency · USA</div>
 
             <h1>
               Your next idea,
